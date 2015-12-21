@@ -1,4 +1,4 @@
-package RPGMaladie;
+package rpgmaladie;
 
 public class Tour {
 }

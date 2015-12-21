@@ -1,4 +1,4 @@
-package RPGMaladie;
+package rpgmaladie;
 
 public enum Caracteristique {
 	FORCE,

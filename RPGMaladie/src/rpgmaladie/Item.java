@@ -1,4 +1,4 @@
-package RPGMaladie;
+package rpgmaladie;
 
 public class Item {
 
@@ -7,30 +7,28 @@ public class Item {
 
 	/**
 	 * 
-	 * @param name
+	 * @param nom
 	 * @param poids
 	 */
-	public Item(int name, int poids) {
-		// TODO - implement Item.Item
-		throw new UnsupportedOperationException();
+	public Item(String nom, int poids) {
+
 	}
 
 	/**
 	 * 
-	 * @param Caracteristique
+	 * @param effet
+     * @return 
 	 */
-	public int getValeurEffet(int Caracteristique) {
-		// TODO - implement Item.getValeurEffet
-		throw new UnsupportedOperationException();
+	public int getValeurEffet(Effet effet) {
+            return effet.getValeur();
 	}
 
 	/**
 	 * 
-	 * @param Effet
+	 * @param effet
 	 */
-	public void ajouteEffet(int Effet) {
-		// TODO - implement Item.ajouteEffet
-		throw new UnsupportedOperationException();
+	public void ajouteEffet(Effet effet) {
+
 	}
 
 }

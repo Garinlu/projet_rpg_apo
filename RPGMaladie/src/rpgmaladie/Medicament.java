@@ -1,4 +1,4 @@
-package RPGMaladie;
+package rpgmaladie;
 
 public class Medicament extends Item {
 
@@ -9,9 +9,8 @@ public class Medicament extends Item {
 	 * @param resistance
 	 * @param maniabilite
 	 */
-	public Medicament(int nom, int poids, int resistance, int maniabilite) {
-		// TODO - implement Medicament.Medicament
-		throw new UnsupportedOperationException();
+	public Medicament(String nom, int poids, int resistance, int maniabilite) {
+
 	}
 
 }

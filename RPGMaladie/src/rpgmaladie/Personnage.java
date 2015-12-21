@@ -1,4 +1,7 @@
-package RPGMaladie;
+package rpgmaladie;
+
+import java.util.Map;
+import java.util.List;
 
 public class Personnage {
 
@@ -17,20 +20,18 @@ public class Personnage {
 
 	/**
 	 * 
-	 * @param Arme
+	 * @param arme
 	 */
-	public void equipeArme(int Arme) {
-		// TODO - implement Personnage.equipeArme
-		throw new UnsupportedOperationException();
+	public void equipeArme(Arme arme) {
+
 	}
 
 	/**
 	 * 
-	 * @param Medicament
+	 * @param medoc
 	 */
-	public void prendMedicament(int Medicament) {
-		// TODO - implement Personnage.prendMedicament
-		throw new UnsupportedOperationException();
+	public void prendMedicament(Medicament medoc) {
+
 	}
 
 	public int getPoidsInventaire() {
@@ -40,20 +41,18 @@ public class Personnage {
 
 	/**
 	 * 
-	 * @param Item
+	 * @param item
 	 */
-	public void retireInventaire(int Item) {
-		// TODO - implement Personnage.retireInventaire
-		throw new UnsupportedOperationException();
+	public void retireInventaire(Item item) {
+
 	}
 
 	/**
 	 * 
-	 * @param Item
+	 * @param item
 	 */
-	public void ajouteInventaire(int Item) {
-		// TODO - implement Personnage.ajouteInventaire
-		throw new UnsupportedOperationException();
+	public void ajouteInventaire(Item item) {
+
 	}
 
 	public void calculSanteMax() {
@@ -76,13 +75,9 @@ public class Personnage {
 		throw new UnsupportedOperationException();
 	}
 
-	/**
-	 * 
-	 * @param Caracteristique
-	 */
-	public int getValeurCarac(int Caracteristique) {
-		// TODO - implement Personnage.getValeurCarac
-		throw new UnsupportedOperationException();
+
+	public Map<Caracteristique, Integer> getValeurCarac() {
+            return this.caracs;
 	}
 
 	public void initCaracteristiques() {
