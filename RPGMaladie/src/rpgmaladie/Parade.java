@@ -1,4 +1,6 @@
 package rpgmaladie;
 
-public class Parade implements Capacite {
+public abstract class Parade implements Capacite {
+
+	private String nom;
 }

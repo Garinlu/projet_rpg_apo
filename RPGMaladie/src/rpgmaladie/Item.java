@@ -1,9 +1,10 @@
 package rpgmaladie;
 
-public class Item {
+public abstract class Item {
 
 	private String nom;
 	private int poids;
+	private Effet effet;
 
 	/**
 	 * 
@@ -11,16 +12,17 @@ public class Item {
 	 * @param poids
 	 */
 	public Item(String nom, int poids) {
-
+		// TODO - implement Item.Item
+		throw new UnsupportedOperationException();
 	}
 
 	/**
 	 * 
 	 * @param effet
-     * @return 
 	 */
-	public int getValeurEffet(Effet effet) {
-            return effet.getValeur();
+	public int getValeurEffet() {
+		// TODO - implement Item.getValeurEffet
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -28,7 +30,8 @@ public class Item {
 	 * @param effet
 	 */
 	public void ajouteEffet(Effet effet) {
-
+		// TODO - implement Item.ajouteEffet
+		throw new UnsupportedOperationException();
 	}
 
 }

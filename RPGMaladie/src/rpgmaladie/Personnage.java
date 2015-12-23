@@ -1,9 +1,9 @@
 package rpgmaladie;
 
-import java.util.Map;
 import java.util.List;
+import java.util.Map;
 
-public class Personnage {
+public abstract class Personnage {
 
 	private String nomPersonnage;
 	private Map<Caracteristique, Integer> caracs;
@@ -23,7 +23,8 @@ public class Personnage {
 	 * @param arme
 	 */
 	public void equipeArme(Arme arme) {
-
+		// TODO - implement Personnage.equipeArme
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -31,7 +32,8 @@ public class Personnage {
 	 * @param medoc
 	 */
 	public void prendMedicament(Medicament medoc) {
-
+		// TODO - implement Personnage.prendMedicament
+		throw new UnsupportedOperationException();
 	}
 
 	public int getPoidsInventaire() {
@@ -44,7 +46,8 @@ public class Personnage {
 	 * @param item
 	 */
 	public void retireInventaire(Item item) {
-
+		// TODO - implement Personnage.retireInventaire
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -52,7 +55,8 @@ public class Personnage {
 	 * @param item
 	 */
 	public void ajouteInventaire(Item item) {
-
+		// TODO - implement Personnage.ajouteInventaire
+		throw new UnsupportedOperationException();
 	}
 
 	public void calculSanteMax() {
@@ -75,9 +79,9 @@ public class Personnage {
 		throw new UnsupportedOperationException();
 	}
 
-
 	public Map<Caracteristique, Integer> getValeurCarac() {
-            return this.caracs;
+		// TODO - implement Personnage.getValeurCarac
+		throw new UnsupportedOperationException();
 	}
 
 	public void initCaracteristiques() {

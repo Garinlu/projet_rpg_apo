@@ -1,4 +1,6 @@
 package rpgmaladie;
 
-public class Soin implements Capacite {
+public abstract class Soin implements Capacite {
+
+	private String nom;
 }

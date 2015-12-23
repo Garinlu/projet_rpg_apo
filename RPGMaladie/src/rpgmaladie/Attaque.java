@@ -1,4 +1,6 @@
 package rpgmaladie;
 
-public class Attaque implements Capacite {
+public abstract class Attaque implements Capacite {
+
+	private String nom;
 }
