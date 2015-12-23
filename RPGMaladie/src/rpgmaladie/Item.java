@@ -5,33 +5,30 @@ public abstract class Item {
 	private String nom;
 	private int poids;
 	private Effet effet;
+      
 
-	/**
-	 * 
-	 * @param nom
-	 * @param poids
-	 */
-	public Item(String nom, int poids) {
-		// TODO - implement Item.Item
-		throw new UnsupportedOperationException();
+	public Item(String nom, int poids, Caracteristique caracteristique, int valeur) {
+            this.effet= new Effet(caracteristique,valeur);
+            this.poids=poids;
+            this.nom=nom;
+           
 	}
 
-	/**
-	 * 
-	 * @param effet
-	 */
-	public int getValeurEffet() {
-		// TODO - implement Item.getValeurEffet
-		throw new UnsupportedOperationException();
+
+	public int getValeurEffet(){
+            return effet.getValeur();
+	
 	}
 
-	/**
-	 * 
-	 * @param effet
-	 */
+
 	public void ajouteEffet(Effet effet) {
-		// TODO - implement Item.ajouteEffet
-		throw new UnsupportedOperationException();
+            
+
 	}
+        
+        public int getPoids(){
+            return poids;
+        }
+        
 
 }

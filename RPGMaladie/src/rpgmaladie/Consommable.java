@@ -2,18 +2,13 @@ package rpgmaladie;
 
 public class Consommable extends Item {
 
-	public Consommable(String nom, int poids) {
-            super(nom,poids);
+	public Consommable(String nom, int poids, Caracteristique caracteristique, int valeur) {
+            super(nom,poids,caracteristique, valeur);
 	}
 
-	/**
-	 * 
-	 * @param src
-	 * @param cible
-	 */
-	public void consommerConsommable(Personnage src, Personnage cible) {
-		// TODO - implement Consommable.consommerConsommable
-		throw new UnsupportedOperationException();
+	public void consommerConsommable(Personnage p) {
+            
+
 	}
 
 }

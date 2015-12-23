@@ -2,7 +2,7 @@ package rpgmaladie;
 
 public class Action {
 
-	private Personnage cible;
-	private Personnage src;
+	private Personnage perso;
+	private Maladie maladie;
 
 }

@@ -5,83 +5,89 @@ import java.util.Map;
 
 public abstract class Personnage {
 
-	private String nomPersonnage;
+	private final String nomPersonnage;
 	private Map<Caracteristique, Integer> caracs;
 	private int niveau;
-	private int poidsMax;
-	private int SanteMax;
-	private int DexteriteMax;
+	private final int poidsMax;
+	private final int SanteMax;
 	private List<Item> inventaire;
+        private Arme armeEquipee;
+        private int poidsInventaire;
+        
+        public Personnage(String nom, Map<Caracteristique, Integer> caracs, int p,List<Item> inventaire, int pi, Arme a){
+            this.niveau=1;
+            this.SanteMax=150;
+            this.nomPersonnage=nom;
+            this.inventaire=inventaire;
+            this.caracs=caracs;
+            this.poidsMax=p;
+            this.armeEquipee=a;
+            this.poidsInventaire=0;
+            
+        }
+        
 
-	public void appliqueEffet() {
-		// TODO - implement Personnage.appliqueEffet
-		throw new UnsupportedOperationException();
+	public void appliqueEffet(Item i) {
+            
+
 	}
 
-	/**
-	 * 
-	 * @param arme
-	 */
+        
+        
+        public boolean EstDansInventaire(Item i){
+            return inventaire.contains(i);
+        }
+
+        public void AjouteInventaire(Item i){
+            inventaire.add(i);
+            poidsInventaire=poidsInventaire + i.getPoids();
+  
+        }
 	public void equipeArme(Arme arme) {
-		// TODO - implement Personnage.equipeArme
-		throw new UnsupportedOperationException();
+         
+                AjouteInventaire(armeEquipee);
+                armeEquipee=arme;
+                System.out.println("Arme équipée");
+                   
 	}
+        public void RetireInventaire(Item i){
+            inventaire.remove(i);
+            poidsInventaire=poidsInventaire- i.getPoids();
+            System.out.println("Element retiré de l'inventaire");
+            
+        }
+        
+        
 
-	/**
-	 * 
-	 * @param medoc
-	 */
 	public void prendMedicament(Medicament medoc) {
-		// TODO - implement Personnage.prendMedicament
-		throw new UnsupportedOperationException();
+            appliqueEffet(medoc);
+            System.out.println("Medicament avalé");
 	}
 
 	public int getPoidsInventaire() {
-		// TODO - implement Personnage.getPoidsInventaire
-		throw new UnsupportedOperationException();
+            
+            return poidsInventaire;
+
 	}
 
-	/**
-	 * 
-	 * @param item
-	 */
-	public void retireInventaire(Item item) {
-		// TODO - implement Personnage.retireInventaire
-		throw new UnsupportedOperationException();
-	}
 
-	/**
-	 * 
-	 * @param item
-	 */
-	public void ajouteInventaire(Item item) {
-		// TODO - implement Personnage.ajouteInventaire
-		throw new UnsupportedOperationException();
-	}
 
-	public void calculSanteMax() {
-		// TODO - implement Personnage.calculSanteMax
-		throw new UnsupportedOperationException();
-	}
-
-	public void calculDexteriteMax() {
-		// TODO - implement Personnage.calculDexteriteMax
-		throw new UnsupportedOperationException();
-	}
 
 	public void incrementNiveau() {
-		// TODO - implement Personnage.incrementNiveau
-		throw new UnsupportedOperationException();
+            niveau++;
+
 	}
 
 	public int sumCarac() {
-		// TODO - implement Personnage.sumCarac
-		throw new UnsupportedOperationException();
+            int s;
+            s=(Map<Caracteristique, Integer>) caracs.get(FORCE)+(Map<Caracteristique, Integer>) caracs.get(DEXTERITE)+(Map<Caracteristique, Integer>) caracs.get(SANTE)+ (Map<Caracteristique, Integer>) caracs.get(DEFENSE);
+            
+
 	}
 
 	public Map<Caracteristique, Integer> getValeurCarac() {
-		// TODO - implement Personnage.getValeurCarac
-		throw new UnsupportedOperationException();
+            return (Map<Caracteristique, Integer>) caracs.entrySet();
+	
 	}
 
 	public void initCaracteristiques() {
@@ -95,8 +101,7 @@ public abstract class Personnage {
 	}
 
 	public void initCapacite() {
-		// TODO - implement Personnage.initCapacite
-		throw new UnsupportedOperationException();
+
 	}
 
 }
