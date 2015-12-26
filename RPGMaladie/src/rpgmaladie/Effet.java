@@ -13,5 +13,9 @@ public class Effet {
         public int getValeur(){
             return valeur;
         }
+        
+        public Caracteristique getCaracteristique(){
+            return c;
+        }
 
 }

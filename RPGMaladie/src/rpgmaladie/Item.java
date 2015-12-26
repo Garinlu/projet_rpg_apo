@@ -19,10 +19,14 @@ public abstract class Item {
             return effet.getValeur();
 	
 	}
+        
+        public Caracteristique getCaracEffet(){
+            return effet.getCaracteristique();
+        }
 
 
 	public void ajouteEffet(Effet effet) {
-            
+            this.effet=effet;
 
 	}
         

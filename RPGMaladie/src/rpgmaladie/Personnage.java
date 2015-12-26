@@ -1,12 +1,13 @@
 package rpgmaladie;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 public abstract class Personnage {
 
 	private final String nomPersonnage;
-	private Map<Caracteristique, Integer> caracs;
+	private Map<Caracteristique, Integer> caracs = new HashMap<>();
 	private int niveau;
 	private final int poidsMax;
 	private final int SanteMax;
@@ -28,7 +29,8 @@ public abstract class Personnage {
         
 
 	public void appliqueEffet(Item i) {
-            
+            caracs.put(i.getCaracEffet(),caracs.get(i.getCaracEffet())+i.getValeurEffet());
+            System.out.println("Effet Appliqué: +"+i.getValeurEffet()+"dans la caracteristique "+i.getCaracEffet());
 
 	}
 
@@ -47,6 +49,7 @@ public abstract class Personnage {
          
                 AjouteInventaire(armeEquipee);
                 armeEquipee=arme;
+                RetireInventaire(arme);
                 System.out.println("Arme équipée");
                    
 	}
@@ -61,6 +64,7 @@ public abstract class Personnage {
 
 	public void prendMedicament(Medicament medoc) {
             appliqueEffet(medoc);
+            RetireInventaire(medoc);
             System.out.println("Medicament avalé");
 	}
 
@@ -75,13 +79,14 @@ public abstract class Personnage {
 
 	public void incrementNiveau() {
             niveau++;
+            System.out.println("Level up");
 
 	}
 
 	public int sumCarac() {
             int s;
-            s=(Map<Caracteristique, Integer>) caracs.get(FORCE)+(Map<Caracteristique, Integer>) caracs.get(DEXTERITE)+(Map<Caracteristique, Integer>) caracs.get(SANTE)+ (Map<Caracteristique, Integer>) caracs.get(DEFENSE);
-            
+            s=caracs.get(Caracteristique.FORCE)+caracs.get(Caracteristique.DEXTERITE)+ caracs.get(Caracteristique.SANTE)+caracs.get(Caracteristique.DEFENSE);
+            return s;
 
 	}
 
@@ -91,15 +96,23 @@ public abstract class Personnage {
 	}
 
 	public void initCaracteristiques() {
-		// TODO - implement Personnage.initCaracteristiques
-		throw new UnsupportedOperationException();
+            caracs.put(Caracteristique.FORCE, 0);
+            caracs.put(Caracteristique.DEFENSE,0);
+            caracs.put(Caracteristique.SANTE,0);
+            caracs.put(Caracteristique.DEXTERITE,0);
+            
+           
 	}
 
+        
+        
+        
+        
 	public void verifierCaracteristique() {
-		// TODO - implement Personnage.verifierCaracteristique
-		throw new UnsupportedOperationException();
-	}
+        }
+        
 
+            
 	public void initCapacite() {
 
 	}
