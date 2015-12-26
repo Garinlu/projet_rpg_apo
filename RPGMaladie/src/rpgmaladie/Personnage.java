@@ -28,13 +28,17 @@ public abstract class Personnage {
         }
         
 
-	public void appliqueEffet(Item i) {
+	public void appliqueEffetItem(Item i) {
             caracs.put(i.getCaracEffet(),caracs.get(i.getCaracEffet())+i.getValeurEffet());
             System.out.println("Effet Appliqué: +"+i.getValeurEffet()+"dans la caracteristique "+i.getCaracEffet());
 
 	}
 
-        
+        public void appliqueEffet(Effet e) {
+            caracs.put(e.getCaracteristique(),caracs.get(e.getCaracteristique())+e.getValeur());
+            System.out.println("Effet Appliqué: +"+e.getValeur()+"dans la caracteristique "+e.getCaracteristique());
+
+	}
         
         public boolean EstDansInventaire(Item i){
             return inventaire.contains(i);
@@ -63,7 +67,7 @@ public abstract class Personnage {
         
 
 	public void prendMedicament(Medicament medoc) {
-            appliqueEffet(medoc);
+            appliqueEffetItem(medoc);
             RetireInventaire(medoc);
             System.out.println("Medicament avalé");
 	}
