@@ -6,6 +6,7 @@ public class Arme extends Item {
 	private int soin;
 	private int maniabilite;
 
+
 	public Arme(String nom, int poids, Caracteristique caracteristique, int valeur, int degat, int soin, int maniabilite) {
 		super(nom,poids,caracteristique, valeur);
                 this.degat=degat;
@@ -13,5 +14,9 @@ public class Arme extends Item {
                 this.maniabilite=maniabilite;
                 
 	}
+        
+        public int getManiabilite(){
+            return this.maniabilite;
+        }
 
 }

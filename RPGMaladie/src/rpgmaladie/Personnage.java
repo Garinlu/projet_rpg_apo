@@ -7,7 +7,7 @@ import java.util.Map;
 public abstract class Personnage {
 
 	private final String nomPersonnage;
-	private Map<Caracteristique, Integer> caracs = new HashMap<>();
+	private Map<Caracteristique, Integer> caracs;
 	private int niveau;
 	private final int poidsMax;
 	private final int SanteMax;
@@ -20,6 +20,7 @@ public abstract class Personnage {
             this.SanteMax=150;
             this.nomPersonnage=nom;
             this.inventaire=inventaire;
+            this.caracs= new HashMap<>();
             this.caracs=caracs;
             this.poidsMax=p;
             this.armeEquipee=a;
@@ -120,5 +121,24 @@ public abstract class Personnage {
 	public void initCapacite() {
 
 	}
-
+        
+        public int getSante(){
+            return caracs.get(Caracteristique.SANTE);
+        }
+        
+        public int getForce(){
+            return caracs.get(Caracteristique.FORCE);
+        }
+        
+        public int getDexterite(){
+            return caracs.get(Caracteristique.DEXTERITE);
+        }
+        
+        public int getDefence(){
+            return caracs.get(Caracteristique.DEFENSE);
+        }
+        
+        public int getManiabilite(){
+            return armeEquipee.getManiabilite();
+        }
 }
