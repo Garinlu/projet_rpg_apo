@@ -1,29 +1,21 @@
 package rpgmaladie;
 
-public abstract class Attaque implements Capacite {
+public class Attaque extends Capacite {
+    private Effet effet;
+    private int probaReussite;
+    
 
-	private final String nom;
-        private final Effet effet;
-        private int probaReussite;
         
-        public Attaque (String nom, Effet effet){
-            this.nom=nom;
-            this.effet=effet;
+        public Attaque (String nom, Effet effet,int proba){
+            super(nom,effet,proba);
         }
-
-        /**
-         *
-         * @param src
-         * @param cible
-         * @return
-         */
-        @Override
-        public Effet effet(Personnage src, Personnage cible){
-            int newValeurAttaque = effet.getValeur() - cible.getDefence() + src.getForce();
+        public Effet effet(Personnage src){ //je comprends pas trop, je suis pas sur qu'on puisse 
+            //construire dans une autre classe en dehors d'un constructeur
+            int newValeurAttaque = effet.getValeur() + src.getForce();
             return (new Effet(Caracteristique.SANTE,-newValeurAttaque) );
         }
         
-        @Override
+        
         public boolean probaReussite(Personnage src){
             int varAlea=(int)(Math.random()*100);
             int chanceReussite=probaReussite+src.getDexterite()+src.getManiabilite();

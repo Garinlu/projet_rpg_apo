@@ -2,9 +2,9 @@ package rpgmaladie;
 
 public class Arme extends Item {
 
-	private int degat;
-	private int soin;
-	private int maniabilite;
+	private final int degat;
+	private final int soin;
+	private final int maniabilite;
 
 
 	public Arme(String nom, int poids, Caracteristique caracteristique, int valeur, int degat, int soin, int maniabilite) {

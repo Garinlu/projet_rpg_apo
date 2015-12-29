@@ -1,6 +1,14 @@
 package rpgmaladie;
 
-public abstract class Parade implements Capacite {
+public class Parade extends Capacite {
+    private Effet effet;
+    private int probaReussite;
+    
 
-	private String nom;
+        
+        public Parade (String nom, Effet effet,int proba){
+            super(nom,effet,proba);
+        }
+
+
 }

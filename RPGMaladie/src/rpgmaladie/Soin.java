@@ -1,6 +1,14 @@
 package rpgmaladie;
 
-public abstract class Soin implements Capacite {
+public class Soin extends Capacite {
+    private Effet effet;
+    private int probaReussite;
+    
 
-	private String nom;
+        
+        public Soin (String nom, Effet effet,int proba){
+            super(nom,effet,proba);
+        }
+
+
 }

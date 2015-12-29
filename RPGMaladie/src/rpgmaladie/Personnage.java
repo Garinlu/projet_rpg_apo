@@ -134,7 +134,7 @@ public abstract class Personnage {
             return caracs.get(Caracteristique.DEXTERITE);
         }
         
-        public int getDefence(){
+        public int getDefense(){
             return caracs.get(Caracteristique.DEFENSE);
         }
         
