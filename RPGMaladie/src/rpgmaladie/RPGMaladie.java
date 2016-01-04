@@ -7,7 +7,7 @@ package rpgmaladie;
 
 /**
  *
- * @author Lucas
+ * @author Lucas et Alexis
  */
 public class RPGMaladie {
 

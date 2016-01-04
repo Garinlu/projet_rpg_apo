@@ -4,7 +4,7 @@ public abstract class Item {
 
 	private String nom;
 	private int poids;
-	private Effet effet;
+	protected Effet effet;
       
 
 	public Item(String nom, int poids, Caracteristique caracteristique, int valeur) {

@@ -10,14 +10,14 @@ public abstract class Personnage {
 	private Map<Caracteristique, Integer> caracs;
 	private int niveau;
 	private final int poidsMax;
-	private final int SanteMax;
+	private int SanteMax;
 	private List<Item> inventaire;
         private Arme armeEquipee;
         private int poidsInventaire;
         
         public Personnage(String nom, Map<Caracteristique, Integer> caracs, int p,List<Item> inventaire, int pi, Arme a){
             this.niveau=1;
-            this.SanteMax=150;
+            this.SanteMax=300-(caracs.get(Caracteristique.FORCE)+caracs.get(Caracteristique.SANTE)+caracs.get(Caracteristique.DEXTERITE)+caracs.get(Caracteristique.DEFENSE));
             this.nomPersonnage=nom;
             this.inventaire=inventaire;
             this.caracs= new HashMap<>();
@@ -65,8 +65,6 @@ public abstract class Personnage {
             
         }
         
-        
-
 	public void prendMedicament(Medicament medoc) {
             appliqueEffetItem(medoc);
             RetireInventaire(medoc);
@@ -79,11 +77,9 @@ public abstract class Personnage {
 
 	}
 
-
-
-
 	public void incrementNiveau() {
             niveau++;
+            this.SanteMax=300-(sumCarac()*niveau*3);
             System.out.println("Level up");
 
 	}
@@ -105,13 +101,8 @@ public abstract class Personnage {
             caracs.put(Caracteristique.DEFENSE,0);
             caracs.put(Caracteristique.SANTE,0);
             caracs.put(Caracteristique.DEXTERITE,0);
-            
-           
 	}
 
-        
-        
-        
         
 	public void verifierCaracteristique() {
         }

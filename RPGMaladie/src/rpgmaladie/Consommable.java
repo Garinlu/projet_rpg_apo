@@ -7,8 +7,7 @@ public class Consommable extends Item {
 	}
 
 	public void consommerConsommable(Personnage p) {
-            
-
+            p.appliqueEffet(effet);
 	}
 
 }
