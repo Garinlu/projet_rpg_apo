@@ -27,6 +27,6 @@ protected Tour tour;
         this.tour=new Tour(2);
     } 
     
-    public 
+    
     
 }
