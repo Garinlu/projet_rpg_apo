@@ -28,8 +28,8 @@ public class Femme extends Personnage {
     
     
 
-    public Femme(String nom, Map<Caracteristique, Integer> caracs,int p, List<Item> inventaire, int pi, Arme a) {
-        super(nom, caracs,p, inventaire, pi, a);
+    public Femme(String nom, Map<Caracteristique, Integer> caracs,int pi) {
+        super(nom, caracs,pi);
         Attaque coupBasFort = new Attaque(nomAttaque,new Effet(caracAttaque,valAttaque),probaAttaque);
         Parade esquive= new Parade(nomParade,new Effet(caracParade,valParade),probaParade);
         Soin recetteGrandMere= new Soin(nomSoin1, new Effet(caracSoin1,valSoin1),probaSoin1);

@@ -28,8 +28,8 @@ public class Homme extends Personnage {
     
     
 
-    public Homme(String nom, Map<Caracteristique, Integer> caracs,int p, List<Item> inventaire, int pi, Arme a) {
-        super(nom, caracs,p, inventaire, pi, a);
+    public Homme(String nom, Map<Caracteristique, Integer> caracs,int pi) {
+        super(nom, caracs,pi);
         Attaque coupdePoing = new Attaque(nomAttaque1,new Effet(caracAttaque1,valAttaque1),probaAttaque1);
         Parade kravmaga= new Parade(nomParade,new Effet(caracParade,valParade),probaParade);
         Soin chimiotherapie= new Soin(nomSoin, new Effet(caracSoin,valSoin),probaSoin);

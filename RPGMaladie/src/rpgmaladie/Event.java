@@ -10,5 +10,12 @@ package rpgmaladie;
  * @author calvi
  */
 public class Event {
+    private Personnage personnage;
+    
+    public Event(Personnage personnage){
+        this.personnage=personnage;
+        
+    }
+    
     
 }

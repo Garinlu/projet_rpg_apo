@@ -8,23 +8,19 @@ public abstract class Personnage {
 
 	private final String nomPersonnage;
 	private Map<Caracteristique, Integer> caracs;
-	private int niveau;
+	private int niveau=1;
 	private final int poidsMax;
 	private int SanteMax;
-	private List<Item> inventaire;
-        private Arme armeEquipee;
-        private int poidsInventaire;
+	private List<Item> inventaire=null;
+        private Arme armeEquipee=null;
+        private int poidsInventaire=0;
         
-        public Personnage(String nom, Map<Caracteristique, Integer> caracs, int p,List<Item> inventaire, int pi, Arme a){
-            this.niveau=1;
+        public Personnage(String nom, Map<Caracteristique, Integer> caracs, int p){
             this.SanteMax=300-(caracs.get(Caracteristique.FORCE)+caracs.get(Caracteristique.SANTE)+caracs.get(Caracteristique.DEXTERITE)+caracs.get(Caracteristique.DEFENSE));
             this.nomPersonnage=nom;
-            this.inventaire=inventaire;
-            this.caracs= new HashMap<>();
             this.caracs=caracs;
             this.poidsMax=p;
-            this.armeEquipee=a;
-            this.poidsInventaire=0;
+
             
         }
         
@@ -165,5 +161,25 @@ public abstract class Personnage {
         public void afficheInventaire(){
             for(int i=0; i<inventaire.size(); i++) 
                 System.out.println(inventaire.get(i)); 
+        }
+        
+        public boolean EstHomme(Personnage perso){
+            if(perso instanceof Homme){
+                return true;
+            }
+            else{
+                return false;
+                
+            }
+        }
+        
+        public boolean EstFemme(Personnage perso){
+            if(perso instanceof Femme){
+                return true;
+            }
+            else{
+                return false;
+                
+            }
         }
 }
