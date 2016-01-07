@@ -1,17 +1,23 @@
 package rpgmaladie;
 
 public class Medicament extends Item {
-    Caracteristique malus;
-    int valeurMalus;
+        private Effet effetNegatifMedicament;
 
 
 	public Medicament(String nom, int poids,Caracteristique carac, int valeur, Caracteristique malus, int valeurMalus) {
             super(nom,poids,carac,valeur);
-            this.malus=malus; //Pourquoi tu mets ces deux attributs ? L'effet est déjà créé avec le super?
-            this.valeurMalus=valeurMalus;
-            
+            effetNegatifMedicament=new Effet(malus, valeurMalus);
 	}
-        public void Medicament()
-
-
+        
+        public Effet getEffetNegatifMedicament(){
+            return this.effetNegatifMedicament;
+        }
+        
+        public int getValeurEffetNeg(){
+            return effetNegatifMedicament.getValeur();
+        }
+        
+        public String getCaracEffetNeg(){
+            return effetNegatifMedicament.getCaracteristique().getNom();
+        }
 }

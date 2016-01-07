@@ -16,6 +16,8 @@ public class RPGMaladie {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        
+        Homme Lucas = new Homme("Lucas")
     }
     
 }
