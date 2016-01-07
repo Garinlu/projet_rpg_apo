@@ -2,8 +2,8 @@ package rpgmaladie;
 
 public abstract class Item {
 
-	private String nom;
-	private int poids;
+	protected String nom;
+	protected int poids;
 	protected Effet effet;
       
 

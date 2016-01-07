@@ -4,6 +4,7 @@ public class Maladie {
 
 	private final String nomMaladie;
 	private int sante;
+        private int defense;
         private final int niveau;//de 1 a 10-> augmente la puissance des attaques
         //on ajoute des probabilités pour determiner quelle attaque a le plus de chance d'etre realisée.
         private final int probaGM=45;//GrosseMigraine
@@ -62,9 +63,8 @@ public class Maladie {
 
 	}
         
-        public void AppliqueEffet(Effet effet){
-            
-            
+        public int getDefense(){
+            return this.defense;
         }
 
 }

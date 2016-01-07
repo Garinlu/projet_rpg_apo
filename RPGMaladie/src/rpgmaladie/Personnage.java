@@ -71,16 +71,18 @@ public abstract class Personnage {
         
 	public void prendMedicament(Medicament medoc) {
             if(EstDansInventaire(medoc)){
-            appliqueEffetItem(medoc);
-            RetireInventaire(medoc);
-            System.out.println("Medicament avalé");}
+                appliqueEffetItem(medoc);
+                System.out.println("Medicament avalé");
+                appliqueEffet(medoc.getEffetNegatifMedicament());
+                System.out.println("Oups ! Ce médicament vous a fait perdre "+medoc.getValeurEffetNeg()+" points de "+medoc.getCaracEffetNeg()+".");
+                RetireInventaire(medoc);
+            }
             else{
                 System.out.println("Vous n'etes pas en possession de ce médicament désolé...trouvez-vous une pharmacie de garde");
             }
 	}
 
 	public int getPoidsInventaire() {
-            
             return poidsInventaire;
 
 	}
@@ -139,5 +141,29 @@ public abstract class Personnage {
         
         public int getManiabilite(){
             return armeEquipee.getManiabilite();
+        }
+        
+        public void afficheNomPerso(){
+            System.out.println(this.nomPersonnage);
+        }
+        
+        public void afficheCaracteristique(){
+            for(Caracteristique ca : Caracteristique.values()){
+                System.out.println(ca.getNom()+" : "+this.caracs.get(ca));
+                System.out.println("");
+            }
+        }
+        
+        public void afficheNiveau(){
+            System.out.println(niveau);
+        }
+        
+        public void affichePoidsMax(){
+            System.out.println(this.poidsInventaire);
+        }
+        
+        public void afficheInventaire(){
+            for(int i=0; i<inventaire.size(); i++) 
+                System.out.println(inventaire.get(i)); 
         }
 }
