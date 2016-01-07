@@ -65,6 +65,7 @@ public class Maladie {
         public void AppliqueEffet(Effet effet){
             
             
+            
         }
 
 }
