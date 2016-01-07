@@ -11,6 +11,7 @@ public class Maladie {
         private final int probaCG=10;
         private final int probaMV=20;
         
+        
         public Maladie(String nom, int sante, int niveau){
             this.nomMaladie=nom;
             this.niveau=niveau;
@@ -60,5 +61,10 @@ public class Maladie {
             
 
 	}
+        
+        public void AppliqueEffet(Effet effet){
+            
+            
+        }
 
 }

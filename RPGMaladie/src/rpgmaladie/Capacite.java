@@ -10,6 +10,16 @@ public abstract class Capacite {
         this.effet=effet;
         this.probaReussite=proba;
     }
+       
+        
+        
+    public boolean probaReussite(Personnage src){
+        int varAlea=(int)(Math.random()*100);
+        int chanceReussite=probaReussite+src.getDexterite()+src.getManiabilite();
+        boolean action = (varAlea<chanceReussite);
+        return action;
+        }
+    }
     
 
 

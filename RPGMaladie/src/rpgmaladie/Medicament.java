@@ -11,6 +11,7 @@ public class Medicament extends Item {
             this.valeurMalus=valeurMalus;
             
 	}
+        public void Medicament()
 
 
 }

@@ -51,12 +51,16 @@ public abstract class Personnage {
   
         }
 	public void equipeArme(Arme arme) {
-         
+            if (EstDansInventaire(arme)){
+            
                 AjouteInventaire(armeEquipee);
                 armeEquipee=arme;
                 RetireInventaire(arme);
                 System.out.println("Arme équipée");
-                   
+            }
+            else{
+                System.out.println("Vous n'avez pas l'arme, n'assayez pas de nous arnaquer");
+            }
 	}
         public void RetireInventaire(Item i){
             inventaire.remove(i);
@@ -66,9 +70,13 @@ public abstract class Personnage {
         }
         
 	public void prendMedicament(Medicament medoc) {
+            if(EstDansInventaire(medoc)){
             appliqueEffetItem(medoc);
             RetireInventaire(medoc);
-            System.out.println("Medicament avalé");
+            System.out.println("Medicament avalé");}
+            else{
+                System.out.println("Vous n'etes pas en possession de ce médicament désolé...trouvez-vous une pharmacie de garde");
+            }
 	}
 
 	public int getPoidsInventaire() {
