@@ -18,8 +18,19 @@ public abstract class Capacite {
         int chanceReussite=probaReussite+src.getDexterite()+src.getManiabilite();
         boolean action = (varAlea<chanceReussite);
         return action;
-        }
     }
+    
+
+    public void AppliqueEffet(Capacite capacite){//uniquement pour attaque et soin, parade etant un cas a part
+        if (capacite instanceof Attaque){
+            
+            
+            
+            
+        }
+
+    }
+
     
 
 
