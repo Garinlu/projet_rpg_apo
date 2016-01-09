@@ -1,5 +1,5 @@
 package rpgmaladie;
-
+//je n'ai rien changer
 public class Medicament extends Item {
         private Effet effetNegatifMedicament;
 

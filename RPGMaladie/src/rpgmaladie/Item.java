@@ -1,7 +1,7 @@
 package rpgmaladie;
 
 public abstract class Item {
-
+//Rien changé
 	protected String nom;
 	protected int poids;
 	protected Effet effet;

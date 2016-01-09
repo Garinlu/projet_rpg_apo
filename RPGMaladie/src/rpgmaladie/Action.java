@@ -2,7 +2,7 @@ package rpgmaladie;
 
 import java.util.Random;
 
-public class Action {
+public class Action {//je pense qu'il faut la supprimer elle ne sert a rien au final
         
 	private Personnage personnage;
 	private Maladie maladie;
@@ -36,8 +36,7 @@ public class Action {
             
                 
             
-        }
+}
         
         
 
-}

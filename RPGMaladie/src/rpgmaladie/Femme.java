@@ -4,7 +4,10 @@ import java.util.List;
 import java.util.Map;
 
 public class Femme extends Personnage {
-   
+    
+//j'ai modifier les nom des capacités par des noms qui sont communs avec celles
+//de la classe Homme, comme sa on peut gerer facilement leur utilisation en faisant
+    //une generalitée.
     
     private final String nomAttaque="Coup en bas fort";
     private final Caracteristique caracAttaque= Caracteristique.SANTE;
@@ -30,11 +33,13 @@ public class Femme extends Personnage {
 
     public Femme(String nom, Map<Caracteristique, Integer> caracs,int pi) {
         super(nom, caracs,pi);
-        Attaque coupBasFort = new Attaque(nomAttaque,new Effet(caracAttaque,valAttaque),probaAttaque);
-        Parade esquive= new Parade(nomParade,new Effet(caracParade,valParade),probaParade);
-        Soin recetteGrandMere= new Soin(nomSoin1, new Effet(caracSoin1,valSoin1),probaSoin1);
-        Soin chimiotherapie= new Soin(nomSoin2, new Effet(caracSoin2,valSoin2),probaSoin2);
+        Attaque capacite1 = new Attaque(nomAttaque,new Effet(caracAttaque,valAttaque),probaAttaque);
+        Parade capacite2= new Parade(nomParade,new Effet(caracParade,valParade),probaParade);
+        Soin capacite3= new Soin(nomSoin1, new Effet(caracSoin1,valSoin1),probaSoin1);
+        Soin capacite4= new Soin(nomSoin2, new Effet(caracSoin2,valSoin2),probaSoin2);
         
     }
+ 
+
 
 }

@@ -1,5 +1,7 @@
 package rpgmaladie;
 
+
+//pas de changement
 public enum Caracteristique {
 	FORCE("force"),
 	DEXTERITE("dextérité"),

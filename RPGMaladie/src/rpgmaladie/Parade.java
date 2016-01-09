@@ -1,5 +1,5 @@
 package rpgmaladie;
-
+//rien changer
 public class Parade extends Capacite {
     private Effet effet;
     private int probaReussite;

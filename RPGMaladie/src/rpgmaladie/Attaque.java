@@ -1,6 +1,6 @@
 package rpgmaladie;
 
-public class Attaque extends Capacite {
+public class Attaque extends Capacite {//pas de changement
     private Effet effet;
     private int probaReussite;
         
@@ -15,7 +15,7 @@ public class Attaque extends Capacite {
           
     public boolean probaReussite(Personnage src){
         int varAlea=(int)(Math.random()*100);
-        int chanceReussite=probaReussite+src.getDexterite()+src.getManiabilite();
+        int chanceReussite=probaReussite+src.getDexterite()+src.getArmeEquipee().getManiabilite();
         boolean action;
         action = (varAlea<chanceReussite);
         return action;

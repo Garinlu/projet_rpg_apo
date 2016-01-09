@@ -1,20 +1,18 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package rpgmaladie;
 
-/**
- *
- * @author calvi
- */
 public class Combat {
 
+// la j'ai ajouter le booleen est fini pour savoir si le combat est fini.     
+//dans DeroulementCombat()( la methode qu'on appelera dans la classe Event et qui
+//se chargera de tout le combat, j'ai fait une boucle while qui s'arrete lorsque
+//quelqu'un est mort(dans ce cas estFini passera a true).
+//DeroulementCombat() communique avec ControleurHumain et ControleurA.
+    
 protected Personnage personnage;
 protected Maladie maladie;
 protected Tour tour;
-    
+private boolean estFini=false;//savoir si le combat est fini    
     
     
     public Combat(Personnage personnage, Maladie maladie){
@@ -27,8 +25,34 @@ protected Tour tour;
         this.tour=new Tour(2);
     } 
     
-    public void DeroulementCombat(Personnage personnage, Maladie maladie,ControleurHumain ch){
-        
+    public void DeroulementCombat(Personnage personnage, Maladie maladie,ControleurHumain ch,ControleurA ca){
+        while (estFini=false){
+            System.out.println("Resume du jeu:");
+            System.out.println("Vous avez: "+personnage.getSante()+" points de vie");
+            System.out.println("Votre adversaire en a: "+maladie.getSante()+" points de vie");
+            if (tour.JoueurEstPremier(personnage)){
+                ch.ChoisirAction();
+                
+                
+                
+                
+                
+                
+            
+                
+            
+                
+            
+                
+            }
+            TourSuivant();
+            if (maladie.getSante()<0){
+                estFini=true;
+            } 
+            if(personnage.getSante()<0){
+                estFini=true;
+            }
+        }
     }
     
     

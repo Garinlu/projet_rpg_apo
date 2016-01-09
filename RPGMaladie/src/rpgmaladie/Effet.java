@@ -1,6 +1,6 @@
 package rpgmaladie;
 
-public class Effet {
+public class Effet {//je n'ai rien changer
 
 	private Caracteristique c;
 	private int valeur;
