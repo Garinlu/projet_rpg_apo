@@ -6,8 +6,8 @@
 package rpgmaladie;
 
 import java.util.Map;
+import java.util.HashMap;
 import java.util.Scanner;
-
 /**
  
  * @author Lucas et Alexis
@@ -18,10 +18,8 @@ public class RPGMaladie {
      * @param args the command line arguments
      */
     
-    // les problemes sont la, je ne comprends pas du tout pourquoi mais je rentre pas dans
-    //la boucle de la construction du personnage et de Event... sans doute un probleme de
-    //lecture du scanner, regarde le nom de l'erreur 
-    
+    // Tu rentrais pas dans la boucle car tu comparais les adresses et non les valeurs^^
+    // Après pas mal de recherche bien casse burne j'ai l'impression que ça fonctionne 
     
     public static void main(String[] args){
         System.out.println("Résumé du jeu ......Veuillez choisir un personnage,/n"
@@ -31,32 +29,32 @@ public class RPGMaladie {
         Scanner sc = new Scanner(System.in);
         String classePerso = sc.nextLine();
         System.out.println("Parfait, maintenant choississez votre nom:");
-        
         String nomPerso = sc.nextLine();
-        
-        System.out.println(classePerso+nomPerso);
-        Map<Caracteristique,Integer> caracs=null;
-        
-        
-        
-        
+        System.out.println("lol"+classePerso+"lol");
         //je ne comprend pas pourquoi sa ne rentre pas dans la boucle
-        if(classePerso=="1"){// caracs a modifier!!
+        if(classePerso.equals("1")){// caracs a modifier!!
             System.out.println("Vous avez choisi d'etre une femme");//test
-            caracs.put(Caracteristique.FORCE, 10);
-            caracs.put(Caracteristique.DEFENSE,10);
-            caracs.put(Caracteristique.SANTE,10);
-            caracs.put(Caracteristique.DEXTERITE,10);
+            Map<Caracteristique,Integer> caracs = new HashMap<Caracteristique,Integer>() {{
+            put(Caracteristique.FORCE, 10);
+            put(Caracteristique.DEFENSE,10);
+            put(Caracteristique.SANTE,10);
+            put(Caracteristique.DEXTERITE,10);
+            }};
             Femme personnage= new Femme(nomPerso,caracs,10);
             Event event = new Event(personnage);
             event.demarrerPartie(personnage); 
         }    
-        else if (classePerso=="2"){
-            caracs.put(Caracteristique.FORCE, 10);
-            caracs.put(Caracteristique.DEFENSE,10);
-            caracs.put(Caracteristique.SANTE,10);
-            caracs.put(Caracteristique.DEXTERITE,10);
+        else if (classePerso.equals("2")){
+            System.out.println("Vous avez choisi d'etre un homme");
+            Map<Caracteristique,Integer> caracs = new HashMap<Caracteristique,Integer>() {{
+            put(Caracteristique.FORCE, 10);
+            put(Caracteristique.DEFENSE,10);
+            put(Caracteristique.SANTE,10);
+            put(Caracteristique.DEXTERITE,10);
+            }};
             Homme personnage= new Homme(nomPerso,caracs,15);
+            personnage.afficheNiveau();
+            personnage.afficheNomPerso();
             Event event = new Event(personnage);
             event.demarrerPartie(personnage);
         }

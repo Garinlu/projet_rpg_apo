@@ -18,7 +18,7 @@ public class ControleurHumain extends Controleur {
     }
     
     public void Payer(int prix){
-        System.out.println("Vous souhitez acheter cet item, la banque controle si vous avez les fonds necessaires");
+        System.out.println("Vous souhaitez acheter cet item, la banque controle si vous avez les fonds necessaires");
         if(prix<perso.getBourse()){
             
             perso.setBourse(perso.getBourse()-prix);

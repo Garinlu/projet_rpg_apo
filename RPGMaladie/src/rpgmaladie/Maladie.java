@@ -1,10 +1,8 @@
 package rpgmaladie;
 
-public class Maladie extends ControleurA{
+public class Maladie{
 
-    //je comprend pas trop l'erreur dans le constructeur y'a besoin d'un oeil neuf mon Garin!
-    //sinon j'ai ajouter estMute et les gets et sets qui vont avec.Plus initCarac() en fonction du niveau
-    //+ tout les gets des caracs.
+    //Maladie n'est pas un héritage du controleur, enfin je pense, et dans ce cas ya plus d'errreur^^
     
 	private final String nomMaladie;
 	private int sante;
@@ -18,10 +16,10 @@ public class Maladie extends ControleurA{
         private boolean estMute=false;
         
 
-    public Maladie(String nom, int niveau){
+        public Maladie(String nom, int niveau){
             this.nomMaladie=nom;
             this.niveau=niveau;
-      }
+        }
         
         public void setMute(boolean b){
             estMute=b;

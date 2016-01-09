@@ -26,8 +26,6 @@ public class Event {
         System.out.println("Votre personnage a bien été créer, vous voila infecter par le sida.");
         System.out.println("Vous allez devoir vous battre sans cesse contre de nouvelle maladies");
         System.out.println("infectieuses en esperant survivre jusqu'a la fin du jeu...Bonne chance");
-        
-        
     }
     
     
