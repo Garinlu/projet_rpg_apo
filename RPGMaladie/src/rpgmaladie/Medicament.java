@@ -4,8 +4,8 @@ public class Medicament extends Item {
         private Effet effetNegatifMedicament;
 
 
-	public Medicament(String nom, int poids,Caracteristique carac, int valeur, Caracteristique malus, int valeurMalus) {
-            super(nom,poids,carac,valeur);
+	public Medicament(String nom, int poids,Caracteristique carac, int valeur, Caracteristique malus, int valeurMalus,int prix) {
+            super(nom,poids,carac,valeur,prix);
             effetNegatifMedicament=new Effet(malus, valeurMalus);
 	}
         

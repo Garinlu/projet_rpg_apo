@@ -4,14 +4,14 @@ public class Arme extends Item {// ajout de la proba de reussite+ les gets.+ je 
                                 //il faudrat ajouter le prix
 
 	private final int degat;
-	private final int soin;
+
 	private final int maniabilite;
         private final int proba; 
 
-	public Arme(String nom, int poids, Caracteristique caracteristique, int valeur, int degat, int soin, int maniabilite,int proba) {
-		super(nom,poids,caracteristique, valeur);
+	public Arme(String nom, int poids, Caracteristique caracteristique, int valeur, int degat, int maniabilite,int proba,int prix) {
+		super(nom,poids,caracteristique, valeur,prix);
                 this.degat=degat;
-                this.soin=soin;
+
                 this.maniabilite=maniabilite;
                 this.proba=proba;
 	}
