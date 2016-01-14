@@ -220,7 +220,6 @@ public abstract class Personnage {
             return niveau;
         }
         public void ExplicationActions(){
-            
         }
         
         public Capacite getCapacite1(){

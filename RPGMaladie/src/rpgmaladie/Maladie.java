@@ -21,6 +21,8 @@ public class Maladie {
     public Maladie(String nom, int niveau){
             this.nomMaladie=nom;
             this.niveau=niveau;
+            this.sante=10;
+            this.defense=10;
       }
         
         public void setMute(boolean b){

@@ -11,7 +11,7 @@ public class Combat {
     protected Personnage personnage;
     protected Maladie maladie;
     protected Tour tour;
-    private boolean estFini=false;//savoir si le combat est fini
+    private boolean estFini;//savoir si le combat est fini
     private boolean joueurVainqueur;
     private int numeroTour;
     
@@ -21,7 +21,7 @@ public class Combat {
         this.tour=new Tour(numeroTour);
         this.personnage=personnage;
         this.maladie=maladie;
-        
+        this.estFini=false;
     }
     
     public void TourSuivant(){
@@ -30,9 +30,9 @@ public class Combat {
     } 
     
     public void DeroulementCombat(Personnage personnage, Maladie maladie,ControleurHumain ch,ControleurA ca){
-        while (estFini=false){
+        while (estFini==false){
             System.out.println("Tour "+numeroTour);
-            System.out.println("Resume du jeu:");
+            System.out.println("Resume de vos caractéristiques :");
             personnage.afficheCaracteristique();
             System.out.println("Votre adversaire a "+maladie.getSante()+" points de vie");
             if (tour.JoueurEstPremier(personnage)){

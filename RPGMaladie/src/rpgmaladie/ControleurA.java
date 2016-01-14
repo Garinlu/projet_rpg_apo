@@ -11,7 +11,7 @@ public class ControleurA extends Controleur {
     
     public ControleurA(String nomm,int niveau){
         this.niveau=niveau;
-        Maladie maladie = new Maladie(nomm,niveau);
+        this.maladie = new Maladie(nomm,niveau);
         maladie.initCarac(niveau);
         
     }

@@ -20,7 +20,6 @@ public class Event {
     
     public Event(Personnage personnage){
         this.personnage=personnage;
-        this.controleurHumain=controleurHumain;
    
         
     }
@@ -36,14 +35,12 @@ public class Event {
         System.out.println("et d'inverstir dans Sidaction.");
         System.out.println("Cela fait seulement quelques jours qu'on vous a diagnostiquer le Sida et vous etes");
         System.out.println("deja faible...voila la premiere difficultée.");
-
-        System.out.println(personnage.getNiveau());
        
         ControleurHumain controleurHumain= new ControleurHumain(personnage);
         
         while(jeuFini==false){
-            
             ControleurA controleurA= new ControleurA("maladie",personnage.getNiveau());
+            System.out.println("Votre adversaire a "+controleurA.getMaladie().getSante()+" points de vie");
             Combat combat = new Combat(personnage,controleurA.getMaladie());
             combat.DeroulementCombat(personnage,controleurA.getMaladie(),controleurHumain,controleurA);
             if (combat.getJoueurVainqueur()){
