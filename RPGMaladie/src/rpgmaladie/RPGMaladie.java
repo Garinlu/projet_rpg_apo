@@ -22,10 +22,10 @@ public class RPGMaladie {
     // Après pas mal de recherche bien casse burne j'ai l'impression que ça fonctionne 
     
     public static void main(String[] args){
-        System.out.println("Résumé du jeu ......Veuillez choisir un personnage,/n"
-                + "vous avez le choix entre Homme et Femme, ils ont des caracté/n"
-                + "ristiques différentes mais un niveau a peu près équivalent!/n"
-                + "Tapez 1 pour Femme et 2 pour Homme.");
+        System.out.println("Veuillez choisir un personnage,");
+        System.out.println("vous avez le choix entre Homme et Femme, ils ont des caracté");
+        System.out.println("ristiques différentes mais un niveau a peu près équivalent!");
+        System.out.println("Tapez 1 pour Femme et 2 pour Homme.");
         Scanner sc = new Scanner(System.in);
         String classePerso = sc.nextLine();
         System.out.println("Parfait, maintenant choississez votre nom:");

@@ -34,6 +34,7 @@ public class Combat {
             System.out.println("Tour "+numeroTour);
             System.out.println("Resume de vos caractéristiques :");
             personnage.afficheCaracteristique();
+            System.out.println("");
             System.out.println("Votre adversaire a "+maladie.getSante()+" points de vie");
             System.out.println("");
             if (tour.JoueurEstPremier(personnage)){

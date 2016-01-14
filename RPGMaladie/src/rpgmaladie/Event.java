@@ -41,7 +41,6 @@ public class Event {
         
         while(jeuFini==false){
             ControleurA controleurA= new ControleurA("maladie",personnage.getNiveau());
-            System.out.println("Votre adversaire a "+controleurA.getMaladie().getSante()+" points de vie");
             Combat combat = new Combat(personnage,controleurA.getMaladie());
             combat.DeroulementCombat(personnage,controleurA.getMaladie(),controleurHumain,controleurA);
             if (combat.getJoueurVainqueur()){

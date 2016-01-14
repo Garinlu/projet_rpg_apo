@@ -47,6 +47,8 @@ public class ControleurHumain extends Controleur {
     }
     
     public Capacite ChoisirAction(){
+        System.out.println("");
+        System.out.println("");
         System.out.println("Quelle action voulez vous réaliser pour ce tour? ");
         perso.ExplicationActions();
         System.out.println("Indiquez votre choix(entre 1 et 5), si vous vous trompez vous realiserez la meme attaque qu'au tour précédent.");
