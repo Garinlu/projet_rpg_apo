@@ -1,6 +1,6 @@
 package rpgmaladie;
 
-public class Maladie extends ControleurA{
+public class Maladie {
 
     //je comprend pas trop l'erreur dans le constructeur y'a besoin d'un oeil neuf mon Garin!
     //sinon j'ai ajouter estMute et les gets et sets qui vont avec.Plus initCarac() en fonction du niveau
