@@ -4,10 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 public class Homme extends Personnage {
-    
-    //pareil que pour Femme.
-    
-    
+ 
     private final String nomAttaque1="Coup de Poing";
     private final Caracteristique caracAttaque1= Caracteristique.SANTE;
     private final int valAttaque1=-6;
@@ -49,19 +46,18 @@ public class Homme extends Personnage {
 
     }
         public Capacite getCapacite1(){
-            return capacite1;
+            return super.getCapacite1();
         }
         public Capacite getCapacite2(){
-            return capacite2;
+            return super.getCapacite2();
         }
         public Capacite getCapacite3(){
-            return capacite3;
+            return super.getCapacite3();
         }
         public Capacite getCapacite4(){
-            return capacite4;
+            return super.getCapacite4();
         }
         public Capacite getCorpsACorps(){
-            return corpsACorps;
+            return super.getCorpsACorps();
         }
-
 }

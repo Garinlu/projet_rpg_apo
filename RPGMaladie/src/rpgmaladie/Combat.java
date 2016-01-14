@@ -35,25 +35,26 @@ public class Combat {
             System.out.println("Resume de vos caractéristiques :");
             personnage.afficheCaracteristique();
             System.out.println("Votre adversaire a "+maladie.getSante()+" points de vie");
+            System.out.println("");
             if (tour.JoueurEstPremier(personnage)){
-                Capacite capacite=ch.ChoisirAction();
-                capacite.AppliqueEffet(personnage, maladie);
+                ch.ChoisirAction().AppliqueEffet(personnage, maladie);
                 ca.genereAttaque(maladie, personnage, ch);
             }
             else{
                 
                 ca.genereAttaque(maladie, personnage, ch);
-                Capacite capacite=ch.ChoisirAction();
-                capacite.AppliqueEffet(personnage, maladie);
+                ch.ChoisirAction().AppliqueEffet(personnage, maladie);
             }
             TourSuivant();
             if (maladie.getSante()<0){
                 estFini=true;
                 joueurVainqueur=true;
+                System.out.println(personnage.getNomPersonnage()+" a gagné le combat contre "+maladie.getNomMaladie());
             } 
             if(personnage.getSante()<0){
                 estFini=true;
                 joueurVainqueur=false;
+                System.out.println(maladie.getNomMaladie()+" a gagné le combat contre "+personnage.getNomPersonnage());
             }
         }
     }

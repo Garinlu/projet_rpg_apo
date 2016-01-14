@@ -9,7 +9,6 @@ public class Soin extends Capacite {
         }
         
         public void AppliqueEffet(Personnage perso, Maladie maladie){//Application de l'effet de la capacité
-
             perso.appliqueEffet(effet);
         }
 

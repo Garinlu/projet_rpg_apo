@@ -177,7 +177,6 @@ public abstract class Personnage {
         public void afficheCaracteristique(){
             for(Caracteristique ca : Caracteristique.values()){
                 System.out.println(ca.getNom()+" : "+this.caracs.get(ca));
-                System.out.println("");
             }
         }
         
@@ -190,8 +189,13 @@ public abstract class Personnage {
         }
         
         public void afficheInventaire(){
-            for(int i=0; i<inventaire.size(); i++) 
-                System.out.println(inventaire.get(i)); 
+            if (!inventaire.isEmpty()){
+                for(int i=0; i<inventaire.size(); i++) 
+                    System.out.println(inventaire.get(i));
+            }
+            else{
+                System.out.println("L'inventaire est vide.");
+            }
         }
         
         public boolean EstHomme(Personnage perso){
@@ -220,18 +224,21 @@ public abstract class Personnage {
         }
         
         public Capacite getCapacite1(){
-            return capacite1;
+            return this.capacite1;
         }
         public Capacite getCapacite2(){
-            return capacite2;
+            return this.capacite2;
         }
         public Capacite getCapacite3(){
-            return capacite3;
+            return this.capacite3;
         }
         public Capacite getCapacite4(){
-            return capacite4;
+            return this.capacite4;
         }
         public Capacite getCorpsACorps(){
-            return corpsACorps;
+            return this.corpsACorps;
+        }
+        public String getNomPersonnage(){
+            return this.nomPersonnage;
         }
 }

@@ -42,21 +42,27 @@ public class Maladie {
 
 	public void GrosseMigraine (Personnage cible) {
             Effet effetDegat= new Effet(Caracteristique.SANTE,(-6)*niveau);
-            Effet effetSymptome= new Effet(Caracteristique.DEXTERITE,(-4)*niveau);
+            Effet effetSymptome= new Effet(Caracteristique.DEXTERITE,(-1)*niveau);
             cible.appliqueEffet(effetDegat);
             cible.appliqueEffet(effetSymptome);
+            System.out.println("Maladie vous a appliqué "+effetDegat.getValeur()+" de dégats.");
+            System.out.println("De plus, vos symptôme vous fait diminuer votre dextérité de "+effetSymptome.getValeur()+".");
            	
 	}
 
 	public void FievreTerrible (Personnage cible) {
             Effet effetDegat= new Effet(Caracteristique.SANTE,(-7)*niveau);
-            Effet effetSymptome1= new Effet(Caracteristique.DEXTERITE,(-3)*niveau);
-            Effet effetSymptome2= new Effet(Caracteristique.DEFENSE,(-3)*niveau);
-            Effet effetSymptome3= new Effet(Caracteristique.FORCE,(-3)*niveau);
+            Effet effetSymptome1= new Effet(Caracteristique.DEXTERITE,(-2)*niveau);
+            Effet effetSymptome2= new Effet(Caracteristique.DEFENSE,(-1)*niveau);
+            Effet effetSymptome3= new Effet(Caracteristique.FORCE,(-1)*niveau);
             cible.appliqueEffet(effetDegat);
             cible.appliqueEffet(effetSymptome1);
             cible.appliqueEffet(effetSymptome2);
             cible.appliqueEffet(effetSymptome3);
+            System.out.println("Maladie vous a appliqué "+effetDegat.getValeur()+" de dégats.");
+            System.out.println("De plus, vos symptôme vous fait diminuer votre dextérité de "+effetSymptome1.getValeur()+".");
+            System.out.println("De plus, vos symptôme vous fait diminuer votre défense de "+effetSymptome2.getValeur()+".");
+            System.out.println("De plus, vos symptôme vous fait diminuer votre force de "+effetSymptome3.getValeur()+".");
 
 	}
 
@@ -65,18 +71,24 @@ public class Maladie {
             Effet effetSymptome= new Effet(Caracteristique.DEFENSE,(-2)*niveau);
             cible.appliqueEffet(effetDegat);
             cible.appliqueEffet(effetSymptome);
+            System.out.println("Maladie vous a appliqué "+effetDegat.getValeur()+" de dégats.");
+            System.out.println("De plus, vos symptôme vous fait diminuer votre défense de "+effetSymptome.getValeur()+".");
 
 	}
 
 	public void MauxdeVentre (Personnage cible){
             Effet effetDegat= new Effet(Caracteristique.SANTE,(-8)*niveau);
-            Effet effetSymptome1= new Effet(Caracteristique.DEXTERITE,(-2)*niveau);
-            Effet effetSymptome2= new Effet(Caracteristique.DEFENSE,(-2)*niveau);
+            Effet effetSymptome1= new Effet(Caracteristique.DEXTERITE,(-1)*niveau);
+            Effet effetSymptome2= new Effet(Caracteristique.DEFENSE,(-1)*niveau);
             Effet effetSymptome3= new Effet(Caracteristique.FORCE,(-2)*niveau);
             cible.appliqueEffet(effetDegat);
             cible.appliqueEffet(effetSymptome1);
             cible.appliqueEffet(effetSymptome2);
             cible.appliqueEffet(effetSymptome3);
+            System.out.println("Maladie vous a appliqué "+effetDegat.getValeur()+" de dégats.");
+            System.out.println("De plus, vos symptôme vous fait diminuer votre dextérité de "+effetSymptome1.getValeur()+".");
+            System.out.println("De plus, vos symptôme vous fait diminuer votre défense de "+effetSymptome2.getValeur()+".");
+            System.out.println("De plus, vos symptôme vous fait diminuer votre force de "+effetSymptome3.getValeur()+".");
             
 
 	}
@@ -103,6 +115,9 @@ public class Maladie {
         }
         public int getProbaMV(){
             return probaMV;
+        }
+        public String getNomMaladie(){
+            return this.nomMaladie;
         }
         
 
