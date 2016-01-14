@@ -7,6 +7,7 @@ public class ControleurA extends Controleur {
     
     
     private final int niveau;
+    private Maladie maladie;
     
     public ControleurA(String nomm,int niveau){
         this.niveau=niveau;
@@ -14,6 +15,8 @@ public class ControleurA extends Controleur {
         maladie.initCarac(niveau);
         
     }
+    
+    
     
     public void genereAttaque(Maladie maladie,Personnage cible,ControleurHumain controleurHumain){
         int alea=(int)(Math.random()*100);
@@ -40,6 +43,10 @@ public class ControleurA extends Controleur {
                     
             
         }
+    }
+    
+    public Maladie getMaladie(){
+        return maladie;
     }
     
     
