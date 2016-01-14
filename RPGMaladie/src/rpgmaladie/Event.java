@@ -24,7 +24,7 @@ public class Event {
    
         
     }
-    public void demarrerPartie(Personnage perso){
+    public void demarrerPartie(){
         System.out.println("Votre personnage a bien été créer, vous voila infecter par le sida...");
         System.out.println("Vous allez devoir vous battre sans cesse contre de nouvelles maladies infectieuses");
         System.out.println("En effet le virus du Sida a fortement affaiblit votre défense immunitaire");
@@ -36,10 +36,43 @@ public class Event {
         System.out.println("et d'inverstir dans Sidaction.");
         System.out.println("Cela fait seulement quelques jours qu'on vous a diagnostiquer le Sida et vous etes");
         System.out.println("deja faible...voila la premiere difficultée.");
+
+        System.out.println(personnage.getNiveau());
+       
+        ControleurHumain controleurHumain= new ControleurHumain(personnage);
         
         while(jeuFini==false){
-            ControleurA controleurA= new ControleurA(generate(5),personnage.getNiveau());
+            
+            ControleurA controleurA= new ControleurA("maladie",personnage.getNiveau());
             Combat combat = new Combat(personnage,controleurA.getMaladie());
+            combat.DeroulementCombat(personnage,controleurA.getMaladie(),controleurHumain,controleurA);
+            if (combat.getJoueurVainqueur()){
+               
+                System.out.println("Vous gagnez "+(100+10*personnage.getNiveau())+" euros.");//gain en fonction du niveau
+                System.out.println("Voulez vous les garder ou les investir dans Sidaction?");
+                if(controleurHumain.investir()){
+                    sommeInvestie=sommeInvestie+(100+10*personnage.getNiveau());
+                }
+                else{
+                     personnage.setBourse(100+10*personnage.getNiveau());//ajout du gain a la bourse
+                    
+                }
+                personnage.incrementNiveau();
+               // personnage.setDefense(personnage.getDefense()+1);
+               // personnage.setSante(personnage.getSante()+3);
+               // personnage.setForce(personnage.getForce()+1);
+               // personnage.setDexterite(personnage.getDexterite()+1);
+                System.out.println("Chacun de vos attributs augmentent de +1 car vous gagnez de l'experience:");
+                personnage.afficheCaracteristique();
+                System.out.println("Voici votre inventaire:");
+                personnage.afficheInventaire();
+                
+                
+                
+                
+                
+                
+            }
             
         }
         

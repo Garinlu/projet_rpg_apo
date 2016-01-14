@@ -140,6 +140,20 @@ public abstract class Personnage {
 
 	}
         
+        public void setSante(int v){
+            caracs.put(Caracteristique.SANTE,v );
+        }
+        public void setForce(int v){
+            caracs.put(Caracteristique.FORCE,v );
+        }
+        public void setDexterite(int v){
+            caracs.put(Caracteristique.DEXTERITE,v );
+        }
+        public void setDefense(int v){
+            caracs.put(Caracteristique.DEFENSE,v );
+        }
+        
+    
         public int getSante(){
             return caracs.get(Caracteristique.SANTE);
         }

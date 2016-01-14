@@ -17,6 +17,9 @@ public class ControleurHumain extends Controleur {
         this.perso=perso;
     }
     
+   
+    
+    
     public void Payer(int prix){
         System.out.println("Vous souhaitez acheter cet item, la banque controle si vous avez les fonds necessaires");
         if(prix<perso.getBourse()){

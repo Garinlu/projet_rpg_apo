@@ -40,8 +40,9 @@ public class RPGMaladie {
             put(Caracteristique.DEXTERITE,10);
             }};
             Femme personnage= new Femme(nomPerso,caracs,10);
+    
             Event event = new Event(personnage);
-            event.demarrerPartie(personnage); 
+            event.demarrerPartie(); 
         }    
         else if (classePerso.equals("2")){
             System.out.println("Vous avez choisi d'etre un homme");
@@ -55,7 +56,7 @@ public class RPGMaladie {
             personnage.afficheNiveau();
             personnage.afficheNomPerso();
             Event event = new Event(personnage);
-            event.demarrerPartie(personnage);
+            event.demarrerPartie();
         }
 
         }
