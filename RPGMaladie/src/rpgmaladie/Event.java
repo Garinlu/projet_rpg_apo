@@ -16,6 +16,7 @@ public class Event {
     private static int sommeNecessaire=1000;
     private ControleurHumain controleurHumain;
     private boolean jeuFini=false;
+    Caracteristique carac=Caracteristique.SANTE;
 
     
     public Event(Personnage personnage){
@@ -44,6 +45,47 @@ public class Event {
             Combat combat = new Combat(personnage,controleurA.getMaladie());
             combat.DeroulementCombat(personnage,controleurA.getMaladie(),controleurHumain,controleurA);
             if (combat.getJoueurVainqueur()){
+                int alea=(int)(Math.random()*100);// on peut tomber 1 fois sur 2 sur une arme a la fin du combat
+                if(alea>50){
+                    System.out.println("Vous avez de la chance, vous venez de trouver une arme!");
+                    
+                    if(alea<61){//Carac de l'arme généré aléatoirement
+                        Caracteristique carac=Caracteristique.FORCE;
+                    }
+                    else if(alea>60 && alea<71){
+                        Caracteristique carac=Caracteristique.DEFENSE;
+                    }
+                    else if(alea>70 && alea<81){
+                        Caracteristique carac=Caracteristique.DEXTERITE;
+                    }
+                    else if(alea>80){
+                        Caracteristique carac=Caracteristique.SANTE;
+                    }
+                    
+                    Arme arme =new Arme(generate(3), personnage.getNiveau(), carac, personnage.getNiveau(),personnage.getNiveau()*2, 100-alea,alea,personnage.getNiveau()*alea);
+                    //A completer! La decrire et verifier si le poids correspond! L'equiper?
+                    
+ 
+                }
+                else if(alea%2==0){//on peut tomber 1 fois sur 2 un medicament.
+                    System.out.println("Vous avez de la chance, vous venez de trouver un medicament!");
+                    if(alea<26){//Carac de l'arme généré aléatoirement
+                        Caracteristique carac=Caracteristique.FORCE;
+                    }
+                    else if(alea>25 && alea<51){
+                        Caracteristique carac=Caracteristique.DEFENSE;
+                    }
+                    else if(alea>50 && alea<76){
+                        Caracteristique carac=Caracteristique.DEXTERITE;
+                    }
+                    else if(alea>75){
+                        Caracteristique carac=Caracteristique.SANTE;
+                    
+                    Medicament(String nom, int poids,Caracteristique carac, int valeur, Caracteristique malus, int valeurMalus,int prix)
+                    
+                }
+                
+
                
                 System.out.println("Vous gagnez "+(100+10*personnage.getNiveau())+" euros.");//gain en fonction du niveau
                 System.out.println("Voulez vous les garder ou les investir dans Sidaction?");
