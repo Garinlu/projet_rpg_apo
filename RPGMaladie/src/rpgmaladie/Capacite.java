@@ -3,9 +3,9 @@ package rpgmaladie;
 public abstract class Capacite {//la y'a du boulot, il va falloir generer l'application des degats et des soins.
                                 //le probleme c'est que la classe Effet est en fonction d'une Caracteristique alors
                                 //que les degats seron fait sur maladie.setSante(), on devrait pouvoir s'en sortir quand meme
-    private final String nomCapacite;
-    private final Effet effet;
-    private final int probaReussite;
+    protected final String nomCapacite;
+    protected final Effet effet;
+    protected final int probaReussite;
     
     public Capacite(String nom, Effet effet, int proba){
         this.nomCapacite=nom;

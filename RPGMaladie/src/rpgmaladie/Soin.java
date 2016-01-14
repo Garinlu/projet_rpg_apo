@@ -1,8 +1,6 @@
 package rpgmaladie;
 
 public class Soin extends Capacite {
-    private Effet effet;
-    private int probaReussite;
     
 //pas toucher comme Brandao
         
@@ -11,7 +9,8 @@ public class Soin extends Capacite {
         }
         
         public void AppliqueEffet(Personnage perso, Maladie maladie){//Application de l'effet de la capacité
-            perso.appliqueEffet(this.effet);
+
+            perso.appliqueEffet(effet);
         }
 
 }

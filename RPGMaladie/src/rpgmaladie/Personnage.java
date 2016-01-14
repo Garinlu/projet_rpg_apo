@@ -20,11 +20,11 @@ public abstract class Personnage {
         protected Arme armeEquipee;
         private int poidsInventaire=0;
         private int bourse=0;
-        private Capacite corpsACorps;
-        private Capacite capacite1;
-        private Capacite capacite2;
-        private Capacite capacite3;
-        private Capacite capacite4;
+        protected Capacite corpsACorps;
+        protected Capacite capacite1;
+        protected Capacite capacite2;
+        protected Capacite capacite3;
+        protected Capacite capacite4;
    
         
         public Personnage(String nom, Map<Caracteristique, Integer> caracs, int p){
@@ -34,9 +34,6 @@ public abstract class Personnage {
             this.poidsMax=p;
             this.armeEquipee=new Arme("Poings",0,Caracteristique.FORCE,0,-2,0,1,100);
             this.corpsACorps= new Attaque("Attaque au corps a corps",new Effet(Caracteristique.SANTE,armeEquipee.getDegat()),armeEquipee.getProba());
-            
-
-            
         }
         public void setBourse(int b){
             bourse=bourse+b;

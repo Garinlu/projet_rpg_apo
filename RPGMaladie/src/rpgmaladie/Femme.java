@@ -48,6 +48,20 @@ public class Femme extends Personnage {
        System.out.println("5.Attaque au corps a corps: Potentiel de dégats:"+ (armeEquipee.getDegat()+caracs.get(Caracteristique.FORCE))+" avec une reussite de:"+armeEquipee.getProba()+"%");
 
     }
-
+        public Capacite getCapacite1(){
+            return capacite1;
+        }
+        public Capacite getCapacite2(){
+            return capacite2;
+        }
+        public Capacite getCapacite3(){
+            return capacite3;
+        }
+        public Capacite getCapacite4(){
+            return capacite4;
+        }
+        public Capacite getCorpsACorps(){
+            return corpsACorps;
+        }
 
 }

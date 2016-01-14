@@ -32,10 +32,10 @@ public class Homme extends Personnage {
 
     public Homme(String nom, Map<Caracteristique, Integer> caracs,int pi) {
         super(nom, caracs,pi);
-        Attaque capacite1 = new Attaque(nomAttaque1,new Effet(caracAttaque1,valAttaque1),probaAttaque1);
-        Parade capacite2= new Parade(nomParade,new Effet(caracParade,valParade),probaParade);
-        Soin capacite3= new Soin(nomSoin, new Effet(caracSoin,valSoin),probaSoin);
-        Attaque capacite4= new Attaque(nomAttaque2,new Effet(caracAttaque2,valAttaque2),probaAttaque2);
+        this.capacite1 = new Attaque(nomAttaque1,new Effet(caracAttaque1,valAttaque1),probaAttaque1);
+        this.capacite2= new Parade(nomParade,new Effet(caracParade,valParade),probaParade);
+        this.capacite3= new Soin(nomSoin, new Effet(caracSoin,valSoin),probaSoin);
+        this.capacite4= new Attaque(nomAttaque2,new Effet(caracAttaque2,valAttaque2),probaAttaque2);
         
     }
     
@@ -48,6 +48,20 @@ public class Homme extends Personnage {
         System.out.println("5.Attaque au corps a corps: Potentiel de dégats:"+ (armeEquipee.getDegat()+caracs.get(Caracteristique.FORCE))+" avec une reussite de:"+armeEquipee.getProba()+"%");
 
     }
-
+        public Capacite getCapacite1(){
+            return capacite1;
+        }
+        public Capacite getCapacite2(){
+            return capacite2;
+        }
+        public Capacite getCapacite3(){
+            return capacite3;
+        }
+        public Capacite getCapacite4(){
+            return capacite4;
+        }
+        public Capacite getCorpsACorps(){
+            return corpsACorps;
+        }
 
 }

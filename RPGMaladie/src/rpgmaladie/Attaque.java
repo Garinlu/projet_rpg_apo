@@ -1,8 +1,7 @@
 package rpgmaladie;
 
 public class Attaque extends Capacite {//pas de changement
-    private Effet effet;
-    private int probaReussite;
+
         
     public Attaque (String nom, Effet effet,int proba){
         super(nom,effet,proba);
