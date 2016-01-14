@@ -8,7 +8,7 @@ public abstract class Personnage {
 
     //ajout de la capacite CorpsAcorps, commune à Femme et a Homme. Du coup j'ai du ajouter 
     //sa construction dans le constructeur avec une arme de depart(les poings), j'ai rajouter pas 
-    //mal de methodes supplémentaires mais je souviens pas de toutes.
+    //mal de methodes supplémentaires mais je souviens pas de toutes.++++
     
     
 	private final String nomPersonnage;
