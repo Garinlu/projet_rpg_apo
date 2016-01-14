@@ -31,6 +31,8 @@ public class Combat {
     
     public void DeroulementCombat(Personnage personnage, Maladie maladie,ControleurHumain ch,ControleurA ca){
         while (estFini==false){
+            System.out.println("");
+            System.out.println("");
             System.out.println("Tour "+numeroTour);
             System.out.println("Resume de vos caractéristiques :");
             personnage.afficheCaracteristique();
