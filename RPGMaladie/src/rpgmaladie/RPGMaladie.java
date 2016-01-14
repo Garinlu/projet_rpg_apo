@@ -30,7 +30,6 @@ public class RPGMaladie {
         String classePerso = sc.nextLine();
         System.out.println("Parfait, maintenant choississez votre nom:");
         String nomPerso = sc.nextLine();
-        System.out.println("lol"+classePerso+"lol");
         //je ne comprend pas pourquoi sa ne rentre pas dans la boucle
         if(classePerso.equals("1")){// caracs a modifier!!
             System.out.println("Vous avez choisi d'etre une femme");//test
