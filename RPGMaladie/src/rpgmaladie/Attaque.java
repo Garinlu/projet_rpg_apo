@@ -9,7 +9,7 @@ public class Attaque extends Capacite {//pas de changement
     
     public Effet effet(Personnage src, Maladie maladie){
         int newValeurAttaque = effet.getValeur() + src.getForce() - maladie.getDefense();
-        return (new Effet(Caracteristique.SANTE,-newValeurAttaque));
+        return (new Effet(Caracteristique.SANTE,newValeurAttaque));
     }
           
     public boolean probaReussite(Personnage src){

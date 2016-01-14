@@ -33,8 +33,8 @@ public class Maladie {
         }
         
         public void initCarac(int niveau){
-            sante=100+niveau*15;
-            defense=100+niveau*15;
+            sante=50+niveau*15;
+            defense=niveau*15;
         }
         
         
@@ -45,6 +45,8 @@ public class Maladie {
             Effet effetSymptome= new Effet(Caracteristique.DEXTERITE,(-1)*niveau);
             cible.appliqueEffet(effetDegat);
             cible.appliqueEffet(effetSymptome);
+            System.out.println("");
+            System.out.println("Maladie vous inflige une grosse migraine.");
             System.out.println("Maladie vous a appliqué "+effetDegat.getValeur()+" de dégats.");
             System.out.println("De plus, vos symptôme vous fait diminuer votre dextérité de "+effetSymptome.getValeur()+".");
            	
@@ -59,6 +61,8 @@ public class Maladie {
             cible.appliqueEffet(effetSymptome1);
             cible.appliqueEffet(effetSymptome2);
             cible.appliqueEffet(effetSymptome3);
+            System.out.println("");
+            System.out.println("Maladie vous inflige une fièvre terrible.");
             System.out.println("Maladie vous a appliqué "+effetDegat.getValeur()+" de dégats.");
             System.out.println("De plus, vos symptôme vous fait diminuer votre dextérité de "+effetSymptome1.getValeur()+".");
             System.out.println("De plus, vos symptôme vous fait diminuer votre défense de "+effetSymptome2.getValeur()+".");
@@ -71,6 +75,8 @@ public class Maladie {
             Effet effetSymptome= new Effet(Caracteristique.DEFENSE,(-2)*niveau);
             cible.appliqueEffet(effetDegat);
             cible.appliqueEffet(effetSymptome);
+            System.out.println("");
+            System.out.println("Maladie vous inflige un coup de grace.");
             System.out.println("Maladie vous a appliqué "+effetDegat.getValeur()+" de dégats.");
             System.out.println("De plus, vos symptôme vous fait diminuer votre défense de "+effetSymptome.getValeur()+".");
 
@@ -85,6 +91,8 @@ public class Maladie {
             cible.appliqueEffet(effetSymptome1);
             cible.appliqueEffet(effetSymptome2);
             cible.appliqueEffet(effetSymptome3);
+            System.out.println("");
+            System.out.println("Maladie vous inflige des maux de ventre.");
             System.out.println("Maladie vous a appliqué "+effetDegat.getValeur()+" de dégats.");
             System.out.println("De plus, vos symptôme vous fait diminuer votre dextérité de "+effetSymptome1.getValeur()+".");
             System.out.println("De plus, vos symptôme vous fait diminuer votre défense de "+effetSymptome2.getValeur()+".");
@@ -93,7 +101,7 @@ public class Maladie {
 
 	}
         public void AppliqueEffet(Effet effet){
-            sante=effet.getValeur()-defense;
+            sante=sante - (effet.getValeur()-defense);
             
         }
         

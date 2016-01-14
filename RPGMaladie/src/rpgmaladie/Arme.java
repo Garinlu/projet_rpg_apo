@@ -28,9 +28,6 @@ public class Arme extends Item {// ajout de la proba de reussite+ les gets.+ je 
         public int getDegat(){
             return degat;
         }
-        public int getSoin(){
-            return soin;
-        }
         
 
 }

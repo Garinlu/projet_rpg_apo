@@ -37,11 +37,12 @@ public class Combat {
             System.out.println("Votre adversaire a "+maladie.getSante()+" points de vie");
             System.out.println("");
             if (tour.JoueurEstPremier(personnage)){
+                System.out.println(personnage.getNomPersonnage()+" joue en premier");
                 ch.ChoisirAction().AppliqueEffet(personnage, maladie);
                 ca.genereAttaque(maladie, personnage, ch);
             }
             else{
-                
+                System.out.println(maladie.getNomMaladie()+" joue en premier");
                 ca.genereAttaque(maladie, personnage, ch);
                 ch.ChoisirAction().AppliqueEffet(personnage, maladie);
             }
