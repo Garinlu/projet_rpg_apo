@@ -69,19 +69,17 @@ public class Event {
                 }
                 else if(alea%2==0){//on peut tomber 1 fois sur 2 un medicament.
                     System.out.println("Vous avez de la chance, vous venez de trouver un medicament!");
-                    if(alea<26){//Carac de l'arme généré aléatoirement
+                    if(alea<34){//Carac de l'arme généré aléatoirement
                         Caracteristique carac=Caracteristique.FORCE;
                     }
-                    else if(alea>25 && alea<51){
+                    else if(alea>33 && alea<67){
                         Caracteristique carac=Caracteristique.DEFENSE;
                     }
-                    else if(alea>50 && alea<76){
+                    else if(alea>66 && alea<76){
                         Caracteristique carac=Caracteristique.DEXTERITE;
                     }
-                    else if(alea>75){
-                        Caracteristique carac=Caracteristique.SANTE;
-                    
-                    Medicament(String nom, int poids,Caracteristique carac, int valeur, Caracteristique malus, int valeurMalus,int prix)
+
+                    Medicament medicament= new Medicament(generate(3),1,Caracteristique.SANTE, personnage.getNiveau()+(alea%10),carac, -(personnage.getNiveau()+(alea%4)),personnage.getNiveau()*alea);
                     
                 }
                 
