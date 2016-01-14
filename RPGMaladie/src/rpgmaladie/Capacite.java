@@ -21,20 +21,8 @@ public abstract class Capacite {//la y'a du boulot, il va falloir generer l'appl
         boolean action = (varAlea<chanceReussite);
         return action;
     }
-    
-
-    public void AppliqueEffet(Capacite capacite,Personnage perso, Maladie maladie){//uniquement pour attaque et soin, parade etant un cas a part
-        if (capacite instanceof Attaque){
-            
-            
-            
-            
-            
-        }
-
+    public void AppliqueEffet(Personnage perso, Maladie maladie){
+        //Définition dans les filles
     }
-
-    
-
 
 }

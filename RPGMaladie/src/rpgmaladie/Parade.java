@@ -9,6 +9,6 @@ public class Parade extends Capacite {
         public Parade (String nom, Effet effet,int proba){
             super(nom,effet,proba);
         }
-
+        
 
 }

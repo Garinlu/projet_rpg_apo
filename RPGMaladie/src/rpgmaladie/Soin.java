@@ -9,6 +9,9 @@ public class Soin extends Capacite {
         public Soin (String nom, Effet effet,int proba){
             super(nom,effet,proba);
         }
-
+        
+        public void AppliqueEffet(Personnage perso, Maladie maladie){//Application de l'effet de la capacité
+            perso.appliqueEffet(this.effet);
+        }
 
 }

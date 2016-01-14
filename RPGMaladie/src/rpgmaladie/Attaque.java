@@ -20,4 +20,14 @@ public class Attaque extends Capacite {//pas de changement
         action = (varAlea<chanceReussite);
         return action;
     }
+    
+    public void AppliqueEffet(Personnage perso, Maladie maladie){//Application de l'attaque si la proba de réussite est bonne
+        Effet effetFinal = effet(perso,maladie);
+        if(probaReussite(perso)){
+            maladie.AppliqueEffet(effetFinal);
+        }
+        else{
+            System.out.println("Oups ! L'attaque est manquée..");
+        }
+    }
 }

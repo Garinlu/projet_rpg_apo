@@ -71,4 +71,11 @@ public class ControleurHumain extends Controleur {
     public Capacite getProchaineAttaque(){
         return prochaineAttaque;
     }
+    
+    public boolean investir(){
+        System.out.println("Voulez vous investir ? Oui : 1 / Non : 0 (tout sauf 1)");
+        Scanner sc = new Scanner(System.in);
+        String choix = sc.nextLine();
+        return choix.equals("1");
+    }
 }

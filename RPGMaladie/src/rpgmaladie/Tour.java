@@ -5,9 +5,8 @@ import java.util.Random;
 public class Tour {
     // lis plus bas
     
-    public int numeroTour=1;
+    public int numeroTour;
     private int proba;
-    Random commence=new Random();//proba pour savoir qui commence
     
     
     

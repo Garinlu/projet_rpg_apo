@@ -13,27 +13,38 @@ public class Combat {
     protected Tour tour;
     private boolean estFini=false;//savoir si le combat est fini
     private boolean joueurVainqueur;
-
+    private int numeroTour;
     
     
     public Combat(Personnage personnage, Maladie maladie){
-        this.tour=new Tour(1);
+        numeroTour=1;
+        this.tour=new Tour(numeroTour);
         this.personnage=personnage;
-        this.maladie=maladie;    
+        this.maladie=maladie;
+        
     }
     
     public void TourSuivant(){
-        this.tour=new Tour(2);
+        numeroTour++;
+        this.tour=new Tour(numeroTour);
     } 
     
     public void DeroulementCombat(Personnage personnage, Maladie maladie,ControleurHumain ch,ControleurA ca){
         while (estFini=false){
+            System.out.println("Tour "+numeroTour);
             System.out.println("Resume du jeu:");
             personnage.afficheCaracteristique();
             System.out.println("Votre adversaire a "+maladie.getSante()+" points de vie");
             if (tour.JoueurEstPremier(personnage)){
-                ch.ChoisirAction();
+                Capacite capacite=ch.ChoisirAction();
+                capacite.AppliqueEffet(personnage, maladie);
+                ca.genereAttaque(maladie, personnage, ch);
+            }
+            else{
                 
+                ca.genereAttaque(maladie, personnage, ch);
+                Capacite capacite=ch.ChoisirAction();
+                capacite.AppliqueEffet(personnage, maladie);
             }
             TourSuivant();
             if (maladie.getSante()<0){
@@ -45,6 +56,9 @@ public class Combat {
                 joueurVainqueur=false;
             }
         }
+    }
+    public boolean getJoueurVainqueur(){
+        return joueurVainqueur;
     }
     
     
