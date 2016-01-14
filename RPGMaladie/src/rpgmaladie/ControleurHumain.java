@@ -43,26 +43,26 @@ public class ControleurHumain extends Controleur {
         }
     }
     
-    public void ChoisirAction(){
+    public Capacite ChoisirAction(){
         System.out.println("Quelle action voulez vous réaliser pour ce tour? ");
-        perso.ExplicationActionsFemme(perso.getNiveau());
+        perso.ExplicationActions();
         Scanner sc = new Scanner(System.in);
         String choix = sc.nextLine();
         System.out.println("Indiquez votre choix(entre 1 et 5), si vous vous trompez vous realiserez la meme attaque qu'au tour précédent.");
-        if (choix=="1"){
-            prochaineAttaque=perso.getCapacite1();
+        if (choix.equals("1")){
+            return perso.getCapacite1();
         }
-        if (choix=="2"){
-            prochaineAttaque=perso.getCapacite2();
+        if (choix.equals("2")){
+            return perso.getCapacite2();
         }
-        if (choix=="3"){
-            prochaineAttaque=perso.getCapacite3();
+        if (choix.equals("3")){
+            return perso.getCapacite3();
         }
-        if (choix=="4"){
-            prochaineAttaque=perso.getCapacite4();
+        if (choix.equals("4")){
+            return perso.getCapacite4();
         }
         else {
-            prochaineAttaque=perso.getCorpsACorps();
+            return perso.getCorpsACorps();
         } 
  
         

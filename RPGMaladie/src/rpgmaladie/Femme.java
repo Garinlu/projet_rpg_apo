@@ -39,7 +39,15 @@ public class Femme extends Personnage {
         Soin capacite4= new Soin(nomSoin2, new Effet(caracSoin2,valSoin2),probaSoin2);
         
     }
- 
+    public void ExplicationActions(int niveau){
+       System.out.println("Petit rappel de vos attaques");
+       System.out.println("1.Coup bas fort(réussite 90%): Potentiel de dégats:"+ (-5*niveau));
+       System.out.println("2.Esquive(réussite 40%): Esquive tous les degats");
+       System.out.println("3.Recette de grand mere(réussite 80%): Potentiel de soin de:"+ (+5*niveau));
+       System.out.println("4.Chimiothérapie(réussite 50%): Potentiel de soin de:"+ (-10*niveau));
+       System.out.println("5.Attaque au corps a corps: Potentiel de dégats:"+ (armeEquipee.getDegat()+caracs.get(Caracteristique.FORCE))+" avec une reussite de:"+armeEquipee.getProba()+"%");
+
+    }
 
 
 }

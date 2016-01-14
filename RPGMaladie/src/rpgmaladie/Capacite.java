@@ -23,7 +23,7 @@ public abstract class Capacite {//la y'a du boulot, il va falloir generer l'appl
     }
     
 
-    public void AppliqueEffet(Capacite capacite){//uniquement pour attaque et soin, parade etant un cas a part
+    public void AppliqueEffet(Capacite capacite,Personnage perso, Maladie maladie){//uniquement pour attaque et soin, parade etant un cas a part
         if (capacite instanceof Attaque){
             
             

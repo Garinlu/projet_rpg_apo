@@ -13,7 +13,7 @@ public abstract class Personnage {
     
 	private final String nomPersonnage;
 	protected Map<Caracteristique, Integer> caracs;
-	private int niveau=1;
+	protected int niveau=1;
 	private final int poidsMax;
 	private int SanteMax;
 	private List<Item> inventaire=null;
@@ -205,22 +205,10 @@ public abstract class Personnage {
         public int getNiveau(){
             return niveau;
         }
-        
-        public void ExplicationActionsFemme(int niveau){
-            System.out.println("Petit rappel de vos attaques");
-            System.out.println("1.Coup bas fort(réussite 90%): Potentiel de dégats:"+ (-5*niveau));
-            System.out.println("2.Esquive(réussite 40%): Esquive tous les degats");
-            System.out.println("3.Recette de grand mere(réussite 80%): Potentiel de soin de:"+ (+5*niveau));
-            System.out.println("4.Chimiothérapie(réussite 50%): Potentiel de soin de:"+ (-10*niveau));
-            System.out.println("5.Attaque au corps a corps: Potentiel de dégats:"+ (armeEquipee.getDegat()+caracs.get(Caracteristique.FORCE))+" avec une reussite de:"+armeEquipee.getProba()+"%");
-        
-        }
-        
-        public void ExplicationActionsHomme(int niveau){
-            //A faire avec cette fois a,b,c,d,e au lieu de 1,2,3,4,5
-            
+        public void ExplicationActions(){
             
         }
+        
         public Capacite getCapacite1(){
             return capacite1;
         }
