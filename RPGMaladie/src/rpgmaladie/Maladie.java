@@ -1,14 +1,16 @@
 package rpgmaladie;
 
-public class Maladie{
+public class Maladie {
 
-    //Maladie n'est pas un héritage du controleur, enfin je pense, et dans ce cas ya plus d'errreur^^
+    //je comprend pas trop l'erreur dans le constructeur y'a besoin d'un oeil neuf mon Garin!
+    //sinon j'ai ajouter estMute et les gets et sets qui vont avec.Plus initCarac() en fonction du niveau
+    //+ tout les gets des caracs.
     
 	private final String nomMaladie;
 	private int sante;
         private int defense;
         private final int niveau;//de 1 a 10-> augmente la puissance des attaques
-        //on ajoute des probabilités pour determiner quelle attaque a le plus de chance d'etre realisée.
+        //on ajoute des probabilitÃ©s pour determiner quelle attaque a le plus de chance d'etre realisÃ©e.
         private final int probaGM=45;//GrosseMigraine
         private final int probaFT=25;
         private final int probaCG=10;
@@ -16,10 +18,10 @@ public class Maladie{
         private boolean estMute=false;
         
 
-        public Maladie(String nom, int niveau){
+    public Maladie(String nom, int niveau){
             this.nomMaladie=nom;
             this.niveau=niveau;
-        }
+      }
         
         public void setMute(boolean b){
             estMute=b;
