@@ -22,27 +22,27 @@ public class Maladie {
             this.nomMaladie=nom;
             this.niveau=niveau;
             this.sante=10;
-            this.defense=10;
+            this.defense=0;
       }
         
         public void setMute(boolean b){
-            estMute=b;
+            this.estMute=b;
         }
         public boolean getEstMute(){
-            return estMute;
+            return this.estMute;
         }
         
         public void initCarac(int niveau){
-            sante=50+niveau*15;
-            defense=niveau*15;
+            this.sante=5+niveau*5;
+            this.defense=0;
         }
         
         
         
 
 	public void GrosseMigraine (Personnage cible) {
-            Effet effetDegat= new Effet(Caracteristique.SANTE,(-6)*niveau);
-            Effet effetSymptome= new Effet(Caracteristique.DEXTERITE,(-1)*niveau);
+            Effet effetDegat= new Effet(Caracteristique.SANTE,(-6)*this.niveau);
+            Effet effetSymptome= new Effet(Caracteristique.DEXTERITE,(-1)*this.niveau);
             cible.appliqueEffet(effetDegat);
             cible.appliqueEffet(effetSymptome);
             System.out.println("");
@@ -53,10 +53,10 @@ public class Maladie {
 	}
 
 	public void FievreTerrible (Personnage cible) {
-            Effet effetDegat= new Effet(Caracteristique.SANTE,(-7)*niveau);
-            Effet effetSymptome1= new Effet(Caracteristique.DEXTERITE,(-2)*niveau);
-            Effet effetSymptome2= new Effet(Caracteristique.DEFENSE,(-1)*niveau);
-            Effet effetSymptome3= new Effet(Caracteristique.FORCE,(-1)*niveau);
+            Effet effetDegat= new Effet(Caracteristique.SANTE,(-7)*this.niveau);
+            Effet effetSymptome1= new Effet(Caracteristique.DEXTERITE,(-2)*this.niveau);
+            Effet effetSymptome2= new Effet(Caracteristique.DEFENSE,(-1)*this.niveau);
+            Effet effetSymptome3= new Effet(Caracteristique.FORCE,(-1)*this.niveau);
             cible.appliqueEffet(effetDegat);
             cible.appliqueEffet(effetSymptome1);
             cible.appliqueEffet(effetSymptome2);
@@ -71,8 +71,8 @@ public class Maladie {
 	}
 
 	public void CoupdeGrace (Personnage cible) {
-            Effet effetDegat= new Effet(Caracteristique.SANTE,(-10)*niveau);
-            Effet effetSymptome= new Effet(Caracteristique.DEFENSE,(-2)*niveau);
+            Effet effetDegat= new Effet(Caracteristique.SANTE,(-10)*this.niveau);
+            Effet effetSymptome= new Effet(Caracteristique.DEFENSE,(-1)*this.niveau);
             cible.appliqueEffet(effetDegat);
             cible.appliqueEffet(effetSymptome);
             System.out.println("");
@@ -83,10 +83,10 @@ public class Maladie {
 	}
 
 	public void MauxdeVentre (Personnage cible){
-            Effet effetDegat= new Effet(Caracteristique.SANTE,(-8)*niveau);
-            Effet effetSymptome1= new Effet(Caracteristique.DEXTERITE,(-1)*niveau);
-            Effet effetSymptome2= new Effet(Caracteristique.DEFENSE,(-1)*niveau);
-            Effet effetSymptome3= new Effet(Caracteristique.FORCE,(-2)*niveau);
+            Effet effetDegat= new Effet(Caracteristique.SANTE,(-8)*this.niveau);
+            Effet effetSymptome1= new Effet(Caracteristique.DEXTERITE,(-1)*this.niveau);
+            Effet effetSymptome2= new Effet(Caracteristique.DEFENSE,(-1)*this.niveau);
+            Effet effetSymptome3= new Effet(Caracteristique.FORCE,(-2)*this.niveau);
             cible.appliqueEffet(effetDegat);
             cible.appliqueEffet(effetSymptome1);
             cible.appliqueEffet(effetSymptome2);
@@ -101,28 +101,29 @@ public class Maladie {
 
 	}
         public void AppliqueEffet(Effet effet){
-            sante=sante - (effet.getValeur()-defense);
-            
+            int valeurFinale=effet.getValeur() + this.defense;
+            this.sante=this.sante + valeurFinale;
+            System.out.println("Maladie perd "+valeurFinale+" points de vie.");
         }
         
         public int getSante(){
-            return sante;
+            return this.sante;
         }
         
         public int getDefense(){
-            return defense;
+            return this.defense;
         }
         public int getProbaGM(){
-            return probaGM;
+            return this.probaGM;
         }
         public int getProbaFT(){
-            return probaFT;
+            return this.probaFT;
         }
         public int getProbaCG(){
-            return probaCG;
+            return this.probaCG;
         }
         public int getProbaMV(){
-            return probaMV;
+            return this.probaMV;
         }
         public String getNomMaladie(){
             return this.nomMaladie;

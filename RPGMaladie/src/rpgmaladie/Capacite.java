@@ -23,6 +23,7 @@ public abstract class Capacite {//la y'a du boulot, il va falloir generer l'appl
     }
     public void AppliqueEffet(Personnage perso, Maladie maladie){
         //Définition dans les filles
+        
     }
 
 }

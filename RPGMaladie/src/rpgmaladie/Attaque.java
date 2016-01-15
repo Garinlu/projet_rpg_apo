@@ -8,7 +8,7 @@ public class Attaque extends Capacite {//pas de changement
     }
     
     public Effet effet(Personnage src, Maladie maladie){
-        int newValeurAttaque = effet.getValeur() + src.getForce() - maladie.getDefense();
+        int newValeurAttaque = effet.getValeur() - src.getForce() + maladie.getDefense();
         return (new Effet(Caracteristique.SANTE,newValeurAttaque));
     }
           
@@ -21,6 +21,7 @@ public class Attaque extends Capacite {//pas de changement
     }
     
     public void AppliqueEffet(Personnage perso, Maladie maladie){//Application de l'attaque si la proba de réussite est bonne
+        super.AppliqueEffet(perso, maladie);
         Effet effetFinal = effet(perso,maladie);
         if(probaReussite(perso)){
             maladie.AppliqueEffet(effetFinal);

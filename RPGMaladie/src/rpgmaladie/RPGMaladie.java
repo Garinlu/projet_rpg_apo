@@ -23,8 +23,8 @@ public class RPGMaladie {
     
     public static void main(String[] args){
         System.out.println("Veuillez choisir un personnage,");
-        System.out.println("vous avez le choix entre Homme et Femme, ils ont des caracté");
-        System.out.println("ristiques différentes mais un niveau a peu près équivalent!");
+        System.out.println("vous avez le choix entre Homme et Femme, ils ont des caractéristiques");
+        System.out.println("différentes mais un niveau a peu près équivalent!");
         System.out.println("Tapez 1 pour Femme et 2 pour Homme.");
         Scanner sc = new Scanner(System.in);
         String classePerso = sc.nextLine();
@@ -32,29 +32,26 @@ public class RPGMaladie {
         String nomPerso = sc.nextLine();
         //je ne comprend pas pourquoi sa ne rentre pas dans la boucle
         if(classePerso.equals("1")){// caracs a modifier!!
-            System.out.println("Vous avez choisi d'etre une femme");//test
             Map<Caracteristique,Integer> caracs = new HashMap<Caracteristique,Integer>() {{
             put(Caracteristique.FORCE, 10);
-            put(Caracteristique.DEFENSE,10);
-            put(Caracteristique.SANTE,10);
+            put(Caracteristique.DEFENSE,5);
+            put(Caracteristique.SANTE,100);
             put(Caracteristique.DEXTERITE,10);
             }};
             Femme personnage= new Femme(nomPerso,caracs,10);
-    
+            System.out.println(personnage.getNomPersonnage()+", vous avez choisi d'etre une femme");
             Event event = new Event(personnage);
             event.demarrerPartie(); 
         }    
         else if (classePerso.equals("2")){
-            System.out.println("Vous avez choisi d'etre un homme");
             Map<Caracteristique,Integer> caracs = new HashMap<Caracteristique,Integer>() {{
             put(Caracteristique.FORCE, 10);
-            put(Caracteristique.DEFENSE,10);
-            put(Caracteristique.SANTE,10);
+            put(Caracteristique.DEFENSE,5);
+            put(Caracteristique.SANTE,100);
             put(Caracteristique.DEXTERITE,10);
             }};
             Homme personnage= new Homme(nomPerso,caracs,15);
-            personnage.afficheNiveau();
-            personnage.afficheNomPerso();
+            System.out.println(personnage.getNomPersonnage()+", vous avez choisi d'etre un homme");
             Event event = new Event(personnage);
             event.demarrerPartie();
         }
