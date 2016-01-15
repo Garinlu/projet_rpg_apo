@@ -38,11 +38,11 @@ public class Femme extends Personnage {
         
     }
     public void ExplicationActions(){
-       System.out.println("Petit rappel de vos attaques");
-       System.out.println("1.Coup bas fort(réussite 90%): Potentiel de dégats:"+ (-10*niveau));
-       System.out.println("2.Recette de grand mere(réussite 80%): Potentiel de soin de:"+ (+5*niveau));
-       System.out.println("3.Chimiothérapie(réussite 50%): Potentiel de soin de:"+ (10*niveau));
-       System.out.println("4.Attaque au corps a corps: Potentiel de dégats:"+ (armeEquipee.getDegat()+caracs.get(Caracteristique.FORCE))+" avec une reussite de:"+armeEquipee.getProba()+"%");
+        System.out.println("Petit rappel de vos attaques");
+        System.out.println("1 : "+capacite1.getNom()+" (dégats = "+capacite1.getValeur()+" ; Probabilité = "+capacite1.getProba()+"%)");
+        System.out.println("2 : "+capacite2.getNom()+" (soins = "+capacite2.getValeur()+" ; Probabilité = "+capacite2.getProba()+"%)");
+        System.out.println("3 : "+capacite3.getNom()+" (dégats = "+capacite3.getValeur()+" ; Probabilité = "+capacite3.getProba()+"%)");
+        System.out.println("4 : Attaque au corps a corps (dégats = "+(armeEquipee.getDegat()-caracs.get(Caracteristique.FORCE))+" ; Probabilité = "+armeEquipee.getProba()+"%)");
 
     }
     public Capacite getCapacite1(){
