@@ -25,5 +25,15 @@ public abstract class Capacite {//la y'a du boulot, il va falloir generer l'appl
         //Définition dans les filles
         
     }
-
+    public String getNom(){
+        return this.nomCapacite;
+    }
+    
+    public int getValeur(){
+        return this.effet.getValeur();
+    }
+    
+    public int getProba(){
+        return this.probaReussite;
+    }
 }

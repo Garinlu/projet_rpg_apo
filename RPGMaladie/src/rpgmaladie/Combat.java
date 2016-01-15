@@ -44,6 +44,7 @@ public class Combat {
             if (tour.JoueurEstPremier(personnage)){
                 System.out.println(personnage.getNomPersonnage()+" joue en premier");
                 ch.ChoisirAction().AppliqueEffet(personnage, maladie);
+                System.out.println("");
                 if (maladie.getSante()<0){
                     estFini=true;
                     joueurVainqueur=true;
@@ -56,6 +57,7 @@ public class Combat {
             else{
                 System.out.println(maladie.getNomMaladie()+" joue en premier");
                 ca.genereAttaque(maladie, personnage, ch);
+                System.out.println("");
                 if(personnage.getSante()<0){
                     estFini=true;
                     joueurVainqueur=false;

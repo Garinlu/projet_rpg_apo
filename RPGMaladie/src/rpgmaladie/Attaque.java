@@ -24,6 +24,7 @@ public class Attaque extends Capacite {//pas de changement
         super.AppliqueEffet(perso, maladie);
         Effet effetFinal = effet(perso,maladie);
         if(probaReussite(perso)){
+            System.out.println("Attaque lancée : "+nomCapacite);
             maladie.AppliqueEffet(effetFinal);
         }
         else{
