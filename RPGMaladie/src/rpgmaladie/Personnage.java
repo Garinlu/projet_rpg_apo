@@ -45,13 +45,13 @@ public abstract class Personnage {
 
 	public void appliqueEffetItem(Item i) {
             caracs.put(i.getCaracEffet(),caracs.get(i.getCaracEffet())+i.getValeurEffet());
-            System.out.println("Effet Appliqué: "+i.getValeurEffet()+"dans la caracteristique "+i.getCaracEffet()+".");
+            System.out.println("Effet appliqué : "+i.getValeurEffet()+" dans la caracteristique "+i.getCaracEffet()+".");
 
 	}
 
         public void appliqueEffet(Effet e) {
             caracs.put(e.getCaracteristique(),caracs.get(e.getCaracteristique())+e.getValeur());
-            System.out.println("Effet Appliqué: "+e.getValeur()+"dans la caracteristique "+e.getCaracteristique()+" de la maladie");
+            System.out.println("Effet appliqué : "+e.getValeur()+" dans la caracteristique "+e.getCaracteristique()+".");
 
 	}
         

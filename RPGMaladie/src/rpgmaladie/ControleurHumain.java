@@ -51,7 +51,7 @@ public class ControleurHumain extends Controleur {
         System.out.println("");
         System.out.println("Quelle action voulez vous réaliser pour ce tour? ");
         perso.ExplicationActions();
-        System.out.println("Indiquez votre choix(entre 1 et 5), si vous vous trompez vous realiserez la meme attaque qu'au tour précédent.");
+        System.out.println("Indiquez votre choix(entre 1 et 4), si vous vous trompez vous realiserez la meme attaque qu'au tour précédent.");
         Scanner sc = new Scanner(System.in);
         String choix = sc.nextLine();
         Capacite capacite;
@@ -63,9 +63,6 @@ public class ControleurHumain extends Controleur {
         }
         if (choix.equals("3")){
             return perso.getCapacite3();
-        }
-        if (choix.equals("4")){
-            return perso.getCapacite4();
         }
         else {
             return perso.getCorpsACorps();

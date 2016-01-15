@@ -11,13 +11,8 @@ public class Femme extends Personnage {
     
     private final String nomAttaque="Coup en bas fort";
     private final Caracteristique caracAttaque= Caracteristique.SANTE;
-    private final int valAttaque=-5;
+    private final int valAttaque=-10;
     private final int probaAttaque=90;
-    
-    private final String nomParade="Esquive";
-    private final Caracteristique caracParade= Caracteristique.SANTE;
-    private final int valParade=-1000;//A mieux gerer après dans Tour
-    private final int probaParade=40;
     
     private final String nomSoin1="Recette de grand-mère";
     private final Caracteristique caracSoin1= Caracteristique.SANTE;
@@ -29,24 +24,40 @@ public class Femme extends Personnage {
     private final int valSoin2=10;
     private final int probaSoin2=50;
     
-    
+    private final String nomParade="Esquive";
+    private final Caracteristique caracParade= Caracteristique.SANTE;
+    private final int valParade=-1000;//A mieux gerer après dans Tour
+    private final int probaParade=40;
 
     public Femme(String nom, Map<Caracteristique, Integer> caracs,int pi) {
         super(nom, caracs,pi);
-        Attaque capacite1 = new Attaque(nomAttaque,new Effet(caracAttaque,valAttaque),probaAttaque);
-        Parade capacite2= new Parade(nomParade,new Effet(caracParade,valParade),probaParade);
-        Soin capacite3= new Soin(nomSoin1, new Effet(caracSoin1,valSoin1),probaSoin1);
-        Soin capacite4= new Soin(nomSoin2, new Effet(caracSoin2,valSoin2),probaSoin2);
+        this.capacite1 = new Attaque(nomAttaque,new Effet(caracAttaque,valAttaque),probaAttaque);
+        this.capacite2= new Soin(nomSoin1, new Effet(caracSoin1,valSoin1),probaSoin1);
+        this.capacite3= new Soin(nomSoin2, new Effet(caracSoin2,valSoin2),probaSoin2);
+        this.capacite4= new Parade(nomParade,new Effet(caracParade,valParade),probaParade);
         
     }
     public void ExplicationActions(){
        System.out.println("Petit rappel de vos attaques");
-       System.out.println("1.Coup bas fort(réussite 90%): Potentiel de dégats:"+ (-5*niveau));
-       System.out.println("2.Esquive(réussite 40%): Esquive tous les degats");
-       System.out.println("3.Recette de grand mere(réussite 80%): Potentiel de soin de:"+ (+5*niveau));
-       System.out.println("4.Chimiothérapie(réussite 50%): Potentiel de soin de:"+ (-10*niveau));
-       System.out.println("5.Attaque au corps a corps: Potentiel de dégats:"+ (armeEquipee.getDegat()+caracs.get(Caracteristique.FORCE))+" avec une reussite de:"+armeEquipee.getProba()+"%");
+       System.out.println("1.Coup bas fort(réussite 90%): Potentiel de dégats:"+ (-10*niveau));
+       System.out.println("2.Recette de grand mere(réussite 80%): Potentiel de soin de:"+ (+5*niveau));
+       System.out.println("3.Chimiothérapie(réussite 50%): Potentiel de soin de:"+ (10*niveau));
+       System.out.println("4.Attaque au corps a corps: Potentiel de dégats:"+ (armeEquipee.getDegat()+caracs.get(Caracteristique.FORCE))+" avec une reussite de:"+armeEquipee.getProba()+"%");
 
     }
-
+    public Capacite getCapacite1(){
+        return super.getCapacite1();
+    }
+    public Capacite getCapacite2(){
+        return super.getCapacite2();
+    }
+    public Capacite getCapacite3(){
+        return super.getCapacite3();
+    }
+    public Capacite getCapacite4(){
+        return super.getCapacite4();
+    }
+    public Capacite getCorpsACorps(){
+        return super.getCorpsACorps();
+    }
 }

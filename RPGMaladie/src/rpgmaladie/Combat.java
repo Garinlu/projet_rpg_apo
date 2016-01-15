@@ -17,7 +17,7 @@ public class Combat {
     
     
     public Combat(Personnage personnage, Maladie maladie){
-        numeroTour=1;
+        this.numeroTour=1;
         this.tour=new Tour(numeroTour);
         this.personnage=personnage;
         this.maladie=maladie;
@@ -25,8 +25,8 @@ public class Combat {
     }
     
     public void TourSuivant(){
-        numeroTour++;
-        this.tour=new Tour(numeroTour);
+        this.numeroTour++;
+        this.tour=new Tour(this.numeroTour);
     } 
     
     public void DeroulementCombat(Personnage personnage, Maladie maladie,ControleurHumain ch,ControleurA ca){
@@ -37,29 +37,47 @@ public class Combat {
             System.out.println("Resume de vos caractéristiques :");
             personnage.afficheCaracteristique();
             System.out.println("");
-            System.out.println("Votre adversaire a "+maladie.getSante()+" points de vie");
+            System.out.println("Resume des caractéristiques de la maladie :");
+            System.out.println("santé : "+maladie.getSante());
+            System.out.println("défense : "+maladie.getDefense());
             System.out.println("");
             if (tour.JoueurEstPremier(personnage)){
                 System.out.println(personnage.getNomPersonnage()+" joue en premier");
                 ch.ChoisirAction().AppliqueEffet(personnage, maladie);
-                ca.genereAttaque(maladie, personnage, ch);
+                if (maladie.getSante()<0){
+                    estFini=true;
+                    joueurVainqueur=true;
+                    System.out.println(personnage.getNomPersonnage()+" a gagné le combat contre "+maladie.getNomMaladie());
+                } 
+                else{
+                    ca.genereAttaque(maladie, personnage, ch);
+                }
             }
             else{
                 System.out.println(maladie.getNomMaladie()+" joue en premier");
                 ca.genereAttaque(maladie, personnage, ch);
-                ch.ChoisirAction().AppliqueEffet(personnage, maladie);
+                if(personnage.getSante()<0){
+                    estFini=true;
+                    joueurVainqueur=false;
+                    System.out.println(maladie.getNomMaladie()+" a gagné le combat contre "+personnage.getNomPersonnage());
+                }
+                else{
+                    ch.ChoisirAction().AppliqueEffet(personnage, maladie);
+                }
+            }
+            if(estFini=false){
+                if (maladie.getSante()<0){
+                    estFini=true;
+                    joueurVainqueur=true;
+                    System.out.println(personnage.getNomPersonnage()+" a gagné le combat contre "+maladie.getNomMaladie());
+                } 
+                else if(personnage.getSante()<0){
+                    estFini=true;
+                    joueurVainqueur=false;
+                    System.out.println(maladie.getNomMaladie()+" a gagné le combat contre "+personnage.getNomPersonnage());
+                }
             }
             TourSuivant();
-            if (maladie.getSante()<0){
-                estFini=true;
-                joueurVainqueur=true;
-                System.out.println(personnage.getNomPersonnage()+" a gagné le combat contre "+maladie.getNomMaladie());
-            } 
-            if(personnage.getSante()<0){
-                estFini=true;
-                joueurVainqueur=false;
-                System.out.println(maladie.getNomMaladie()+" a gagné le combat contre "+personnage.getNomPersonnage());
-            }
         }
     }
     public boolean getJoueurVainqueur(){

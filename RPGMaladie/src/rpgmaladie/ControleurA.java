@@ -38,10 +38,11 @@ public class ControleurA extends Controleur {
             System.out.println("Le virus a muté..toutes vos actions seront innoffenssives tant que");
             System.out.println("vous n'aurez pas trouver la nouvelle forme du virus...Vous avez donc");
             System.out.println("besoin d'un spécialiste!");
-            controleurHumain.PayementObligatoire(niveau*100,maladie);
-            
-                    
-            
+            controleurHumain.PayementObligatoire(niveau*100,maladie);  
+        }
+        else
+        {
+            maladie.GrosseMigraine(cible);
         }
     }
     
