@@ -1,6 +1,8 @@
 
 package rpgmaladie;
 
+import java.util.Scanner;
+
 public class Combat {
 
 // la j'ai ajouter le booleen est fini pour savoir si le combat est fini.     
@@ -59,24 +61,33 @@ public class Combat {
                 ca.genereAttaque(maladie, personnage, ch);
                 System.out.println("");
                 if(personnage.getSante()<0){
-                    estFini=true;
-                    joueurVainqueur=false;
+                    this.estFini=true;
+                    this.joueurVainqueur=false;
                     System.out.println(maladie.getNomMaladie()+" a gagné le combat contre "+personnage.getNomPersonnage());
                 }
                 else{
                     ch.ChoisirAction().AppliqueEffet(personnage, maladie);
                 }
             }
-            if(estFini=false){
+            if(estFini==false){
                 if (maladie.getSante()<0){
-                    estFini=true;
-                    joueurVainqueur=true;
+                    this.estFini=true;
+                    this.joueurVainqueur=true;
                     System.out.println(personnage.getNomPersonnage()+" a gagné le combat contre "+maladie.getNomMaladie());
                 } 
                 else if(personnage.getSante()<0){
-                    estFini=true;
-                    joueurVainqueur=false;
+                    this.estFini=true;
+                    this.joueurVainqueur=false;
                     System.out.println(maladie.getNomMaladie()+" a gagné le combat contre "+personnage.getNomPersonnage());
+                }
+                else{
+                    System.out.println("");
+                    System.out.println("");
+                    System.out.println("Appuyer sur ENTRER pour passer au tour suivant");
+                    Scanner sc = new Scanner(System.in);
+                    String choix = sc.nextLine();
+                    System.out.println("");
+                    System.out.println("");
                 }
             }
             TourSuivant();
