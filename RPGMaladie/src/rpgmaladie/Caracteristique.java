@@ -3,10 +3,10 @@ package rpgmaladie;
 
 //pas de changement
 public enum Caracteristique {
-	FORCE("force"),
-	DEXTERITE("dextérité"),
-	SANTE("santé"),
-	DEFENSE("défense");
+	FORCE("Force"),
+	DEXTERITE("Dextérité"),
+	SANTE("Santé"),
+	DEFENSE("Défense");
         
         private String nom;
         

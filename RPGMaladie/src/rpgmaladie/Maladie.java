@@ -91,6 +91,7 @@ public class Maladie {
         public void AppliqueEffet(Effet effet){
             int valeurFinale=effet.getValeur() + this.defense;
             this.sante=this.sante + valeurFinale;
+            if (this.sante<0)this.sante=0;
             System.out.println("Maladie perd "+-valeurFinale+" points de vie.");
         }
         

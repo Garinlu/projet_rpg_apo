@@ -48,7 +48,7 @@ public class Combat {
                 System.out.println(personnage.getNomPersonnage()+" joue en premier");
                 ch.ChoisirAction().AppliqueEffet(personnage, maladie);
                 System.out.println("");
-                if (maladie.getSante()<0){
+                if (maladie.getSante()<=0){
                     personnageVainqueur();
                 } 
                 else{
@@ -59,7 +59,7 @@ public class Combat {
                 System.out.println(maladie.getNomMaladie()+" joue en premier");
                 ca.genereAttaque(maladie, personnage, ch);
                 System.out.println("");
-                if(personnage.getSante()<0){
+                if(personnage.getSante()<=0){
                     maladieVainqueur();
                 }
                 else{
@@ -67,10 +67,10 @@ public class Combat {
                 }
             }
             if(estFini==false){
-                if (maladie.getSante()<0){
+                if (maladie.getSante()<=0){
                     personnageVainqueur();
                 } 
-                else if(personnage.getSante()<0){
+                else if(personnage.getSante()<=0){
                     maladieVainqueur();
                 }
             }

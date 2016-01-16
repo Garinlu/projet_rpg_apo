@@ -8,7 +8,7 @@ public class Soin extends Capacite {
             super(nom,effet,proba);
         }
         
-        public void AppliqueEffet(Personnage perso, Maladie maladie){//Application de l'effet de la capacité
+        public void AppliqueEffet(Personnage perso){//Application de l'effet de la capacité
             perso.appliqueEffet(effet);
         }
 

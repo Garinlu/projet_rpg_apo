@@ -38,6 +38,8 @@ public abstract class Item {
         public int getPoids(){
             return poids;
         }
-        
+        public Effet getEffet(){
+            return this.effet;
+        }
 
 }

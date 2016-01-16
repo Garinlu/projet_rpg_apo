@@ -50,18 +50,25 @@ public abstract class Personnage {
             
             //if(e.getCaracteristique()==Caracteristique.SANTE){
               //  caracs.put(e.getCaracteristique(),this.santeMax);
-            caracs.put(i.getCaracEffet(),caracs.get(i.getCaracEffet())+i.getValeurEffet());
-            System.out.println("Effet appliqué : "+i.getValeurEffet()+" dans la caracteristique "+i.getCaracEffet()+".");
-
+            if(verifierCaracteristique(i.getEffet())){
+                caracs.put(i.getCaracEffet(),caracs.get(i.getCaracEffet())+i.getValeurEffet());
+                System.out.println("Effet appliqué : "+i.getValeurEffet()+" dans la caracteristique "+i.getCaracEffet()+".");
+            }
+            else{
+                caracs.put(i.getCaracEffet(),0);
+                System.out.println("Effet appliqué : "+i.getValeurEffet()+" dans la caracteristique "+i.getCaracEffet()+".");
+            }
 	}
 
         public void appliqueEffet(Effet e) {
-
-
-            caracs.put(e.getCaracteristique(),caracs.get(e.getCaracteristique())+e.getValeur());
-
-            System.out.println("Effet appliqué : "+e.getValeur()+" dans la caracteristique "+e.getCaracteristique()+".");
-
+            if(verifierCaracteristique(e)){
+                caracs.put(e.getCaracteristique(),caracs.get(e.getCaracteristique())+e.getValeur());
+                System.out.println("Effet appliqué : "+e.getValeur()+" dans la caracteristique "+e.getCaracteristique()+".");
+            }
+            else{
+                caracs.put(e.getCaracteristique(),0);
+                System.out.println("Effet appliqué : "+e.getValeur()+" dans la caracteristique "+e.getCaracteristique()+".");
+            }
 	}
         
         public boolean EstDansInventaire(Item i){
@@ -142,9 +149,9 @@ public abstract class Personnage {
             caracs.put(Caracteristique.DEXTERITE, caracs.get(Caracteristique.DEXTERITE)+1);
 	}
         
-	public void verifierCaracteristique() {
+	public boolean verifierCaracteristique(Effet effet) {
+            return (caracs.get(effet.getCaracteristique())+effet.getValeur() >= 0);
         }
-        
 
             
 	public void initCapacite() {
