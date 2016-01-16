@@ -22,6 +22,7 @@ public class RPGMaladie {
     // Après pas mal de recherche bien casse burne j'ai l'impression que ça fonctionne 
     
     public static void main(String[] args){
+        System.out.println("Bonjour, bienvenue sur notre jeu.");
         System.out.println("Veuillez choisir un personnage,");
         System.out.println("vous avez le choix entre Homme et Femme, ils ont des caractéristiques");
         System.out.println("différentes mais un niveau a peu près équivalent!");

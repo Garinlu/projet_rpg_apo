@@ -37,7 +37,10 @@ public class Maladie {
             this.defense=0+niveau;
         }
         
-        
+        public void afficheCaracteristique(){
+            System.out.println("Santé : "+getSante());
+            System.out.println("Défense : "+getDefense());
+        }
         
 
 	public void GrosseMigraine (Personnage cible) {
