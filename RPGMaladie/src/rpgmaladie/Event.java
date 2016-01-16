@@ -87,11 +87,12 @@ public class Event {
                 System.out.println("Vous gagnez "+(100+10*personnage.getNiveau())+" euros.");//gain en fonction du niveau
                 System.out.println("Voulez vous les garder ou les investir dans Sidaction?");
                 if(controleurHumain.investir()){
-                    sommeInvestie=sommeInvestie+(100+10*personnage.getNiveau());
+                    this.sommeInvestie=this.sommeInvestie+(100+10*personnage.getNiveau());
+                    System.out.println("Vous avez investi"+(100+10*personnage.getNiveau())+"€ dans la recherche.");
                 }
                 else{
                      personnage.setBourse(100+10*personnage.getNiveau());//ajout du gain a la bourse
-                    
+                    System.out.println("Vous avez récupéré"+(100+10*personnage.getNiveau())+"€ dans votre bourse.");
                 }
                 personnage.incrementNiveau();
                // personnage.setDefense(personnage.getDefense()+1);

@@ -36,10 +36,10 @@ public abstract class Personnage {
             this.corpsACorps= new Attaque("Attaque au corps a corps",new Effet(Caracteristique.SANTE,armeEquipee.getDegat()),armeEquipee.getProba());
         }
         public void setBourse(int b){
-            bourse=bourse+b;
+            this.bourse=this.bourse+b;
         }
         public int getBourse(){
-            return bourse;
+            return this.bourse;
         }
         
 
