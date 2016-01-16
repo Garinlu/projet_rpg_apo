@@ -48,25 +48,25 @@ public class Event {
                 if(alea>50){
                     System.out.println("Vous avez de la chance, vous venez de trouver une arme!");
                     
-                    if(alea<61){//Carac de l'arme généré aléatoirement
+                    if(alea<65){//Carac de l'arme généré aléatoirement
                         Caracteristique carac=Caracteristique.FORCE;
                     }
-                    else if(alea>60 && alea<71){
+                    else if(alea>64 && alea<83){
                         Caracteristique carac=Caracteristique.DEFENSE;
                     }
-                    else if(alea>70 && alea<81){
+                    else if(alea>82){
                         Caracteristique carac=Caracteristique.DEXTERITE;
                     }
-                    else if(alea>80){
-                        Caracteristique carac=Caracteristique.SANTE;
-                    }
+
                     
-                    Arme arme =new Arme(generate(3), personnage.getNiveau(), carac, personnage.getNiveau(),personnage.getNiveau()*2, 100-alea,alea,personnage.getNiveau()*alea);
+                    Arme arme =new Arme(generate(3),5, carac, personnage.getNiveau(),personnage.getNiveau()*2, 100-alea,alea,personnage.getNiveau()*alea);
                     //A completer! La decrire et verifier si le poids correspond! L'equiper?
+                    personnage.equipeArme(arme);
+                    
                     
  
                 }
-                else if(alea%2==0){//on peut tomber 1 fois sur 2 un medicament.
+                else if(alea%3>0){//on peut tomber 1 fois sur 2 un medicament.
                     System.out.println("Vous avez de la chance, vous venez de trouver un medicament!");
                     if(alea<34){//Carac de l'arme généré aléatoirement
                         Caracteristique carac=Caracteristique.FORCE;
@@ -77,10 +77,16 @@ public class Event {
                     else if(alea>66 && alea<76){
                         Caracteristique carac=Caracteristique.DEXTERITE;
                     }
+                    
+
 
                     Medicament medicament= new Medicament(generate(3),1,Caracteristique.SANTE, personnage.getNiveau()+(alea%10),carac, -(personnage.getNiveau()+(alea%4)),personnage.getNiveau()*alea);
-                    
+                    personnage.AjouteInventaire(medicament);
+                    personnage.prendMedicament(medicament);
+             
+                        
                 }
+
                 
 
                
@@ -97,18 +103,31 @@ public class Event {
                 System.out.println("Votre bourse : "+personnage.getBourse()+"€");
                 System.out.println("Vous avez investi "+this.sommeInvestie+"€ depuis le début.");
                 personnage.incrementNiveau();
-               // personnage.setDefense(personnage.getDefense()+1);
-               // personnage.setSante(personnage.getSante()+3);
-               // personnage.setForce(personnage.getForce()+1);
-               // personnage.setDexterite(personnage.getDexterite()+1);
+                personnage.setDefense(personnage.getDefense()+1);
+                personnage.setSante(personnage.getSante()+3);
+                personnage.setForce(personnage.getForce()+1);
+                personnage.setDexterite(personnage.getDexterite()+1);
+                personnage.setSanteMax(personnage.getSanteMax()+1);
                 System.out.println("Chacun de vos attributs augmentent de +1 car vous gagnez de l'experience:");
                 personnage.afficheCaracteristique();
                 System.out.println("Voici votre inventaire:");
                 personnage.afficheInventaire();
+               
+                
 
                 
             }
-            
+            else{
+                System.out.println("Le SIDA a finalement eu raison de vous comme plus de 40 millions de personnes depuis 1981...");
+                System.out.println("Game over.");
+                jeuFini=true;
+            }
+            if(sommeInvestie>=sommeNecessaire){
+                System.out.println("Votre investissement dans la recherche contre le Sida, avec celui de millions de personnes, ");
+                System.out.println("a permis aux chercheurs de trouver un medicament miracle!");
+                System.out.println("Vous etes maintenant sorti d'affaire, bravo! Vous avez gagnez!");
+                jeuFini=true;
+            }
         }
         
     }

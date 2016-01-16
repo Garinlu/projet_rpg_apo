@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class ControleurHumain extends Controleur {
     private Personnage perso;
     private Capacite prochaineAttaque;
-    
+    private boolean mutationFatale=false;
     //On appelera cette classe pour tout les scanner normalement. j'ai fait la classe payer(prix) qui se charge
     //juste de verifier et de mettre a jour la bourse (l'ajout a l'inventaire sera gerer dans Event). PayementObligatoire()
     //c'est pour le cas de la mutation. et puis choisir action permet de demander au joueur la prochaine action( en modifiant
@@ -15,10 +15,28 @@ public class ControleurHumain extends Controleur {
     
     public ControleurHumain(Personnage perso){
         this.perso=perso;
+        
     }
     
    
-    
+    public void jetezUnItem(Item item){
+        System.out.println("Votre inventaire est deja plein, voulez vous jetez un item pour recuperer celui la? '1 pour oui et 2 pour non)");
+        Scanner sc = new Scanner(System.in);
+        String choix = sc.nextLine();
+        if (choix.equals("1")){
+            perso.afficheInventaire();
+            System.out.println("Quel objet souhaitez-vous abandonner?");
+            Scanner s = new Scanner(System.in);
+            String c = sc.nextLine();
+            int i=Integer.parseInt(c);
+            
+        }
+        if (choix.equals("2")){
+            System.out.println("Vous laissez cet item par terre.");
+
+        }
+        
+    }
     
     public void Payer(int prix){
         System.out.println("Vous souhaitez acheter cet item, la banque controle si vous avez les fonds necessaires");
@@ -43,7 +61,13 @@ public class ControleurHumain extends Controleur {
         }
         else{
             System.out.println("Vous n'avez pas les fonds pour cet objet, désolé");
+            mutationFatale=true;
+            
         }
+    }
+    
+    public boolean getMutationFatale(){
+        return mutationFatale;
     }
     
     public Capacite ChoisirAction(){
@@ -81,4 +105,7 @@ public class ControleurHumain extends Controleur {
         String choix = sc.nextLine();
         return choix.equals("1");
     }
+    
+    
+
 }

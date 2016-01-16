@@ -74,6 +74,11 @@ public class Combat {
                     maladieVainqueur();
                 }
             }
+            
+            if(ch.getMutationFatale()==true){//cas de la mutation
+                this.estFini=true;
+                this.joueurVainqueur=false;
+            }
         }
     }
     

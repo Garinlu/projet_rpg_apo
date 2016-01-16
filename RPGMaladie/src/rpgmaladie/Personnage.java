@@ -16,7 +16,6 @@ public abstract class Personnage {
 	protected Map<Caracteristique, Integer> caracs;
 	protected int niveau=1;
 	private final int poidsMax;
-	private int SanteMax;
 	private List<Item> inventaire;
         protected Arme armeEquipee;
         private int poidsInventaire=0;
@@ -26,10 +25,10 @@ public abstract class Personnage {
         protected Capacite capacite2;
         protected Capacite capacite3;
         protected Capacite capacite4;
+        protected int santeMax=100;
    
         
         public Personnage(String nom, Map<Caracteristique, Integer> caracs, int p){
-            this.SanteMax=300-(caracs.get(Caracteristique.FORCE)+caracs.get(Caracteristique.SANTE)+caracs.get(Caracteristique.DEXTERITE)+caracs.get(Caracteristique.DEFENSE));
             this.nomPersonnage=nom;
             this.caracs=caracs;
             this.poidsMax=p;
@@ -43,16 +42,24 @@ public abstract class Personnage {
         public int getBourse(){
             return this.bourse;
         }
-        
+        public int getPoidsMax(){
+            return poidsMax;
+        }
 
 	public void appliqueEffetItem(Item i) {
+            
+            //if(e.getCaracteristique()==Caracteristique.SANTE){
+              //  caracs.put(e.getCaracteristique(),this.santeMax);
             caracs.put(i.getCaracEffet(),caracs.get(i.getCaracEffet())+i.getValeurEffet());
             System.out.println("Effet appliqué : "+i.getValeurEffet()+" dans la caracteristique "+i.getCaracEffet()+".");
 
 	}
 
         public void appliqueEffet(Effet e) {
+
+
             caracs.put(e.getCaracteristique(),caracs.get(e.getCaracteristique())+e.getValeur());
+
             System.out.println("Effet appliqué : "+e.getValeur()+" dans la caracteristique "+e.getCaracteristique()+".");
 
 	}
@@ -105,7 +112,6 @@ public abstract class Personnage {
 
 	public void incrementNiveau() {
             niveau++;
-            this.SanteMax=300-(sumCarac()*niveau*3);
             System.out.println("Level up");
             levelUpCaracteristiques();
 	}
@@ -148,6 +154,9 @@ public abstract class Personnage {
         public void setSante(int v){
             caracs.put(Caracteristique.SANTE,v );
         }
+         public void setSanteMax(int v){
+            this.santeMax=v;
+        }
         public void setForce(int v){
             caracs.put(Caracteristique.FORCE,v );
         }
@@ -174,6 +183,12 @@ public abstract class Personnage {
         public int getDefense(){
             return caracs.get(Caracteristique.DEFENSE);
         }
+        
+        public int getSanteMax() {
+            return this.santeMax;
+        
+        }
+        
         public Arme getArmeEquipee(){
             return armeEquipee;
         }
@@ -185,7 +200,9 @@ public abstract class Personnage {
         public void afficheCaracteristique(){
             for(Caracteristique ca : Caracteristique.values()){
                 System.out.println(ca.getNom()+" : "+this.caracs.get(ca));
+                
             }
+            System.out.println("Sante Max="+this.santeMax);
         }
         
         public void afficheNiveau(){
@@ -199,7 +216,7 @@ public abstract class Personnage {
         public void afficheInventaire(){
             if (!inventaire.isEmpty()){
                 for(int i=0; i<inventaire.size(); i++) 
-                    System.out.println(inventaire.get(i));
+                    System.out.println(String.valueOf(i)+"."+inventaire.get(i).getNom());
             }
             else{
                 System.out.println("L'inventaire est vide.");
@@ -225,6 +242,10 @@ public abstract class Personnage {
                 
             }
         }
+        public List<Item> getInventaire(){
+            return inventaire;
+        }
+        
         public int getNiveau(){
             return niveau;
         }
@@ -249,4 +270,5 @@ public abstract class Personnage {
         public String getNomPersonnage(){
             return this.nomPersonnage;
         }
+
 }

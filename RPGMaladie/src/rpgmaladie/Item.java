@@ -15,6 +15,9 @@ public abstract class Item {
             this.prix=prix;
            
 	}
+        public String getNom(){
+            return nom;
+        }
 
 
 	public int getValeurEffet(){
