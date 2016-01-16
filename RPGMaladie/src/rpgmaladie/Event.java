@@ -88,12 +88,14 @@ public class Event {
                 System.out.println("Voulez vous les garder ou les investir dans Sidaction?");
                 if(controleurHumain.investir()){
                     this.sommeInvestie=this.sommeInvestie+(100+10*personnage.getNiveau());
-                    System.out.println("Vous avez investi"+(100+10*personnage.getNiveau())+"€ dans la recherche.");
+                    System.out.println("Vous avez investi "+(100+10*personnage.getNiveau())+"€ dans la recherche.");
                 }
                 else{
                      personnage.setBourse(100+10*personnage.getNiveau());//ajout du gain a la bourse
-                    System.out.println("Vous avez récupéré"+(100+10*personnage.getNiveau())+"€ dans votre bourse.");
+                    System.out.println("Vous avez récupéré "+(100+10*personnage.getNiveau())+"€ dans votre bourse.");
                 }
+                System.out.println("Votre bourse : "+personnage.getBourse()+"€");
+                System.out.println("Vous avez investi "+this.sommeInvestie+"€ depuis le début.");
                 personnage.incrementNiveau();
                // personnage.setDefense(personnage.getDefense()+1);
                // personnage.setSante(personnage.getSante()+3);
@@ -103,11 +105,7 @@ public class Event {
                 personnage.afficheCaracteristique();
                 System.out.println("Voici votre inventaire:");
                 personnage.afficheInventaire();
-                
-                
-                
-                
-                
+
                 
             }
             

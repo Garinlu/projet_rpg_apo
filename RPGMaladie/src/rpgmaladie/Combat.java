@@ -36,6 +36,7 @@ public class Combat {
     
     public void DeroulementCombat(Personnage personnage, Maladie maladie,ControleurHumain ch,ControleurA ca){
         while (estFini==false){
+            nextTour();
             TourSuivant();
             System.out.println("Resume de vos caractéristiques :");
             personnage.afficheCaracteristique();
@@ -71,9 +72,6 @@ public class Combat {
                 } 
                 else if(personnage.getSante()<0){
                     maladieVainqueur();
-                }
-                else{
-                    nextTour();
                 }
             }
         }

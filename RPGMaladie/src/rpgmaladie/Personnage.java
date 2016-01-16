@@ -3,7 +3,8 @@ package rpgmaladie;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
+import java.util.ArrayList;
+import java.util.Arrays;
 public abstract class Personnage {
 
     //ajout de la capacite CorpsAcorps, commune à Femme et a Homme. Du coup j'ai du ajouter 
@@ -16,7 +17,7 @@ public abstract class Personnage {
 	protected int niveau=1;
 	private final int poidsMax;
 	private int SanteMax;
-	private List<Item> inventaire=null;
+	private List<Item> inventaire;
         protected Arme armeEquipee;
         private int poidsInventaire=0;
         private int bourse=0;
@@ -34,6 +35,7 @@ public abstract class Personnage {
             this.poidsMax=p;
             this.armeEquipee=new Arme("Poings",0,Caracteristique.FORCE,0,-5,0,100,100);
             this.corpsACorps= new Attaque("Attaque au corps a corps",new Effet(Caracteristique.SANTE,armeEquipee.getDegat()),armeEquipee.getProba());
+            this.inventaire=new ArrayList<Item>();
         }
         public void setBourse(int b){
             this.bourse=this.bourse+b;
@@ -105,7 +107,7 @@ public abstract class Personnage {
             niveau++;
             this.SanteMax=300-(sumCarac()*niveau*3);
             System.out.println("Level up");
-
+            levelUpCaracteristiques();
 	}
 
 	public int sumCarac() {
@@ -127,6 +129,12 @@ public abstract class Personnage {
             caracs.put(Caracteristique.DEXTERITE,0);
 	}
 
+        public void levelUpCaracteristiques() {
+            caracs.put(Caracteristique.FORCE, caracs.get(Caracteristique.FORCE)+1);
+            caracs.put(Caracteristique.DEFENSE, caracs.get(Caracteristique.DEFENSE)+1);
+            caracs.put(Caracteristique.SANTE, caracs.get(Caracteristique.SANTE)+1);
+            caracs.put(Caracteristique.DEXTERITE, caracs.get(Caracteristique.DEXTERITE)+1);
+	}
         
 	public void verifierCaracteristique() {
         }
