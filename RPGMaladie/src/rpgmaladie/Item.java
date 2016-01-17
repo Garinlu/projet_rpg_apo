@@ -6,13 +6,16 @@ public abstract class Item {
 	protected int poids;
 	protected Effet effet;
         protected int prix;
-      
+        protected Caracteristique caracteristique;
+        protected int valeur;
 
 	public Item(String nom, int poids, Caracteristique caracteristique, int valeur,int prix) {
             this.effet= new Effet(caracteristique,valeur);
             this.poids=poids;
             this.nom=nom;
             this.prix=prix;
+            this.caracteristique=caracteristique;
+            this.valeur=valeur;
            
 	}
         public String getNom(){

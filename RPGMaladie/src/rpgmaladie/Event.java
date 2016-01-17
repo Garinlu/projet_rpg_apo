@@ -13,7 +13,7 @@ public class Event {
     
     private Personnage personnage;
     private int sommeInvestie=0;
-    private static int sommeNecessaire=1000;
+    private static int sommeNecessaire=120;
     private ControleurHumain controleurHumain;
     private boolean jeuFini=false;
     Caracteristique carac=Caracteristique.SANTE;
@@ -45,7 +45,7 @@ public class Event {
             combat.DeroulementCombat(personnage,controleurA.getMaladie(),controleurHumain,controleurA);
             if (combat.getJoueurVainqueur()){
                 int alea=(int)(Math.random()*100);// on peut tomber 1 fois sur 2 sur une arme a la fin du combat
-                if(alea>50){
+                if(alea>10){
                     System.out.println("Vous avez de la chance, vous venez de trouver une arme!");
                     
                     if(alea<65){//Carac de l'arme généré aléatoirement
@@ -59,14 +59,21 @@ public class Event {
                     }
 
                     
-                    Arme arme =new Arme(generate(3),5, carac, personnage.getNiveau(),personnage.getNiveau()*2, 100-alea,alea,personnage.getNiveau()*alea);
+                    Arme arme =new Arme(generate(3),5, carac, personnage.getNiveau(),-personnage.getNiveau()*5, 100-alea,alea,personnage.getNiveau()*alea);
                     //A completer! La decrire et verifier si le poids correspond! L'equiper?
+                    personnage.AjouteInventaire(arme);
+                    System.out.println("Souaitez vous équipé cette arme? Voici ces attributs");
+                    arme.afficheInfosArme();
+                    System.out.println("Pour info, l'arme que vous utiliser en ce moment est celle-ci:");
+                    personnage.getArmeEquipee().afficheInfosArme();
+                    
+                    
                     personnage.equipeArme(arme);
                     
                     
  
                 }
-                else if(alea%3>0){//on peut tomber 1 fois sur 2 un medicament.
+                else if(alea%3>0){//on peut tomber 2 fois sur 3 un medicament.
                     System.out.println("Vous avez de la chance, vous venez de trouver un medicament!");
                     if(alea<34){//Carac de l'arme généré aléatoirement
                         Caracteristique carac=Caracteristique.FORCE;
@@ -80,9 +87,10 @@ public class Event {
                     
 
 
-                    Medicament medicament= new Medicament(generate(3),1,Caracteristique.SANTE, personnage.getNiveau()+(alea%10),carac, -(personnage.getNiveau()+(alea%4)),personnage.getNiveau()*alea);
+                    Medicament medicament= new Medicament(generate(3),1,Caracteristique.SANTE, personnage.getSanteMax()-personnage.getSante(),carac, -(personnage.getNiveau()+(alea%4)),personnage.getNiveau()*alea);
                     personnage.AjouteInventaire(medicament);
-                    personnage.prendMedicament(medicament);
+                    controleurHumain.prendreMedicament(medicament);//question
+                    
              
                         
                 }
@@ -103,11 +111,16 @@ public class Event {
                 System.out.println("Votre bourse : "+personnage.getBourse()+"€");
                 System.out.println("Vous avez investi "+this.sommeInvestie+"€ depuis le début.");
                 personnage.incrementNiveau();
-                personnage.setDefense(personnage.getDefense()+1);
-                personnage.setSante(personnage.getSante()+3);
-                personnage.setForce(personnage.getForce()+1);
-                personnage.setDexterite(personnage.getDexterite()+1);
-                personnage.setSanteMax(personnage.getSanteMax()+1);
+                personnage.setDexteriteMax(personnage.getDexteriteMax()+1);
+                personnage.setDefenseMax(personnage.getDefenseMax()+1);
+                personnage.setForceMax(personnage.getForceMax()+1);
+                personnage.setSanteMax(personnage.getSanteMax()+5);
+                
+                personnage.setDefense(personnage.getDefenseMax());
+                personnage.setSante(personnage.getSanteMax());
+                personnage.setForce(personnage.getForceMax());
+                personnage.setDexterite(personnage.getDexteriteMax());
+                
                 System.out.println("Chacun de vos attributs augmentent de +1 car vous gagnez de l'experience:");
                 personnage.afficheCaracteristique();
                 System.out.println("Voici votre inventaire:");

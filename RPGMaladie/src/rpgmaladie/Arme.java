@@ -17,6 +17,14 @@ public class Arme extends Item {// ajout de la proba de reussite+ les gets.+ je 
 	}
         
         
+        public void afficheInfosArme(){
+            System.out.println("Nom: "+this.nom);
+            System.out.println("Poids: "+this.poids);
+            System.out.println("Bonus: +"+this.valeur+" en "+this.caracteristique.getNom());
+            System.out.println("Degats de base: "+this.degat);
+            System.out.println("Malus possibles...");
+        }
+        
         public int getManiabilite(){
             return this.maniabilite;
         }

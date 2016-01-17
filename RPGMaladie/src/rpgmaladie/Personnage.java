@@ -26,6 +26,9 @@ public abstract class Personnage {
         protected Capacite capacite3;
         protected Capacite capacite4;
         protected int santeMax=100;
+        protected int dexteriteMax=10;
+        protected int forceMax=10;
+        protected int defenseMax=10;
    
         
         public Personnage(String nom, Map<Caracteristique, Integer> caracs, int p){
@@ -84,9 +87,11 @@ public abstract class Personnage {
             if (EstDansInventaire(arme)){
             
                 AjouteInventaire(armeEquipee);
+                System.out.println("Vous rangez l'arme équipée dans votre sac");
                 armeEquipee=arme;
                 RetireInventaire(arme);
-                System.out.println("Arme équipée");
+                System.out.println("Nouvelle arme équipée");
+                
             }
             else{
                 System.out.println("Vous n'avez pas l'arme, n'assayez pas de nous arnaquer");
@@ -276,6 +281,28 @@ public abstract class Personnage {
         }
         public String getNomPersonnage(){
             return this.nomPersonnage;
+        }
+        
+        
+        
+        public int getDexteriteMax(){
+            return this.dexteriteMax;
+        }
+        public int getForceMax(){
+            return this.forceMax;
+        }
+        public int getDefenseMax(){
+            return this.defenseMax;
+        }
+        
+        public void setDefenseMax(int v){
+            this.defenseMax=v;
+        }
+        public void setForceMax(int v){
+            this.forceMax=v;
+        }
+        public void setDexteriteMax(int v){
+            this.dexteriteMax=v;
         }
 
 }

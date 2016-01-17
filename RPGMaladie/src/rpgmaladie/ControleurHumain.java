@@ -106,6 +106,24 @@ public class ControleurHumain extends Controleur {
         return choix.equals("1");
     }
     
+    public void prendreMedicament(Medicament medicament){
+        System.out.println("Voulez vous avaler ce medicament pour remonter votre sante?");
+        System.out.println("Mais attention, il aura peut etre des effets secondaires!(Tapez 1 pour acceptez et 2 pour refuser");
+        Scanner sc = new Scanner(System.in);
+        String choix = sc.nextLine();
+        if (choix.equals("1")){
+            perso.prendMedicament(medicament);
+        }
+
+    }
     
+    public void choisirArme(Arme arme){
+        System.out.println("Tapez 1 pour equipé la nouvelle et autre chose pour la ranger dans votre sac");
+        Scanner sc = new Scanner(System.in);
+        String choix = sc.nextLine();
+        if (choix.equals("1")){
+            perso.equipeArme(arme);
+        }
+    }
 
 }
