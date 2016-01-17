@@ -44,5 +44,12 @@ public abstract class Item {
         public Effet getEffet(){
             return this.effet;
         }
-
+        
+        public void utiliserItem(){
+            //Définition dans les filles
+        }
+        
+        public void afficherItem(int i){
+            //Définition dans les filles
+        }
 }

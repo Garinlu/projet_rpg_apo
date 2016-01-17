@@ -79,8 +79,13 @@ public abstract class Personnage {
         }
 
         public void AjouteInventaire(Item i){
-            inventaire.add(i);
-            poidsInventaire=poidsInventaire + i.getPoids();
+            if(poidsInventaire+i.getPoids()<=this.poidsMax){
+                inventaire.add(i);
+                poidsInventaire=poidsInventaire + i.getPoids();
+            }
+            else{
+                System.out.println("Vous avez pas assez de place dans votre inventaire.");
+            }
   
         }
 	public void equipeArme(Arme arme) {
@@ -90,11 +95,11 @@ public abstract class Personnage {
                 System.out.println("Vous rangez l'arme équipée dans votre sac");
                 armeEquipee=arme;
                 RetireInventaire(arme);
-                System.out.println("Nouvelle arme équipée");
+                System.out.println("Nouvelle arme équipée : "+arme.getNom());
                 
             }
             else{
-                System.out.println("Vous n'avez pas l'arme, n'assayez pas de nous arnaquer");
+                System.out.println("Vous n'avez pas l'arme.");
             }
 	}
         public void RetireInventaire(Item i){
@@ -214,7 +219,8 @@ public abstract class Personnage {
                 System.out.println(ca.getNom()+" : "+this.caracs.get(ca));
                 
             }
-            System.out.println("Sante Max="+this.santeMax);
+            System.out.println("Santé max ="+this.santeMax);
+            System.out.println("Arme équipée = "+this.armeEquipee.getNom());
         }
         
         public void afficheNiveau(){
@@ -228,7 +234,7 @@ public abstract class Personnage {
         public void afficheInventaire(){
             if (!inventaire.isEmpty()){
                 for(int i=0; i<inventaire.size(); i++) 
-                    System.out.println(String.valueOf(i)+"."+inventaire.get(i).getNom());
+                    inventaire.get(i).afficherItem(i);
             }
             else{
                 System.out.println("L'inventaire est vide.");
@@ -304,5 +310,10 @@ public abstract class Personnage {
         public void setDexteriteMax(int v){
             this.dexteriteMax=v;
         }
-
+        public boolean nombreDansInventaire(int i){
+            return (i<inventaire.size() && i>0);
+        }
+        public Item choixDansInventaire(int i){
+            return this.inventaire.get(i);
+        }
 }

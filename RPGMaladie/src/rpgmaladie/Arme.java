@@ -22,7 +22,7 @@ public class Arme extends Item {// ajout de la proba de reussite+ les gets.+ je 
             System.out.println("Poids: "+this.poids);
             System.out.println("Bonus: +"+this.valeur+" en "+this.caracteristique.getNom());
             System.out.println("Degats de base: "+this.degat);
-            System.out.println("Malus possibles...");
+            System.out.println("Malus possibles..");
         }
         
         public int getManiabilite(){
@@ -37,5 +37,12 @@ public class Arme extends Item {// ajout de la proba de reussite+ les gets.+ je 
             return degat;
         }
         
+        public void utiliserItem(Personnage perso){
+            perso.equipeArme(this);
+        }
+        
+        public void afficherItem(int i){
+            System.out.println(i+" : "+this.nom+" (dégat : "+this.degat+" ; maniabilité : "+this.maniabilite+")");
+        }
 
 }

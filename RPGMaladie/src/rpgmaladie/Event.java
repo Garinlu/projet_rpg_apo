@@ -5,6 +5,8 @@
  */
 package rpgmaladie;
 
+import java.util.Scanner;
+
 
 public class Event {
     //le jeu sera lancer grace a demarrerPartie et tout se deroulera a partir de cette methode.
@@ -62,16 +64,10 @@ public class Event {
                     Arme arme =new Arme(generate(3),5, carac, personnage.getNiveau(),-personnage.getNiveau()*5, 100-alea,alea,personnage.getNiveau()*alea);
                     //A completer! La decrire et verifier si le poids correspond! L'equiper?
                     personnage.AjouteInventaire(arme);
-                    System.out.println("Souaitez vous équipé cette arme? Voici ces attributs");
+                    System.out.println("Voici ces attributs :");
                     arme.afficheInfosArme();
                     System.out.println("Pour info, l'arme que vous utiliser en ce moment est celle-ci:");
                     personnage.getArmeEquipee().afficheInfosArme();
-                    
-                    
-                    personnage.equipeArme(arme);
-                    
-                    
- 
                 }
                 else if(alea%3>0){//on peut tomber 2 fois sur 3 un medicament.
                     System.out.println("Vous avez de la chance, vous venez de trouver un medicament!");
@@ -125,7 +121,8 @@ public class Event {
                 personnage.afficheCaracteristique();
                 System.out.println("Voici votre inventaire:");
                 personnage.afficheInventaire();
-               
+                controleurHumain.choixInventaire();
+
                 
 
                 

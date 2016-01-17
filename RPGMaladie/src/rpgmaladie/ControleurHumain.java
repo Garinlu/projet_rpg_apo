@@ -125,5 +125,20 @@ public class ControleurHumain extends Controleur {
             perso.equipeArme(arme);
         }
     }
+    
+    public void choixInventaire(){
+        System.out.println("Voulez vous utilisé ou équipé un item ? Oui : 1 / Non : (tout sauf 1)");
+        Scanner sc = new Scanner(System.in);
+        String choix = sc.nextLine();
+        if(choix.equals("1")){
+            System.out.println("Veuillez entrer le numéro de l'item :");
+            Scanner sc2 = new Scanner(System.in);
+            String choix2 = sc2.nextLine();
+            int itemAEquiper=Integer.parseInt(choix2);
+            if(perso.nombreDansInventaire(itemAEquiper)){
+                perso.choixDansInventaire(itemAEquiper).utiliserItem();
+            }
+        }
+    }
 
 }

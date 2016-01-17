@@ -20,4 +20,11 @@ public class Medicament extends Item {
         public String getCaracEffetNeg(){
             return effetNegatifMedicament.getCaracteristique().getNom();
         }
+        public void utiliserItem(Personnage perso){
+            perso.prendMedicament(this);
+        }
+        public void afficherItem(int i){
+            System.out.println(i+" : "+this.nom+" ("+effet.getCaracteristique().getNom()+" : "+effet.getValeur()+")");
+        }
+        
 }
