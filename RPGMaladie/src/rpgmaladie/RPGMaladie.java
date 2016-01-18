@@ -13,7 +13,6 @@ import java.util.Scanner;
  * @author Lucas et Alexis
  */
 public class RPGMaladie {
-
     /**
      * @param args the command line arguments
      */
@@ -26,9 +25,14 @@ public class RPGMaladie {
         System.out.println("Veuillez choisir un personnage,");
         System.out.println("vous avez le choix entre Homme et Femme, ils ont des caractéristiques");
         System.out.println("différentes mais un niveau a peu près équivalent!");
-        System.out.println("Tapez 1 pour Femme et 2 pour Homme.");
+        boolean choice=false;
         Scanner sc = new Scanner(System.in);
-        String classePerso = sc.nextLine();
+        String classePerso="";
+        while(!choice){
+            System.out.println("Tapez 1 pour Femme et 2 pour Homme.");
+            classePerso = sc.nextLine();
+            if (classePerso.equals("1") || classePerso.equals("2"))choice=true;
+        }
         System.out.println("Parfait, maintenant choississez votre nom:");
         String nomPerso = sc.nextLine();
         //je ne comprend pas pourquoi sa ne rentre pas dans la boucle

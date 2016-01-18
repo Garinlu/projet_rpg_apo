@@ -15,7 +15,7 @@ public class Event {
     
     private Personnage personnage;
     private int sommeInvestie=0;
-    private static int sommeNecessaire=120;
+    private static int sommeNecessaire=800;
     private ControleurHumain controleurHumain;
     private boolean jeuFini=false;
     Caracteristique carac=Caracteristique.SANTE;
