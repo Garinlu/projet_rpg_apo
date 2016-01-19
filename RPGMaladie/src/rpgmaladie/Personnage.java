@@ -82,6 +82,7 @@ public abstract class Personnage {
             if(poidsInventaire+i.getPoids()<=this.poidsMax){
                 inventaire.add(i);
                 poidsInventaire=poidsInventaire + i.getPoids();
+                System.out.println(i.getNom()+" ajouté à votre inventaire.");
             }
             else{
                 System.out.println("Vous avez pas assez de place dans votre inventaire.");
@@ -96,6 +97,7 @@ public abstract class Personnage {
                 armeEquipee=arme;
                 RetireInventaire(arme);
                 System.out.println("Nouvelle arme équipée : "+arme.getNom());
+                this.corpsACorps=new Attaque(armeEquipee.getNom(),new Effet(Caracteristique.SANTE,armeEquipee.getDegat()),armeEquipee.getProba());
                 
             }
             else{
@@ -311,9 +313,22 @@ public abstract class Personnage {
             this.dexteriteMax=v;
         }
         public boolean nombreDansInventaire(int i){
-            return (i<inventaire.size() && i>0);
+            return (i<=inventaire.size() && i>=0);
         }
         public Item choixDansInventaire(int i){
             return this.inventaire.get(i);
+        }
+        
+        public boolean achete(Item i, int prix){
+            if (prix<bourse){
+                this.AjouteInventaire(i);
+                bourse-=prix;
+                System.out.println("Bourse : "+bourse+"€.");
+                return true;
+            }
+            else{
+                System.out.println("Cet article est trop chère !");
+                return false;
+            }
         }
 }

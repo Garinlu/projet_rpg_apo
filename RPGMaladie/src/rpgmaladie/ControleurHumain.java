@@ -7,14 +7,15 @@ public class ControleurHumain extends Controleur {
     private Personnage perso;
     private Capacite prochaineAttaque;
     private boolean mutationFatale=false;
+    private Boutique boutique;
     //On appelera cette classe pour tout les scanner normalement. j'ai fait la classe payer(prix) qui se charge
     //juste de verifier et de mettre a jour la bourse (l'ajout a l'inventaire sera gerer dans Event). PayementObligatoire()
     //c'est pour le cas de la mutation. et puis choisir action permet de demander au joueur la prochaine action( en modifiant
     //l'attribut prochaineAttaque, une capacite)
     
-    public ControleurHumain(Personnage perso){
+    public ControleurHumain(Personnage perso, Boutique boutique){
         this.perso=perso;
-        
+        this.boutique=boutique;
     }
     
    
@@ -116,14 +117,6 @@ public class ControleurHumain extends Controleur {
 
     }
     
-    public void choisirArme(Arme arme){
-        System.out.println("Tapez 1 pour equipé la nouvelle et autre chose pour la ranger dans votre sac");
-        Scanner sc = new Scanner(System.in);
-        String choix = sc.nextLine();
-        if (choix.equals("1")){
-            perso.equipeArme(arme);
-        }
-    }
     
     public void choixInventaire(){
         System.out.println("Voulez vous utilisé ou équipé un item ? Oui : 1 / Non : (tout sauf 1)");
@@ -135,7 +128,7 @@ public class ControleurHumain extends Controleur {
             String choix2 = sc2.nextLine();
             int itemAEquiper=Integer.parseInt(choix2);
             if(perso.nombreDansInventaire(itemAEquiper)){
-                perso.choixDansInventaire(itemAEquiper).utiliserItem();
+                perso.choixDansInventaire(itemAEquiper).utiliserItem(perso);
             }
         }
     }
@@ -150,19 +143,67 @@ public class ControleurHumain extends Controleur {
         System.out.println("4.Vous allez faire des examens et vous reposer a l'hopital");
         System.out.println("5.Vous sortez avec vos amis");
         System.out.println("6.Vous jouez au loto");
-        System.out.println("7.Vous rencontrez le Dallas Buyers Club");
-        System.out.println("8.Vous allez voir votre mere a la maison de retraite");
         System.out.println("Faites votre voix");
         Scanner sc = new Scanner(System.in);
         String choix = sc.nextLine();
         while(!choice){
-        if (choix.equals("1")){
-            ;
+            if (choix.equals("1")){
+                perso.setSante(perso.getSante()+varAlea);
+                perso.setSanteMax(perso.getSanteMax()+varAlea);
+                System.out.println("Votre santé augmente de "+varAlea+".");
+                choice=true;
+            }
+            if (choix.equals("2")){
+                perso.setBourse(perso.getBourse()+varAlea);
+                System.out.println("Votre bourse augmente de "+varAlea+".");
+                choice=true;
+            }
+            if (choix.equals("3")){
+                perso.setForce(perso.getForce()+varAlea);
+                System.out.println("Votre force augmente de "+varAlea+".");
+                choice=true;
+            }
+            if (choix.equals("4")){
+                perso.setDexterite(perso.getDexterite()+varAlea);
+                System.out.println("Votre dextérité augmente de "+varAlea+".");
+                choice=true;
+            }
+            if (choix.equals("5")){
+                System.out.println("Vous passez du temps avec vos amis.");
+                choice=true;
+            }
+            if (choix.equals("6")){
+                if (varAlea<10){
+                    perso.setBourse(perso.getBourse()+1000);
+                    System.out.println("YES ! Vous avez gagné au Loto ! Vous remportez 1000€.");
+                }
+                else{
+                    System.out.println("Dommage, vous n'avez malheureusement pas gagné d'argent.");
+                }
+                choice=true;
+            }
         }
-        }
+        
         
         
         
     }
-
+    public void achatBoutique(){
+        boutique.afficherBoutique();
+        boolean confirm = false;
+        while(!confirm){
+            System.out.println("Voulez vous acheter un item ? Si oui, entrer le numéro d'un item, sinon entrer -1");
+            Scanner sc = new Scanner(System.in);
+            String choix2 = sc.nextLine();
+            int choix = Integer.parseInt(choix2);
+            if(choix==-1)confirm=true;
+            else{
+                for (int i=0;i<boutique.getCatalogue().size();i++){
+                    if(choix==(i)){
+                        confirm=perso.achete(boutique.getCatalogue().get(i),boutique.getCatalogue().get(i).getPrix());
+                    }
+                }
+            }
+        }
+    }
 }

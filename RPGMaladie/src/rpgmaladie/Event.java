@@ -25,11 +25,12 @@ public class Event {
     private int creationArme=0;
     private String[] tableauMedicament={"Taloxa", "Tirofiban", "Abufene", "Chlorum", "Calagel", "Calcifluor", "Jaydess","Jevtana","Rabipur","Rinhocort"};
     private String[] tableauArme={"Econome", "Couteau", "Batte de baseball", "Cutter", "Epee", "Katanna", "Lance","Epee enflammée","Nunchaku","Sabre laser"};
+    private Boutique boutique;
     
     public Event(Personnage personnage,int niveau){
         this.personnage=personnage;
         this.sommeNecessaire=niveau*300;
-   
+        boutique=new Boutique();
         
     }
     public void demarrerPartie(){
@@ -45,7 +46,7 @@ public class Event {
         System.out.println("Cela fait seulement quelques jours qu'on vous a diagnostiquer le Sida et vous etes");
         System.out.println("deja faible...voila la premiere difficultée.");
        
-        ControleurHumain controleurHumain= new ControleurHumain(personnage);
+        ControleurHumain controleurHumain= new ControleurHumain(personnage,boutique);
         
         while(jeuFini==false){
             ControleurA controleurA= new ControleurA("maladie",personnage.getNiveau());
@@ -105,8 +106,6 @@ public class Event {
                     Medicament medicament= new Medicament(genereNomMedicament(),1,Caracteristique.SANTE, personnage.getSanteMax()-personnage.getSante(),carac, -(personnage.getNiveau()+(alea%4)),personnage.getNiveau()*alea);
                     personnage.AjouteInventaire(medicament);
                     medicament.afficheInfosMedicament();
-                    controleurHumain.prendreMedicament(medicament);
-                    medicament.afficheInfosMedicament();
              
                         
                 }
@@ -139,19 +138,19 @@ public class Event {
                 
                 System.out.println("Chacun de vos attributs augmentent de +1 car vous gagnez de l'experience:");
                 personnage.afficheCaracteristique();
+                controleurHumain.achatBoutique();
                 System.out.println("Voici votre inventaire:");
                 personnage.afficheInventaire();
                 controleurHumain.choixInventaire();
                 
                 System.out.println("----------");
                 controleurHumain.entreLesCombats();
-
-                
                        
                 
 
-                
+            
             }
+            
             else{
                 System.out.println("Le SIDA a finalement eu raison de vous comme plus de 40 millions de personnes depuis 1981...");
                 System.out.println("Game over.");

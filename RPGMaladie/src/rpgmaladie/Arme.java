@@ -44,5 +44,9 @@ public class Arme extends Item {// ajout de la proba de reussite+ les gets.+ je 
         public void afficherItem(int i){
             System.out.println(i+" : "+this.nom+" (dégat : "+this.degat+" ; maniabilité : "+this.maniabilite+")");
         }
+        
+        public void afficherItemPrix(int i){
+            System.out.println(i+" : "+this.nom+" (dégat : "+this.degat+" ; maniabilité : "+this.maniabilite+") -> "+this.prix+"€");
+        }
 
 }

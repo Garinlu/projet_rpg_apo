@@ -86,13 +86,15 @@ public class Combat {
     public void maladieVainqueur(){
         this.estFini=true;
         this.joueurVainqueur=false;
-        System.out.println(maladie.getNomMaladie()+" a gagné le combat contre "+personnage.getNomPersonnage());        
+        System.out.println(maladie.getNomMaladie()+" a gagné le combat contre "+personnage.getNomPersonnage()); 
+        nextTour();       
     }
     
         public void personnageVainqueur(){
         this.estFini=true;
         this.joueurVainqueur=true;
-        System.out.println(personnage.getNomPersonnage()+" a gagné le combat contre "+maladie.getNomMaladie());      
+        System.out.println(personnage.getNomPersonnage()+" a gagné le combat contre "+maladie.getNomMaladie());
+        nextTour();
     }
     
     public boolean getJoueurVainqueur(){
@@ -102,7 +104,7 @@ public class Combat {
     public void nextTour(){
         System.out.println("");
         System.out.println("");
-        System.out.println("Appuyer sur ENTRER pour passer au tour suivant");
+        System.out.println("Appuyer sur ENTRER pour continuer");
         Scanner sc = new Scanner(System.in);
         String choix = sc.nextLine();
         System.out.println("");

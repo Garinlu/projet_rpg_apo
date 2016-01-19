@@ -45,11 +45,19 @@ public abstract class Item {
             return this.effet;
         }
         
-        public void utiliserItem(){
+        public void utiliserItem(Personnage perso){
             //Définition dans les filles
         }
         
         public void afficherItem(int i){
             //Définition dans les filles
+        }
+        
+        public void afficherItemPrix(int i){
+            //Définition dans les filles
+        }
+        
+        public int getPrix(){
+            return prix;
         }
 }

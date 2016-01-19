@@ -26,6 +26,11 @@ public class Medicament extends Item {
         public void afficherItem(int i){
             System.out.println(i+" : "+this.nom+" ("+effet.getCaracteristique().getNom()+" : "+effet.getValeur()+")");
         }
+        
+        public void afficherItemPrix(int i){
+            System.out.println(i+" : "+this.nom+" ("+effet.getCaracteristique().getNom()+" : "+effet.getValeur()+") -> "+this.prix+"€");
+        }
+        
          public void afficheInfosMedicament(){
             System.out.println("Nom: "+this.nom);
             System.out.println("Poids: "+this.poids);

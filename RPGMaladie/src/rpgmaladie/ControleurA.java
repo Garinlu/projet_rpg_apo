@@ -33,7 +33,7 @@ public class ControleurA extends Controleur {
             maladie.MauxdeVentre(cible);
             
         }
-        else if(alea%10==0){
+        else if(alea%10==0 && cible.getNiveau()>1){
             maladie.setMute(true);
             System.out.println("Le virus a muté..toutes vos actions seront innoffenssives tant que");
             System.out.println("vous n'aurez pas trouver la nouvelle forme du virus...Vous avez donc");

@@ -39,10 +39,10 @@ public class Femme extends Personnage {
     }
     public void ExplicationActions(){
         System.out.println("Petit rappel de vos attaques");
-        System.out.println("1 : "+capacite1.getNom()+" (dégats = "+capacite1.getValeur()+" ; Probabilité = "+capacite1.getProba()+"%)");
-        System.out.println("2 : "+capacite2.getNom()+" (soins = "+capacite2.getValeur()+" ; Probabilité = "+capacite2.getProba()+"%)");
-        System.out.println("3 : "+capacite3.getNom()+" (dégats = "+capacite3.getValeur()+" ; Probabilité = "+capacite3.getProba()+"%)");
-        System.out.println("4 : Attaque au corps a corps (dégats = "+(armeEquipee.getDegat()-caracs.get(Caracteristique.FORCE))+" ; Probabilité = "+armeEquipee.getProba()+"%)");
+        System.out.println("1 : "+capacite1.getNom()+" (dégats = "+(capacite1.getValeur()-caracs.get(Caracteristique.FORCE))+" ; Probabilité = "+capacite1.getProba()+"%)");
+        System.out.println("2 : "+capacite2.getNom()+" (soins = "+(capacite2.getValeur())+" ; Probabilité = "+capacite2.getProba()+"%)");
+        System.out.println("3 : "+capacite3.getNom()+" (dégats = "+(capacite3.getValeur()-caracs.get(Caracteristique.FORCE))+" ; Probabilité = "+capacite3.getProba()+"%)");
+        System.out.println("4 : "+armeEquipee.getNom()+" (dégats = "+(armeEquipee.getDegat()-caracs.get(Caracteristique.FORCE))+" ; Probabilité = "+armeEquipee.getProba()+"%)");
 
     }
     public Capacite getCapacite1(){

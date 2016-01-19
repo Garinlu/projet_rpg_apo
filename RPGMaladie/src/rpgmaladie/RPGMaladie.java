@@ -43,9 +43,10 @@ public class RPGMaladie {
         System.out.println("3.Difficile");
         System.out.println("4.Professionnel");
         Scanner sc2 = new Scanner(System.in);
-        String niv = sc2.nextLine();
+        String niv;
         while(!choice2){
             System.out.println("Veuillez indiquer votre choix");
+            niv = sc2.nextLine();
             if(niv.equals("1")){
                 niveau=1;
                 choice2=true;
