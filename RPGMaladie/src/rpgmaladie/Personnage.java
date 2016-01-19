@@ -35,12 +35,12 @@ public abstract class Personnage {
             this.nomPersonnage=nom;
             this.caracs=caracs;
             this.poidsMax=p;
-            this.armeEquipee=new Arme("Poings",0,Caracteristique.FORCE,0,-5,0,100,100);
+            this.armeEquipee=new Arme("Poings américain",0,Caracteristique.FORCE,0,-5,0,100,100);
             this.corpsACorps= new Attaque("Attaque au corps a corps",new Effet(Caracteristique.SANTE,armeEquipee.getDegat()),armeEquipee.getProba());
             this.inventaire=new ArrayList<Item>();
         }
         public void setBourse(int b){
-            this.bourse=this.bourse+b;
+            this.bourse=b;
         }
         public int getBourse(){
             return this.bourse;

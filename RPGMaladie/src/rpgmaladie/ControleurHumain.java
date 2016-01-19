@@ -3,7 +3,6 @@ package rpgmaladie;
 import java.util.Scanner;
 
 
-
 public class ControleurHumain extends Controleur {
     private Personnage perso;
     private Capacite prochaineAttaque;
@@ -108,7 +107,7 @@ public class ControleurHumain extends Controleur {
     
     public void prendreMedicament(Medicament medicament){
         System.out.println("Voulez vous avaler ce medicament pour remonter votre sante?");
-        System.out.println("Mais attention, il aura peut etre des effets secondaires!(Tapez 1 pour acceptez et 2 pour refuser");
+        System.out.println("Mais attention, il aura peut etre des effets secondaires!(Tapez 1 pour acceptez et autre chose pour refuser");
         Scanner sc = new Scanner(System.in);
         String choix = sc.nextLine();
         if (choix.equals("1")){
@@ -139,6 +138,31 @@ public class ControleurHumain extends Controleur {
                 perso.choixDansInventaire(itemAEquiper).utiliserItem();
             }
         }
+    }
+    
+    public void entreLesCombats(){
+        int varAlea=(int)(Math.random()*100);
+        boolean choice= false;
+        System.out.println("Après cette victoire contre la maladie, plussieurs possibilitées s'offrent a vous:");
+        System.out.println("1:Vous vous reposez auprès de votre famille et vos amis");
+        System.out.println("2:Vous faites de la prévention auprès de jeunes en lycée");
+        System.out.println("3.Vous faites un peu de sport");
+        System.out.println("4.Vous allez faire des examens et vous reposer a l'hopital");
+        System.out.println("5.Vous sortez avec vos amis");
+        System.out.println("6.Vous jouez au loto");
+        System.out.println("7.Vous rencontrez le Dallas Buyers Club");
+        System.out.println("8.Vous allez voir votre mere a la maison de retraite");
+        System.out.println("Faites votre voix");
+        Scanner sc = new Scanner(System.in);
+        String choix = sc.nextLine();
+        while(!choice){
+        if (choix.equals("1")){
+            ;
+        }
+        }
+        
+        
+        
     }
 
 }

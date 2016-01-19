@@ -9,20 +9,26 @@ import java.util.Scanner;
 
 
 public class Event {
-    //le jeu sera lancer grace a demarrerPartie et tout se deroulera a partir de cette methode.
+
    
+    //Faire les evenements entre les parties.
+    //Rendre les coups plus aléatoires
     
     
     private Personnage personnage;
     private int sommeInvestie=0;
-    private static int sommeNecessaire=800;
+    private static int sommeNecessaire;
     private ControleurHumain controleurHumain;
     private boolean jeuFini=false;
     Caracteristique carac=Caracteristique.SANTE;
-
+    private int creationMedicament=-1;
+    private int creationArme=0;
+    private String[] tableauMedicament={"Taloxa", "Tirofiban", "Abufene", "Chlorum", "Calagel", "Calcifluor", "Jaydess","Jevtana","Rabipur","Rinhocort"};
+    private String[] tableauArme={"Econome", "Couteau", "Batte de baseball", "Cutter", "Epee", "Katanna", "Lance","Epee enflammée","Nunchaku","Sabre laser"};
     
-    public Event(Personnage personnage){
+    public Event(Personnage personnage,int niveau){
         this.personnage=personnage;
+        this.sommeNecessaire=niveau*300;
    
         
     }
@@ -46,6 +52,19 @@ public class Event {
             Combat combat = new Combat(personnage,controleurA.getMaladie());
             combat.DeroulementCombat(personnage,controleurA.getMaladie(),controleurHumain,controleurA);
             if (combat.getJoueurVainqueur()){
+                personnage.incrementNiveau();
+                personnage.setDexteriteMax(personnage.getDexteriteMax()+1);
+                personnage.setDefenseMax(personnage.getDefenseMax()+1);
+                personnage.setForceMax(personnage.getForceMax()+1);
+                personnage.setSanteMax(personnage.getSanteMax()+5);
+                
+                personnage.setDefense(personnage.getDefenseMax());
+                //personnage.setSante(personnage.getSanteMax());
+                personnage.setForce(personnage.getForceMax());
+                personnage.setDexterite(personnage.getDexteriteMax());
+                
+                System.out.println("Chacun de vos attributs augmentent de +1 car vous gagnez de l'experience:");
+                personnage.afficheCaracteristique();
                 int alea=(int)(Math.random()*100);// on peut tomber 1 fois sur 2 sur une arme a la fin du combat
                 if(alea>10){
                     System.out.println("Vous avez de la chance, vous venez de trouver une arme!");
@@ -61,15 +80,15 @@ public class Event {
                     }
 
                     
-                    Arme arme =new Arme(generate(3),5, carac, personnage.getNiveau(),-personnage.getNiveau()*5, 100-alea,alea,personnage.getNiveau()*alea);
+                    Arme arme =new Arme(genereNomArme(),1, carac, personnage.getNiveau(),-personnage.getNiveau()*5, 100-alea,alea,personnage.getNiveau()*alea);
                     //A completer! La decrire et verifier si le poids correspond! L'equiper?
                     personnage.AjouteInventaire(arme);
                     System.out.println("Voici ces attributs :");
                     arme.afficheInfosArme();
                     System.out.println("Pour info, l'arme que vous utiliser en ce moment est celle-ci:");
                     personnage.getArmeEquipee().afficheInfosArme();
-                }
-                else if(alea%3>0){//on peut tomber 2 fois sur 3 un medicament.
+                //}
+               // else if(alea>0){//on peut tomber 2 fois sur 3 un medicament.
                     System.out.println("Vous avez de la chance, vous venez de trouver un medicament!");
                     if(alea<34){//Carac de l'arme généré aléatoirement
                         Caracteristique carac=Caracteristique.FORCE;
@@ -83,10 +102,11 @@ public class Event {
                     
 
 
-                    Medicament medicament= new Medicament(generate(3),1,Caracteristique.SANTE, personnage.getSanteMax()-personnage.getSante(),carac, -(personnage.getNiveau()+(alea%4)),personnage.getNiveau()*alea);
+                    Medicament medicament= new Medicament(genereNomMedicament(),1,Caracteristique.SANTE, personnage.getSanteMax()-personnage.getSante(),carac, -(personnage.getNiveau()+(alea%4)),personnage.getNiveau()*alea);
                     personnage.AjouteInventaire(medicament);
-                    controleurHumain.prendreMedicament(medicament);//question
-                    
+                    medicament.afficheInfosMedicament();
+                    controleurHumain.prendreMedicament(medicament);
+                    medicament.afficheInfosMedicament();
              
                         
                 }
@@ -113,7 +133,7 @@ public class Event {
                 personnage.setSanteMax(personnage.getSanteMax()+5);
                 
                 personnage.setDefense(personnage.getDefenseMax());
-                personnage.setSante(personnage.getSanteMax());
+                //personnage.setSante(personnage.getSanteMax());
                 personnage.setForce(personnage.getForceMax());
                 personnage.setDexterite(personnage.getDexteriteMax());
                 
@@ -122,7 +142,12 @@ public class Event {
                 System.out.println("Voici votre inventaire:");
                 personnage.afficheInventaire();
                 controleurHumain.choixInventaire();
+                
+                System.out.println("----------");
+                controleurHumain.entreLesCombats();
 
+                
+                       
                 
 
                 
@@ -138,20 +163,45 @@ public class Event {
                 System.out.println("Vous etes maintenant sorti d'affaire, bravo! Vous avez gagnez!");
                 jeuFini=true;
             }
+            
         }
         
     }
     
-    public String generate(int length)
-{
-	    String chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-	    String pass = "";
-	    for(int i=0;i<length;i++)
-	    {
-	       int x = (int)Math.floor(Math.random() * 26); // Si tu supprimes des lettres tu diminues ce nb
-	       pass += chars.charAt(i);
-	    }
-	    System.out.println(pass);
-	    return pass;
-}
-}
+   public String genereNomMedicament(){
+       creationMedicament++;
+       if (creationMedicament>9){
+           creationMedicament=0;
+           return tableauMedicament[creationMedicament];
+       }
+           else{
+       return tableauMedicament[creationMedicament];
+       
+       
+                }
+
+
+           
+       }
+       public String genereNomArme(){
+       creationArme++;
+       if (creationArme>9){
+           creationArme=0;
+           return tableauArme[creationArme];
+       }
+           else{
+       return tableauArme[creationArme];
+       
+       
+                }
+
+
+           
+       }
+       
+
+           
+       
+
+   }
+

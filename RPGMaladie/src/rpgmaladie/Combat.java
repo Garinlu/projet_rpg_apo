@@ -78,6 +78,7 @@ public class Combat {
             if(ch.getMutationFatale()==true){//cas de la mutation
                 this.estFini=true;
                 this.joueurVainqueur=false;
+                System.out.println("Vous ne pouvez rien y faire, la maladie a muté et vous n'avez pas pu payer de spécialistes..");
             }
         }
     }
