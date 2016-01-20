@@ -21,7 +21,7 @@ public class RPGMaladie {
     // Après pas mal de recherche bien casse burne j'ai l'impression que ça fonctionne 
     
     public static void main(String[] args){
-        System.out.println("Bonjour, bienvenue sur notre jeu.");
+        System.out.println("Bonjour, bienvenue sur notre jeu SIDA.");
         System.out.println("Veuillez choisir un personnage,");
         System.out.println("vous avez le choix entre Homme et Femme, ils ont des caractéristiques");
         System.out.println("différentes mais un niveau a peu près équivalent!");
@@ -44,7 +44,7 @@ public class RPGMaladie {
         System.out.println("4.Professionnel");
         Scanner sc2 = new Scanner(System.in);
         String niv;
-        while(!choice2){
+        while(!choice2){//Choix du niveau
             System.out.println("Veuillez indiquer votre choix");
             niv = sc2.nextLine();
             if(niv.equals("1")){
@@ -63,13 +63,11 @@ public class RPGMaladie {
                 niveau=4;
                 choice2=true;
             }
-            
-            
         }
         
         
 
-        if(classePerso.equals("1")){// caracs a modifier!!
+        if(classePerso.equals("1")){ //Choix d'être une femme
             Map<Caracteristique,Integer> caracs = new HashMap<Caracteristique,Integer>() {{
             put(Caracteristique.FORCE, 10);
             put(Caracteristique.DEFENSE,8);
@@ -81,7 +79,7 @@ public class RPGMaladie {
             Event event = new Event(personnage,niveau);
             event.demarrerPartie(); 
         }    
-        else if (classePerso.equals("2")){
+        else if (classePerso.equals("2")){//Choix d'être un homme
             Map<Caracteristique,Integer> caracs = new HashMap<Caracteristique,Integer>() {{
             put(Caracteristique.FORCE, 13);
             put(Caracteristique.DEFENSE,10);
