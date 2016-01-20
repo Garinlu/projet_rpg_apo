@@ -104,7 +104,13 @@ public class ControleurHumain {     //Gère les choix du personnage
                 System.out.println("Veuillez entrer le numéro de l'item :");
                 Scanner sc2 = new Scanner(System.in);
                 String choix2 = sc2.nextLine();
-                int itemAEquiper=Integer.parseInt(choix2);
+                int itemAEquiper;
+                try { 
+                    itemAEquiper=Integer.parseInt(choix2);
+                }
+                catch (Exception e) {
+                   itemAEquiper=10000;
+                }
                 if(perso.nombreDansInventaire(itemAEquiper)){
                     if(choix.equals("1"))perso.choixDansInventaire(itemAEquiper).utiliserItem(perso);
                     if(choix.equals("2"))perso.choixDansInventaire(itemAEquiper).jeterItem(perso);

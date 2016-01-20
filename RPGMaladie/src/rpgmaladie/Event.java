@@ -56,7 +56,6 @@ public class Event {
                 personnage.setSanteMax(personnage.getSanteMax()+5);
                 
                 personnage.setDefense(personnage.getDefenseMax());
-                personnage.setSante(personnage.getSanteMax());
                 personnage.setForce(personnage.getForceMax());
                 personnage.setDexterite(personnage.getDexteriteMax());
                 
@@ -100,6 +99,7 @@ public class Event {
                     medicament.afficheInfosMedicament();
              
                 }
+                personnage.setSante(personnage.getSanteMax());
 
                 System.out.println("Vous gagnez "+(100+10*personnage.getNiveau())+" euros.");//gain en fonction du niveau
                 System.out.println("Voulez vous les garder ou les investir dans Sidaction?");

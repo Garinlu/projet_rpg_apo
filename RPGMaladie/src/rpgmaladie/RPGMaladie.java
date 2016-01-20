@@ -35,8 +35,11 @@ public class RPGMaladie {
             classePerso = sc.nextLine();
             if (classePerso.equals("1") || classePerso.equals("2")){choice=true;}
         }
-        System.out.println("Parfait, maintenant choississez votre nom:");
-        String nomPerso = sc.nextLine();
+        String nomPerso="";
+        while(nomPerso.length()==0){
+            System.out.println("Parfait, maintenant choississez votre nom:");
+            nomPerso = sc.nextLine();
+        }
         System.out.println("Choisissez un niveau de difficultée:");
         System.out.println("1.Debutant");
         System.out.println("2.Facile");
