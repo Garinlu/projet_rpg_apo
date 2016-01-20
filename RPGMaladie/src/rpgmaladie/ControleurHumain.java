@@ -3,11 +3,11 @@ package rpgmaladie;
 import java.util.Scanner;
 
 
-public class ControleurHumain extends Controleur {
-    private Personnage perso;
+public class ControleurHumain {
+    private final Personnage perso;
     private Capacite prochaineAttaque;
     private boolean mutationFatale=false;
-    private Boutique boutique;
+    private final Boutique boutique;
     //On appelera cette classe pour tout les scanner normalement. j'ai fait la classe payer(prix) qui se charge
     //juste de verifier et de mettre a jour la bourse (l'ajout a l'inventaire sera gerer dans Event). PayementObligatoire()
     //c'est pour le cas de la mutation. et puis choisir action permet de demander au joueur la prochaine action( en modifiant
@@ -73,26 +73,38 @@ public class ControleurHumain extends Controleur {
     public Capacite ChoisirAction(){
         System.out.println("");
         System.out.println("");
-        System.out.println("Quelle action voulez vous réaliser pour ce tour? ");
-        perso.ExplicationActions();
-        System.out.println("Indiquez votre choix(entre 1 et 4), si vous vous trompez vous realiserez l'attaque coup de poings.");
-        Scanner sc = new Scanner(System.in);
-        String choix = sc.nextLine();
-        Capacite capacite;
-        if (choix.equals("1")){
-            return perso.getCapacite1();
+        boolean check=false;
+        while(!check){
+            System.out.println("Quelle action voulez vous réaliser pour ce tour ? (Attaque = 1 / Inventaire = 2) ");
+            Scanner sc = new Scanner(System.in);
+            String choix = sc.nextLine();
+            if(choix.equals("1")){
+                check=true;
+                perso.ExplicationActions();
+                System.out.println("Indiquez votre choix(entre 1 et 4), si vous vous trompez vous realiserez l'attaque coup de poings.");
+                Scanner sc2 = new Scanner(System.in);
+                String choix2 = sc2.nextLine();
+                Capacite capacite;
+                switch (choix) {
+                    case "1":
+                        return perso.getCapacite1();
+                    case "2":
+                        return perso.getCapacite2();
+                    case "3":
+                        return perso.getCapacite3();
+                    default:
+                        return perso.getCorpsACorps();
+                }
+            }
+            if(choix.equals("2")){
+                check=true;
+                choixInventaire();
+                return (new Attaque("Vous n'attaquez pas pendant ce tour.", (new Effet(Caracteristique.SANTE,0)), 100));
+            }
+            else{
+                check=false;
+            }
         }
-        if (choix.equals("2")){
-            return perso.getCapacite2();
-        }
-        if (choix.equals("3")){
-            return perso.getCapacite3();
-        }
-        else {
-            return perso.getCorpsACorps();
-        } 
- 
-        
     }
     
     public Capacite getProchaineAttaque(){
@@ -197,9 +209,9 @@ public class ControleurHumain extends Controleur {
         
     }
     public void achatBoutique(){
-        boutique.afficherBoutique();
         boolean confirm = false;
         while(!confirm){
+            boutique.afficherBoutique();
             System.out.println("Bourse : "+perso.getBourse()+"€");
             System.out.println("Voulez vous acheter un item ? Si oui, entrer le numéro d'un item, sinon entrer -1");
             Scanner sc = new Scanner(System.in);

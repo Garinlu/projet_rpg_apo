@@ -86,8 +86,6 @@ public class Event {
                     personnage.AjouteInventaire(arme);
                     System.out.println("Voici ces attributs :");
                     arme.afficheInfosArme();
-                    System.out.println("Pour info, l'arme que vous utiliser en ce moment est celle-ci:");
-                    personnage.getArmeEquipee().afficheInfosArme();
                 //}
                // else if(alea>0){//on peut tomber 2 fois sur 3 un medicament.
                     System.out.println("Vous avez de la chance, vous venez de trouver un medicament!");

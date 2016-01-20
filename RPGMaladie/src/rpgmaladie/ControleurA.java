@@ -1,6 +1,6 @@
 package rpgmaladie;
 
-public class ControleurA extends Controleur {
+public class ControleurA {
     //Le controleurA est créer a la création de chaque nouvelle maladie donc il
     //a un niveau fixe des sa construction. j'ai fait la methode genereAttaque()+
     //le cas de mutation dont on avait parler!
