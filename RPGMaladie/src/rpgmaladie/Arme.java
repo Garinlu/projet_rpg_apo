@@ -4,15 +4,21 @@ public class Arme extends Item {// ajout de la proba de reussite+ les gets.+ je 
                                 //il faudrat ajouter le prix
 
 	private final int degat;
-
-	private final int maniabilite;
         private final int proba; 
 
-	public Arme(String nom, int poids, Caracteristique caracteristique, int valeur, int degat, int maniabilite,int proba,int prix) {
+    /**
+     *
+     * @param nom
+     * @param poids
+     * @param caracteristique
+     * @param valeur
+     * @param degat
+     * @param proba
+     * @param prix
+     */
+    public Arme(String nom, int poids, Caracteristique caracteristique, int valeur, int degat, int proba,int prix) {
 		super(nom,poids,caracteristique, valeur,prix);
                 this.degat=degat;
-
-                this.maniabilite=maniabilite;
                 this.proba=proba;
 	}
         
@@ -25,9 +31,6 @@ public class Arme extends Item {// ajout de la proba de reussite+ les gets.+ je 
             System.out.println("Malus possibles..");
         }
         
-        public int getManiabilite(){
-            return this.maniabilite;
-        }
         
         public int getProba(){
             return proba;
@@ -42,11 +45,11 @@ public class Arme extends Item {// ajout de la proba de reussite+ les gets.+ je 
         }
         
         public void afficherItem(int i){
-            System.out.println(i+" : "+this.nom+" (dégat : "+this.degat+" ; maniabilité : "+this.maniabilite+")");
+            System.out.println(i+" : "+this.nom+" (dégat : "+this.degat+" ; probabilité : "+this.proba+")");
         }
         
         public void afficherItemPrix(int i){
-            System.out.println(i+" : "+this.nom+" (dégat : "+this.degat+" ; maniabilité : "+this.maniabilite+") -> "+this.prix+"€");
+            System.out.println(i+" : "+this.nom+" (dégat : "+this.degat+" ; probabilité : "+this.proba+") -> "+this.prix+"€");
         }
 
 }

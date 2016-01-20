@@ -15,10 +15,10 @@ import java.util.List;
 public class Boutique {
     private List<Item> catalogue;
     
-    public Boutique(){
+    public Boutique(int niveau){
         this.catalogue=new ArrayList<>();
-        Item arme1 = new Arme("AK-47",2,Caracteristique.FORCE,10,-15,100-(int)(Math.random()*100),85,100);
-        Item arme2 = new Arme("Famas",2,Caracteristique.FORCE,15,-20,100-(int)(Math.random()*100),90,200);
+        Item arme1 = new Arme("AK-47",2,Caracteristique.FORCE,10,-15,niveau,100);
+        Item arme2 = new Arme("Famas",2,Caracteristique.FORCE,15,-20,niveau,200);
         catalogue.add(arme1);
         catalogue.add(arme2);
     }

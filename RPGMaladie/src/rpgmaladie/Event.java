@@ -30,7 +30,7 @@ public class Event {
     public Event(Personnage personnage,int niveau){
         this.personnage=personnage;
         this.sommeNecessaire=niveau*300;
-        boutique=new Boutique();
+        boutique=new Boutique(100-niveau*10);
         
     }
     public void demarrerPartie(){
@@ -81,7 +81,7 @@ public class Event {
                     }
 
                     
-                    Arme arme =new Arme(genereNomArme(),1, carac, personnage.getNiveau(),-personnage.getNiveau()*5, 100-alea,alea,personnage.getNiveau()*alea);
+                    Arme arme =new Arme(genereNomArme(),1, carac, personnage.getNiveau(),-personnage.getNiveau()*5, 100-alea,personnage.getNiveau()*alea);
                     //A completer! La decrire et verifier si le poids correspond! L'equiper?
                     personnage.AjouteInventaire(arme);
                     System.out.println("Voici ces attributs :");

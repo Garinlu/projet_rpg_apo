@@ -17,7 +17,7 @@ public abstract class Capacite {//la y'a du boulot, il va falloir generer l'appl
         
     public boolean probaReussite(Personnage src){
         int varAlea=(int)(Math.random()*100);
-        int chanceReussite=probaReussite+src.getDexterite()+src.getArmeEquipee().getManiabilite();
+        int chanceReussite=probaReussite+src.getDexterite()+src.getArmeEquipee().getProba();
         boolean action = (varAlea<chanceReussite);
         return action;
     }
