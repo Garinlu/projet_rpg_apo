@@ -15,7 +15,7 @@ import java.util.List;
 public class Boutique {
     private List<Item> catalogue;
     
-    public Boutique(int niveau){
+    public Boutique(int niveau){    //Constructeur ajoutant tout les items dans la boutique
         this.catalogue=new ArrayList<>();
         Item arme1 = new Arme("AK-47",11,Caracteristique.FORCE,5,-10,niveau,50);
         Item arme2 = new Arme("Famas",1,Caracteristique.FORCE,10,-15,niveau,100);
@@ -39,7 +39,7 @@ public class Boutique {
         catalogue.add(medoc5);
     }
     
-    public void afficherBoutique(){
+    public void afficherBoutique(){ //Affichage de la boutique
         System.out.println("BOUTIQUE");
         System.out.println("Voici le contenu de la boutique :");
         for (int i=0;i<catalogue.size();i++){
@@ -47,6 +47,7 @@ public class Boutique {
         }
     }
     
+    //tout les getter
     public List<Item> getCatalogue(){
         return catalogue;
     }

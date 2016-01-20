@@ -1,10 +1,6 @@
 package rpgmaladie;
 
-public class ControleurA {
-    //Le controleurA est créer a la création de chaque nouvelle maladie donc il
-    //a un niveau fixe des sa construction. j'ai fait la methode genereAttaque()+
-    //le cas de mutation dont on avait parler!
-    
+public class ControleurA {//Gère la maladie
     
     private final int niveau;
     private Maladie maladie;
@@ -16,8 +12,7 @@ public class ControleurA {
         
     }
     
-    
-    
+    //Génère une attaque aléatoirement pour la maladie
     public void genereAttaque(Maladie maladie,Personnage cible,ControleurHumain controleurHumain){
         int alea=(int)(Math.random()*100);
         if(alea<=maladie.getProbaGM()){
@@ -46,10 +41,9 @@ public class ControleurA {
         }
     }
     
+    //Tout les getter
     public Maladie getMaladie(){
         return maladie;
     }
-    
-    
-    
+
 }

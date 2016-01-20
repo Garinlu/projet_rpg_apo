@@ -23,101 +23,108 @@ public class Maladie {
             this.niveau=niveau;
             this.sante=50;
             this.defense=0;
-      }
-        
-        public void setMute(boolean b){
-            this.estMute=b;
-        }
-        public boolean getEstMute(){
-            return this.estMute;
-        }
-        
-        public void initCarac(int niveau){
-            this.sante=45+niveau*5;
-            this.defense=0+niveau;
-        }
-        
-        public void afficheCaracteristique(){
-            System.out.println("Santé : "+getSante());
-            System.out.println("Défense : "+getDefense());
-        }
-        
+    }
 
-	public void GrosseMigraine (Personnage cible) {
-            Effet effetDegat= new Effet(Caracteristique.SANTE,(-6)*this.niveau);
-            Effet effetSymptome= new Effet(Caracteristique.DEXTERITE,(-1)*this.niveau);
-            System.out.println("");
-            System.out.println("Maladie vous inflige une grosse migraine.");
-            cible.appliqueEffet(effetDegat);
-            System.out.println("De plus, vos symptôme vous font du mal,");
-            cible.appliqueEffet(effetSymptome);
-           	
-	}
+    public void initCarac(int niveau){
+        this.sante=45+niveau*5;
+        this.defense=0+niveau;
+    }
 
-	public void FievreTerrible (Personnage cible) {
-            Effet effetDegat= new Effet(Caracteristique.SANTE,(-7)*this.niveau);
-            Effet effetSymptome1= new Effet(Caracteristique.DEXTERITE,(-2)*this.niveau);
-            Effet effetSymptome2= new Effet(Caracteristique.DEFENSE,(-1)*this.niveau);
-            Effet effetSymptome3= new Effet(Caracteristique.FORCE,(-1)*this.niveau);
-            System.out.println("Maladie vous inflige une fièvre terrible.");
-            cible.appliqueEffet(effetDegat);
-            System.out.println("De plus, vos symptôme vous font du mal,");
-            cible.appliqueEffet(effetSymptome1);
-            cible.appliqueEffet(effetSymptome2);
-            cible.appliqueEffet(effetSymptome3);
-	}
+    public void afficheCaracteristique(){   //Affichage des caractéristiques de la maladie
+        System.out.println("Santé : "+getSante());
+        System.out.println("Défense : "+getDefense());
+    }
 
-	public void CoupdeGrace (Personnage cible) {
-            Effet effetDegat= new Effet(Caracteristique.SANTE,(-10)*this.niveau);
-            Effet effetSymptome= new Effet(Caracteristique.DEFENSE,(-1)*this.niveau);
-            System.out.println("Maladie vous inflige un coup de grace.");
-            cible.appliqueEffet(effetDegat);
-            System.out.println("De plus, vos symptôme vous font du mal,");
-            cible.appliqueEffet(effetSymptome);
-	}
+    //Toute les attaques de la maladie
+    public void GrosseMigraine (Personnage cible) {
+        Effet effetDegat= new Effet(Caracteristique.SANTE,(-6)*this.niveau);
+        Effet effetSymptome= new Effet(Caracteristique.DEXTERITE,(-1)*this.niveau);
+        System.out.println("");
+        System.out.println("Maladie vous inflige une grosse migraine.");
+        cible.appliqueEffet(effetDegat);
+        System.out.println("De plus, vos symptôme vous font du mal,");
+        cible.appliqueEffet(effetSymptome);
 
-	public void MauxdeVentre (Personnage cible){
-            Effet effetDegat= new Effet(Caracteristique.SANTE,(-8)*this.niveau);
-            Effet effetSymptome1= new Effet(Caracteristique.DEXTERITE,(-1)*this.niveau);
-            Effet effetSymptome2= new Effet(Caracteristique.DEFENSE,(-1)*this.niveau);
-            Effet effetSymptome3= new Effet(Caracteristique.FORCE,(-2)*this.niveau);
-            System.out.println("Maladie vous inflige des maux de ventre.");
-            cible.appliqueEffet(effetDegat);
-            System.out.println("De plus, vos symptôme vous font du mal,");
-            cible.appliqueEffet(effetSymptome1);
-            cible.appliqueEffet(effetSymptome2);
-            cible.appliqueEffet(effetSymptome3);
-	}
-        public void AppliqueEffet(Effet effet){
-            int valeurFinale=effet.getValeur();
-            this.sante=this.sante + valeurFinale;
-            if (this.sante<0)this.sante=0;
-            System.out.println("Maladie perd "+-valeurFinale+" points de vie.");
-        }
-        
-        public int getSante(){
-            return this.sante;
-        }
-        
-        public int getDefense(){
-            return this.defense;
-        }
-        public int getProbaGM(){
-            return this.probaGM;
-        }
-        public int getProbaFT(){
-            return this.probaFT;
-        }
-        public int getProbaCG(){
-            return this.probaCG;
-        }
-        public int getProbaMV(){
-            return this.probaMV;
-        }
-        public String getNomMaladie(){
-            return this.nomMaladie;
-        }
-        
+    }
 
+    public void FievreTerrible (Personnage cible) {
+        Effet effetDegat= new Effet(Caracteristique.SANTE,(-7)*this.niveau);
+        Effet effetSymptome1= new Effet(Caracteristique.DEXTERITE,(-2)*this.niveau);
+        Effet effetSymptome2= new Effet(Caracteristique.DEFENSE,(-1)*this.niveau);
+        Effet effetSymptome3= new Effet(Caracteristique.FORCE,(-1)*this.niveau);
+        System.out.println("Maladie vous inflige une fièvre terrible.");
+        cible.appliqueEffet(effetDegat);
+        System.out.println("De plus, vos symptôme vous font du mal,");
+        cible.appliqueEffet(effetSymptome1);
+        cible.appliqueEffet(effetSymptome2);
+        cible.appliqueEffet(effetSymptome3);
+    }
+
+    public void CoupdeGrace (Personnage cible) {
+        Effet effetDegat= new Effet(Caracteristique.SANTE,(-10)*this.niveau);
+        Effet effetSymptome= new Effet(Caracteristique.DEFENSE,(-1)*this.niveau);
+        System.out.println("Maladie vous inflige un coup de grace.");
+        cible.appliqueEffet(effetDegat);
+        System.out.println("De plus, vos symptôme vous font du mal,");
+        cible.appliqueEffet(effetSymptome);
+    }
+
+    public void MauxdeVentre (Personnage cible){
+        Effet effetDegat= new Effet(Caracteristique.SANTE,(-8)*this.niveau);
+        Effet effetSymptome1= new Effet(Caracteristique.DEXTERITE,(-1)*this.niveau);
+        Effet effetSymptome2= new Effet(Caracteristique.DEFENSE,(-1)*this.niveau);
+        Effet effetSymptome3= new Effet(Caracteristique.FORCE,(-2)*this.niveau);
+        System.out.println("Maladie vous inflige des maux de ventre.");
+        cible.appliqueEffet(effetDegat);
+        System.out.println("De plus, vos symptôme vous font du mal,");
+        cible.appliqueEffet(effetSymptome1);
+        cible.appliqueEffet(effetSymptome2);
+        cible.appliqueEffet(effetSymptome3);
+    }
+
+    public void AppliqueEffet(Effet effet){     //Appliquer un effet sur la maladie
+        int valeurFinale=effet.getValeur();
+        this.sante=this.sante + valeurFinale;
+        if (this.sante<0)this.sante=0;
+        System.out.println("Maladie perd "+-valeurFinale+" points de vie.");
+    }
+
+    //Tout les setter
+    public void setMute(boolean b){
+        this.estMute=b;
+    }
+
+    //Tout les getter
+    public boolean getEstMute(){
+        return this.estMute;
+    }
+
+    public int getSante(){
+        return this.sante;
+    }
+
+    public int getDefense(){
+        return this.defense;
+    }
+
+    public int getProbaGM(){
+        return this.probaGM;
+    }
+
+    public int getProbaFT(){
+        return this.probaFT;
+    }
+
+    public int getProbaCG(){
+        return this.probaCG;
+    }
+
+    public int getProbaMV(){
+        return this.probaMV;
+    }
+
+    public String getNomMaladie(){
+        return this.nomMaladie;
+    }
 
 }

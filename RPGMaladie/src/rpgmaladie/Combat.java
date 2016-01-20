@@ -1,32 +1,25 @@
-
 package rpgmaladie;
 
 import java.util.Scanner;
 
 public class Combat {
 
-// la j'ai ajouter le booleen est fini pour savoir si le combat est fini.     
-//dans DeroulementCombat()( la methode qu'on appelera dans la classe Event et qui
-//se chargera de tout le combat, j'ai fait une boucle while qui s'arrete lorsque
-//quelqu'un est mort(dans ce cas estFini passera a true).
-//DeroulementCombat() communique avec ControleurHumain et ControleurA.
     protected Personnage personnage;
     protected Maladie maladie;
     protected Tour tour;
-    private boolean estFini;//savoir si le combat est fini
-    private boolean joueurVainqueur;
-    private int numeroTour;
+    private int numeroTour;     
+    private boolean estFini;    //savoir si le combat est fini
+    private boolean joueurVainqueur;    //Variable pour connaitre le vainqueur
     
     
     public Combat(Personnage personnage, Maladie maladie){
-        this.numeroTour=0;
-        this.tour=new Tour(numeroTour);
+        this.numeroTour = 0;
         this.personnage=personnage;
         this.maladie=maladie;
         this.estFini=false;
     }
     
-    public void TourSuivant(){
+    public void TourSuivant(){  //Création d'un tour ainsi que affichage du tour
         this.numeroTour++;
         this.tour=new Tour(this.numeroTour);
         System.out.println("");
@@ -34,8 +27,19 @@ public class Combat {
         System.out.println("Tour "+numeroTour);
     } 
     
+    public void nextTour(){     //Méthode pour ralentir l'affichage ; attendre que le joueur appuye sur ENTRER pour continuer
+        System.out.println("");
+        System.out.println("");
+        System.out.println("Appuyer sur ENTRER pour continuer");
+        Scanner sc = new Scanner(System.in);
+        String choix = sc.nextLine();
+        System.out.println("");
+        System.out.println("");
+    }
+    
+    //Méthode principale ; Contient tout le combat, lie personnage, maladie et leur controleur
     public void DeroulementCombat(Personnage personnage, Maladie maladie,ControleurHumain ch,ControleurA ca){
-        while (estFini==false){
+        while (!estFini){   //Boucle tant que le joueur gagne
             nextTour();
             TourSuivant();
             System.out.println("Resume de vos caractéristiques :");
@@ -44,15 +48,15 @@ public class Combat {
             System.out.println("Resume des caractéristiques de la maladie :");
             maladie.afficheCaracteristique();
             System.out.println("");
-            if (tour.JoueurEstPremier(personnage)){
+            if (tour.JoueurEstPremier(personnage)){     //Tester qui joue en premier
                 System.out.println(personnage.getNomPersonnage()+" joue en premier");
-                ch.ChoisirAction().AppliqueEffet(personnage, maladie);
+                ch.ChoisirAction().AppliqueEffet(personnage, maladie);  //Joueur attaque
                 System.out.println("");
-                if (maladie.getSante()<=0){
+                if (maladie.getSante()<=0){     //Test de la mort ou non
                     personnageVainqueur();
                 } 
                 else{
-                    ca.genereAttaque(maladie, personnage, ch);
+                    ca.genereAttaque(maladie, personnage, ch);  //Maladie attaqe
                 }
             }
             else{
@@ -66,7 +70,7 @@ public class Combat {
                     ch.ChoisirAction().AppliqueEffet(personnage, maladie);
                 }
             }
-            if(estFini==false){
+            if(estFini==false){     //Test de la mort
                 if (maladie.getSante()<=0){
                     personnageVainqueur();
                 } 
@@ -83,34 +87,23 @@ public class Combat {
         }
     }
     
-    public void maladieVainqueur(){
+    public void maladieVainqueur(){     //Test de la mort du joueur
         this.estFini=true;
         this.joueurVainqueur=false;
         System.out.println(maladie.getNomMaladie()+" a gagné le combat contre "+personnage.getNomPersonnage()); 
         nextTour();       
     }
     
-        public void personnageVainqueur(){
+    public void personnageVainqueur(){  //Test de la mort de la maladie
         this.estFini=true;
         this.joueurVainqueur=true;
         System.out.println(personnage.getNomPersonnage()+" a gagné le combat contre "+maladie.getNomMaladie());
         nextTour();
     }
     
+    //Tout les getter
     public boolean getJoueurVainqueur(){
         return joueurVainqueur;
     }
-    
-    public void nextTour(){
-        System.out.println("");
-        System.out.println("");
-        System.out.println("Appuyer sur ENTRER pour continuer");
-        Scanner sc = new Scanner(System.in);
-        String choix = sc.nextLine();
-        System.out.println("");
-        System.out.println("");
-    }
-    
-    
-    
+
 }

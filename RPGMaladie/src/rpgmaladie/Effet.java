@@ -1,6 +1,6 @@
 package rpgmaladie;
 
-public class Effet {//je n'ai rien changer
+public class Effet {  
 
 	private Caracteristique c;
 	private int valeur;
@@ -10,6 +10,7 @@ public class Effet {//je n'ai rien changer
             this.valeur=v;
         }
         
+        //Tout les getter
         public int getValeur(){
             return valeur;
         }

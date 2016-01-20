@@ -9,10 +9,6 @@ import java.util.Scanner;
 
 
 public class Event {
-
-   
-    //Faire les evenements entre les parties.
-    //Rendre les coups plus aléatoires
     
     
     private Personnage personnage;
@@ -33,7 +29,7 @@ public class Event {
         boutique=new Boutique(100-niveau*10);
         
     }
-    public void demarrerPartie(){
+    public void demarrerPartie(){   //Méthode qui gère la partie, à la fin, la partie est terminée
         System.out.println("Votre personnage a bien été créer, vous voila infecter par le sida...");
         System.out.println("Vous allez devoir vous battre sans cesse contre de nouvelles maladies infectieuses");
         System.out.println("En effet le virus du Sida a fortement affaiblit votre défense immunitaire");
@@ -48,11 +44,11 @@ public class Event {
        
         ControleurHumain controleurHumain= new ControleurHumain(personnage,boutique);
         
-        while(jeuFini==false){
+        while(jeuFini==false){  //Boucle du jeu
             ControleurA controleurA= new ControleurA("maladie",personnage.getNiveau());
             Combat combat = new Combat(personnage,controleurA.getMaladie());
             combat.DeroulementCombat(personnage,controleurA.getMaladie(),controleurHumain,controleurA);
-            if (combat.getJoueurVainqueur()){
+            if (combat.getJoueurVainqueur()){ 
                 personnage.incrementNiveau();
                 personnage.setDexteriteMax(personnage.getDexteriteMax()+1);
                 personnage.setDefenseMax(personnage.getDefenseMax()+1);
@@ -67,7 +63,7 @@ public class Event {
                 System.out.println("Chacun de vos attributs augmentent de +1 car vous gagnez de l'experience:");
                 personnage.afficheCaracteristique();
                 int alea=(int)(Math.random()*100);// on peut tomber 1 fois sur 2 sur une arme a la fin du combat
-                if(alea>10){
+                if(alea>20){
                     System.out.println("Vous avez de la chance, vous venez de trouver une arme!");
                     
                     if(alea<65){//Carac de l'arme généré aléatoirement
@@ -86,31 +82,25 @@ public class Event {
                     personnage.AjouteInventaire(arme);
                     System.out.println("Voici ces attributs :");
                     arme.afficheInfosArme();
-                //}
-               // else if(alea>0){//on peut tomber 2 fois sur 3 un medicament.
+                }
+                if(alea<60){//on peut tomber 2 fois sur 3 un medicament.
                     System.out.println("Vous avez de la chance, vous venez de trouver un medicament!");
-                    if(alea<34){//Carac de l'arme généré aléatoirement
+                    if(alea<20){//Carac du médicament généré aléatoirement
                         Caracteristique carac=Caracteristique.FORCE;
                     }
-                    else if(alea>33 && alea<67){
+                    else if(alea>19 && alea<40){
                         Caracteristique carac=Caracteristique.DEFENSE;
                     }
-                    else if(alea>66 && alea<76){
+                    else if(alea>39 && alea<60){
                         Caracteristique carac=Caracteristique.DEXTERITE;
                     }
-                    
-
 
                     Medicament medicament= new Medicament(genereNomMedicament(),1,Caracteristique.SANTE, personnage.getSanteMax()-personnage.getSante(),carac, -(personnage.getNiveau()+(alea%4)),personnage.getNiveau()*alea);
                     personnage.AjouteInventaire(medicament);
                     medicament.afficheInfosMedicament();
              
-                        
                 }
 
-                
-
-               
                 System.out.println("Vous gagnez "+(100+10*personnage.getNiveau())+" euros.");//gain en fonction du niveau
                 System.out.println("Voulez vous les garder ou les investir dans Sidaction?");
                 if(controleurHumain.investir()){
@@ -142,10 +132,6 @@ public class Event {
                 
                 System.out.println("----------");
                 controleurHumain.entreLesCombats();
-                       
-                
-
-            
             }
             
             else{
@@ -164,40 +150,29 @@ public class Event {
         
     }
     
-   public String genereNomMedicament(){
-       creationMedicament++;
-       if (creationMedicament>9){
-           creationMedicament=0;
-           return tableauMedicament[creationMedicament];
-       }
-           else{
-       return tableauMedicament[creationMedicament];
-       
-       
-                }
+   public String genereNomMedicament(){ //Nom des médicaments
+        creationMedicament++;
+        if (creationMedicament>9){
+            creationMedicament=0;
+            return tableauMedicament[creationMedicament];
+        }
+        else{
+            return tableauMedicament[creationMedicament];
+        }
 
 
            
        }
-       public String genereNomArme(){
-       creationArme++;
-       if (creationArme>9){
-           creationArme=0;
-           return tableauArme[creationArme];
-       }
-           else{
-       return tableauArme[creationArme];
-       
-       
-                }
+    public String genereNomArme(){   //Nom des armes
+        creationArme++;
+        if (creationArme>9){
+            creationArme=0;
+            return tableauArme[creationArme];
+        }
+        else{
+            return tableauArme[creationArme];
+        }
+    }
 
-
-           
-       }
-       
-
-           
-       
-
-   }
+}
 

@@ -2,56 +2,19 @@ package rpgmaladie;
 
 import java.util.Scanner;
 
-
-public class ControleurHumain {
+public class ControleurHumain {     //Gère les choix du personnage
     private final Personnage perso;
     private Capacite prochaineAttaque;
     private boolean mutationFatale=false;
     private final Boutique boutique;
-    //On appelera cette classe pour tout les scanner normalement. j'ai fait la classe payer(prix) qui se charge
-    //juste de verifier et de mettre a jour la bourse (l'ajout a l'inventaire sera gerer dans Event). PayementObligatoire()
-    //c'est pour le cas de la mutation. et puis choisir action permet de demander au joueur la prochaine action( en modifiant
-    //l'attribut prochaineAttaque, une capacite)
+
     
     public ControleurHumain(Personnage perso, Boutique boutique){
         this.perso=perso;
         this.boutique=boutique;
     }
     
-   
-    public void jetezUnItem(Item item){
-        System.out.println("Votre inventaire est deja plein, voulez vous jetez un item pour recuperer celui la? (1 pour oui et 2 pour non)");
-        Scanner sc = new Scanner(System.in);
-        String choix = sc.nextLine();
-        if (choix.equals("1")){
-            perso.afficheInventaire();
-            System.out.println("Quel objet souhaitez-vous abandonner?");
-            Scanner s = new Scanner(System.in);
-            String c = sc.nextLine();
-            int i=Integer.parseInt(c);
-            
-        }
-        if (choix.equals("2")){
-            System.out.println("Vous laissez cet item par terre.");
-
-        }
-        
-    }
-    
-    public void Payer(int prix){
-        System.out.println("Vous souhaitez acheter cet item, la banque controle si vous avez les fonds necessaires");
-        if(prix<perso.getBourse()){
-            
-            perso.setBourse(perso.getBourse()-prix);
-            System.out.println("Achat efectué, désormais il a "+perso.getBourse()+"e sur votre compte personnel");
-        }
-        else{
-            System.out.println("Vous n'avez pas les fonds pour cet objet, désolé");
-        }
-        
-      
-    }
-    public void PayementObligatoire(int prix,Maladie maladie){
+    public void PayementObligatoire(int prix,Maladie maladie){  //Méthode utilisée lorsque la maladie mute et oblige le payement
         System.out.println("Vous etes obligé de payer un spécialiste car la maladie a muté. ");
          if(prix<perso.getBourse()){
             maladie.setMute(false);
@@ -66,11 +29,7 @@ public class ControleurHumain {
         }
     }
     
-    public boolean getMutationFatale(){
-        return mutationFatale;
-    }
-    
-    public Capacite ChoisirAction(){
+    public Capacite ChoisirAction(){    //Détermine l'action pour le joueur : Attaque/Soin ou utiliser inventaire
         System.out.println("");
         System.out.println("");
         Capacite empty = new Attaque("Vous n'attaquez pas pendant ce tour.", (new Effet(Caracteristique.SANTE,0)), 100);
@@ -112,7 +71,7 @@ public class ControleurHumain {
         return empty;
     }
     
-    public boolean investir(){
+    public boolean investir(){      //Propose l'investissement ou non dans la recherche
         boolean check=false;
         while(!check){
             System.out.println("Voulez vous investir ? Oui : 1 / Non : 0");
@@ -123,7 +82,7 @@ public class ControleurHumain {
         return true;
     }
     
-    public void prendreMedicament(Medicament medicament){
+    public void prendreMedicament(Medicament medicament){   //Personnage consomme un médicament
         System.out.println("Voulez vous avaler ce medicament pour remonter votre sante?");
         System.out.println("Mais attention, il aura peut etre des effets secondaires!(Tapez 1 pour acceptez et autre chose pour refuser");
         Scanner sc = new Scanner(System.in);
@@ -134,8 +93,7 @@ public class ControleurHumain {
 
     }
     
-    
-    public void choixInventaire(){
+    public void choixInventaire(){  //Affiche l'inventaire et gère l'utilisation ou le jet d'un item
         boolean check=false;
         while(!check){
             perso.afficheInventaire();
@@ -156,7 +114,7 @@ public class ControleurHumain {
         }
     }
     
-    public void entreLesCombats(){
+    public void entreLesCombats(){      //Gère le scénario entre les combats selon la demande du personnage
         int varAlea=(int)(Math.random()*100);
         boolean choice= false;
         System.out.println("Après cette victoire contre la maladie, plussieurs possibilitées s'offrent a vous:");
@@ -206,12 +164,9 @@ public class ControleurHumain {
                 choice=true;
             }
         }
-        
-        
-        
-        
     }
-    public void achatBoutique(){
+    
+    public void achatBoutique(){    //Affichage de la boutique et gère les demande du personnage
         boolean confirm = false;
         while(!confirm){
             boutique.afficherBoutique();
@@ -228,5 +183,10 @@ public class ControleurHumain {
                 }
             }
         }
+    }
+    
+    //Tout les getter
+    public boolean getMutationFatale(){
+        return mutationFatale;
     }
 }

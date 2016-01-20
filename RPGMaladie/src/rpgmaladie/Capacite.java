@@ -1,8 +1,7 @@
 package rpgmaladie;
 
-public abstract class Capacite {//la y'a du boulot, il va falloir generer l'application des degats et des soins.
-                                //le probleme c'est que la classe Effet est en fonction d'une Caracteristique alors
-                                //que les degats seron fait sur maladie.setSante(), on devrait pouvoir s'en sortir quand meme
+public abstract class Capacite {
+    
     protected final String nomCapacite;
     protected final Effet effet;
     protected final int probaReussite;
@@ -13,18 +12,18 @@ public abstract class Capacite {//la y'a du boulot, il va falloir generer l'appl
         this.probaReussite=proba;
     }
        
-        
-        
-    public boolean probaReussite(Personnage src){
+    public boolean probaReussite(Personnage src){   //Détermine si l'attaque va réussir (probabilité de l'arme et dextérité du personnage)
         int varAlea=(int)(Math.random()*100);
-        int chanceReussite=probaReussite+src.getDexterite()+src.getArmeEquipee().getProba();
+        int chanceReussite=probaReussite+src.getDexterite();
         boolean action = (varAlea<chanceReussite);
         return action;
     }
-    public void AppliqueEffet(Personnage perso, Maladie maladie){
+    
+    public void AppliqueEffet(Personnage perso, Maladie maladie){   //Application de l'effet de la capacité
         //Définition dans les filles
-        
     }
+    
+    //Tout les getter
     public String getNom(){
         return this.nomCapacite;
     }

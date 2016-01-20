@@ -30,10 +30,9 @@ public class Homme extends Personnage {
         this.santeMax=110;
         this.forceMax=13;
         this.dexteriteMax=8;
-        
     }
     
-    public void ExplicationActions(){
+    public void ExplicationActions(){   //Explication capacité homme
         System.out.println("Petit rappel de vos attaques");
         System.out.println("1 : "+capacite1.getNom()+" (dégats = "+(capacite1.getValeur()-caracs.get(Caracteristique.FORCE))+" ; Probabilité = "+capacite1.getProba()+"%)");
         System.out.println("2 : "+capacite2.getNom()+" (soins = "+(capacite2.getValeur()+this.getDexterite())+" ; Probabilité = "+capacite2.getProba()+"%)");
@@ -41,19 +40,25 @@ public class Homme extends Personnage {
         System.out.println("4 : "+armeEquipee.getNom()+" (dégats = "+(armeEquipee.getDegat()-caracs.get(Caracteristique.FORCE))+" ; Probabilité = "+armeEquipee.getProba()+"%)");
 
     }
-        public Capacite getCapacite1(){
-            return super.getCapacite1();
-        }
-        public Capacite getCapacite2(){
-            return super.getCapacite2();
-        }
-        public Capacite getCapacite3(){
-            return super.getCapacite3();
-        }
-        public Capacite getCapacite4(){
-            return super.getCapacite4();
-        }
-        public Capacite getCorpsACorps(){
-            return super.getCorpsACorps();
-        }
+    
+    //Tout les getter
+    public Capacite getCapacite1(){
+        return super.getCapacite1();
+    }
+    
+    public Capacite getCapacite2(){
+        return super.getCapacite2();
+    }
+    
+    public Capacite getCapacite3(){
+        return super.getCapacite3();
+    }
+    
+    public Capacite getCapacite4(){
+        return super.getCapacite4();
+    }
+    
+    public Capacite getCorpsACorps(){
+        return super.getCorpsACorps();
+    }
 }

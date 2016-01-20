@@ -5,9 +5,6 @@ import java.util.Map;
 
 public class Femme extends Personnage {
     
-//j'ai modifier les nom des capacités par des noms qui sont communs avec celles
-//de la classe Homme, comme sa on peut gerer facilement leur utilisation en faisant
-    //une generalitée.
     
     private final String nomAttaque="Coup en bas fort";
     private final Caracteristique caracAttaque= Caracteristique.SANTE;
@@ -33,25 +30,29 @@ public class Femme extends Personnage {
         this.santeMax=100;
         this.forceMax=10;
         this.dexteriteMax=15;
-        
     }
-    public void ExplicationActions(){
+    
+    public void ExplicationActions(){   //Affichage des actions possibles pour la femme
         System.out.println("Petit rappel de vos attaques");
         System.out.println("1 : "+capacite1.getNom()+" (dégats = "+(capacite1.getValeur()-caracs.get(Caracteristique.FORCE))+" ; Probabilité = "+capacite1.getProba()+"%)");
         System.out.println("2 : "+capacite2.getNom()+" (soins = "+(capacite2.getValeur())+" ; Probabilité = "+capacite2.getProba()+"%)");
         System.out.println("3 : "+capacite3.getNom()+" (soins = "+(capacite2.getValeur()+this.getDexterite())+" ; Probabilité = "+capacite2.getProba()+"%)");
         System.out.println("4 : "+armeEquipee.getNom()+" (dégats = "+(armeEquipee.getDegat()-caracs.get(Caracteristique.FORCE))+" ; Probabilité = "+armeEquipee.getProba()+"%)");
-
     }
+    
+    //Tout les getters
     public Capacite getCapacite1(){
         return super.getCapacite1();
     }
+    
     public Capacite getCapacite2(){
         return super.getCapacite2();
     }
+    
     public Capacite getCapacite3(){
         return super.getCapacite3();
     }
+    
     public Capacite getCapacite4(){
         return super.getCapacite4();
     }

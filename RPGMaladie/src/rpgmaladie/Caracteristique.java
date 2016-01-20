@@ -1,8 +1,7 @@
 package rpgmaladie;
 
-
-//pas de changement
 public enum Caracteristique {
+    
 	FORCE("Force"),
 	DEXTERITE("Dextérité"),
 	DEFENSE("Défense"),
@@ -10,10 +9,11 @@ public enum Caracteristique {
         
         private String nom;
         
-        Caracteristique(String nom){
+        Caracteristique(String nom){    //Constructeur énumération avec un nom
             this.nom=nom;
         }
         
+        //Tout les getter
         public String getNom(){ 
             return this.nom; 
         }

@@ -22,8 +22,19 @@ public class Arme extends Item {// ajout de la proba de reussite+ les gets.+ je 
                 this.proba=proba;
 	}
         
+    /**
+     *
+     * @param perso
+     */
+    @Override
+        public void utiliserItem(Personnage perso){ //Equiper l'arme au personnage
+            perso.equipeArme(this);
+        }
         
-        public void afficheInfosArme(){
+    /**
+     *
+     */
+    public void afficheInfosArme(){ //Affichage des caractéristique de l'arme
             System.out.println("Nom: "+this.nom);
             System.out.println("Poids: "+this.poids);
             System.out.println("Bonus: +"+this.valeur+" en "+this.caracteristique.getNom());
@@ -31,25 +42,31 @@ public class Arme extends Item {// ajout de la proba de reussite+ les gets.+ je 
             System.out.println("Malus possibles..");
         }
         
+    /**
+     *
+     * @param i
+     */
+    @Override
+        public void afficherItem(int i){    //affichage d'un item sans le prix
+            System.out.println(i+" : "+this.nom+" (dégat : "+this.degat+" ; probabilité : "+this.proba+")");
+        }
         
+    /**
+     *
+     * @param i
+     */
+    @Override
+        public void afficherItemPrix(int i){    //affichage d'un item avec le prix (pour la boutique)
+            System.out.println(i+" : "+this.nom+" (dégat : "+this.degat+" ; probabilité : "+this.proba+") -> "+this.prix+"€");
+        }
+        
+        //Tout les getter
         public int getProba(){
             return proba;
             
         }
         public int getDegat(){
             return degat;
-        }
-        
-        public void utiliserItem(Personnage perso){
-            perso.equipeArme(this);
-        }
-        
-        public void afficherItem(int i){
-            System.out.println(i+" : "+this.nom+" (dégat : "+this.degat+" ; probabilité : "+this.proba+")");
-        }
-        
-        public void afficherItemPrix(int i){
-            System.out.println(i+" : "+this.nom+" (dégat : "+this.degat+" ; probabilité : "+this.proba+") -> "+this.prix+"€");
         }
 
 }

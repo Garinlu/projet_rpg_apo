@@ -9,7 +9,7 @@ public class Soin extends Capacite {
     }
 
         
-    public Effet effet(Personnage src, Maladie maladie){
+    public Effet effet(Personnage src, Maladie maladie){    //Détermination du bonue de santé finale avec la dextérité
         int newValeurSoin = effet.getValeur() + src.getDexterite();
         if(newValeurSoin+src.getSante()>src.getSanteMax()){
             return (new Effet(Caracteristique.SANTE,src.getSanteMax()-src.getSante()));
