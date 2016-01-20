@@ -82,23 +82,19 @@ public class ControleurHumain {
             if(choix.equals("1")){
                 boolean confirm=false;
                 perso.ExplicationActions();
-                System.out.println("Indiquez votre choix(entre 1 et 4), si vous vous trompez vous realiserez l'attaque coup de poings.");
+                System.out.println("Indiquez votre choix(entre 1 et 4)");
                 Scanner sc2 = new Scanner(System.in);
                 String choix2 = sc2.nextLine();
-                if(choix2.length()!=0){
-                    int choixAttaque=Integer.parseInt(choix2);
-                    switch (choixAttaque) {
-                        case 1:
-                            return perso.getCapacite1();
-                        case 2:
-                            return perso.getCapacite2();
-                        case 3:
-                            return perso.getCapacite3();
-                        default:
-                            return perso.getCorpsACorps();
-                    }
+                switch (choix2) {
+                    case "1":
+                        return perso.getCapacite1();
+                    case "2":
+                        return perso.getCapacite2();
+                    case "3":
+                        return perso.getCapacite3();
+                    case "4":
+                        return perso.getCorpsACorps();
                 }
-                else return perso.getCorpsACorps();
             }
             else if(choix.equals("2")){
                 if(perso.getInventaire().isEmpty()){
@@ -116,15 +112,15 @@ public class ControleurHumain {
         return empty;
     }
     
-    public Capacite getProchaineAttaque(){
-        return prochaineAttaque;
-    }
-    
     public boolean investir(){
-        System.out.println("Voulez vous investir ? Oui : 1 / Non : tout sauf 1");
-        Scanner sc = new Scanner(System.in);
-        String choix = sc.nextLine();
-        return choix.equals("1");
+        boolean check=false;
+        while(!check){
+            System.out.println("Voulez vous investir ? Oui : 1 / Non : 0");
+            Scanner sc = new Scanner(System.in);
+            String choix = sc.nextLine();
+            if (choix.equals("1") || choix.equals("0")) return choix.equals("1");
+        }
+        return true;
     }
     
     public void prendreMedicament(Medicament medicament){
@@ -143,7 +139,7 @@ public class ControleurHumain {
         boolean check=false;
         while(!check){
             perso.afficheInventaire();
-            System.out.println("Voulez vous utilisé ou jeté un item ? Utilisé : 1 / Jeté : 2 / Non : (tout sauf 1 et 2)");
+            System.out.println("Voulez vous utilisé ou jeté un item ? Utilisé : 1 / Jeté : 2 / Non : 0");
             Scanner sc = new Scanner(System.in);
             String choix = sc.nextLine();
             if(choix.equals("1") || choix.equals("2")){
@@ -156,9 +152,7 @@ public class ControleurHumain {
                     if(choix.equals("2"))perso.choixDansInventaire(itemAEquiper).jeterItem(perso);
                 }
             }
-            else{
-                check=true;
-            }
+            else if(choix.equals("0"))check=true;
         }
     }
     
@@ -172,10 +166,10 @@ public class ControleurHumain {
         System.out.println("4.Vous allez faire des examens et vous reposer a l'hopital");
         System.out.println("5.Vous sortez avec vos amis");
         System.out.println("6.Vous jouez au loto");
-        System.out.println("Faites votre voix");
         Scanner sc = new Scanner(System.in);
-        String choix = sc.nextLine();
         while(!choice){
+            System.out.println("Faites votre choix");
+            String choix = sc.nextLine();
             if (choix.equals("1")){
                 perso.setSante(perso.getSante()+varAlea);
                 perso.setSanteMax(perso.getSanteMax()+varAlea);
@@ -225,11 +219,10 @@ public class ControleurHumain {
             System.out.println("Voulez vous acheter un item ? Si oui, entrer le numéro d'un item, sinon entrer -1");
             Scanner sc = new Scanner(System.in);
             String choix2 = sc.nextLine();
-            int choix = Integer.parseInt(choix2);
             if(choix2.equals("-1"))confirm=true;
             else{
                 for (int i=0;i<boutique.getCatalogue().size();i++){
-                    if(choix==(i)){
+                    if(choix2.equals(Integer.toString(i))){
                         perso.achete(boutique.getCatalogue().get(i),boutique.getCatalogue().get(i).getPrix());
                     }
                 }
