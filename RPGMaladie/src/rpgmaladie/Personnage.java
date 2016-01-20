@@ -25,10 +25,11 @@ public abstract class Personnage {
         protected Capacite capacite2;
         protected Capacite capacite3;
         protected Capacite capacite4;
-        protected int santeMax=100;
-        protected int dexteriteMax=10;
-        protected int forceMax=10;
-        protected int defenseMax=10;
+        //Les capacitées de base
+        protected int santeMax;
+        protected int dexteriteMax;
+        protected int forceMax;
+        protected int defenseMax;
    
         
         public Personnage(String nom, Map<Caracteristique, Integer> caracs, int p){
@@ -39,6 +40,7 @@ public abstract class Personnage {
             this.corpsACorps= new Attaque("Attaque au corps a corps",new Effet(Caracteristique.SANTE,armeEquipee.getDegat()),armeEquipee.getProba());
             this.inventaire=new ArrayList<Item>();
         }
+        
         public void setBourse(int b){
             this.bourse=b;
         }

@@ -35,6 +35,10 @@ public class Femme extends Personnage {
         this.capacite2= new Soin(nomSoin1, new Effet(caracSoin1,valSoin1),probaSoin1);
         this.capacite3= new Soin(nomSoin2, new Effet(caracSoin2,valSoin2),probaSoin2);
         this.capacite4= new Parade(nomParade,new Effet(caracParade,valParade),probaParade);
+        this.defenseMax=8;
+        this.santeMax=100;
+        this.forceMax=10;
+        this.dexteriteMax=15;
         
     }
     public void ExplicationActions(){

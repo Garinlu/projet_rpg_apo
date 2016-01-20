@@ -72,9 +72,9 @@ public class RPGMaladie {
         if(classePerso.equals("1")){// caracs a modifier!!
             Map<Caracteristique,Integer> caracs = new HashMap<Caracteristique,Integer>() {{
             put(Caracteristique.FORCE, 10);
-            put(Caracteristique.DEFENSE,5);
+            put(Caracteristique.DEFENSE,8);
             put(Caracteristique.SANTE,100);
-            put(Caracteristique.DEXTERITE,10);
+            put(Caracteristique.DEXTERITE,15);
             }};
             Femme personnage= new Femme(nomPerso,caracs,10);
             System.out.println(personnage.getNomPersonnage()+", vous avez choisi d'etre une femme");
@@ -83,10 +83,10 @@ public class RPGMaladie {
         }    
         else if (classePerso.equals("2")){
             Map<Caracteristique,Integer> caracs = new HashMap<Caracteristique,Integer>() {{
-            put(Caracteristique.FORCE, 10);
-            put(Caracteristique.DEFENSE,5);
-            put(Caracteristique.SANTE,100);
-            put(Caracteristique.DEXTERITE,10);
+            put(Caracteristique.FORCE, 13);
+            put(Caracteristique.DEFENSE,10);
+            put(Caracteristique.SANTE,110);
+            put(Caracteristique.DEXTERITE,8);
             }};
             Homme personnage= new Homme(nomPerso,caracs,15);
             System.out.println(personnage.getNomPersonnage()+", vous avez choisi d'etre un homme");

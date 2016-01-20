@@ -32,6 +32,10 @@ public class Homme extends Personnage {
         this.capacite2= new Soin(nomSoin, new Effet(caracSoin,valSoin),probaSoin);
         this.capacite3= new Attaque(nomAttaque2,new Effet(caracAttaque2,valAttaque2),probaAttaque2);
         this.capacite4= new Parade(nomParade,new Effet(caracParade,valParade),probaParade);
+        this.defenseMax=10;
+        this.santeMax=110;
+        this.forceMax=13;
+        this.dexteriteMax=8;
         
     }
     
