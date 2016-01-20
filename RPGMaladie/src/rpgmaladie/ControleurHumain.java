@@ -200,7 +200,7 @@ public class ControleurHumain extends Controleur {
         boutique.afficherBoutique();
         boolean confirm = false;
         while(!confirm){
-            System.out.println("Bourse : "+perso.getBourse());
+            System.out.println("Bourse : "+perso.getBourse()+"€");
             System.out.println("Voulez vous acheter un item ? Si oui, entrer le numéro d'un item, sinon entrer -1");
             Scanner sc = new Scanner(System.in);
             String choix2 = sc.nextLine();
@@ -209,7 +209,7 @@ public class ControleurHumain extends Controleur {
             else{
                 for (int i=0;i<boutique.getCatalogue().size();i++){
                     if(choix==(i)){
-                        confirm=perso.achete(boutique.getCatalogue().get(i),boutique.getCatalogue().get(i).getPrix());
+                        perso.achete(boutique.getCatalogue().get(i),boutique.getCatalogue().get(i).getPrix());
                     }
                 }
             }

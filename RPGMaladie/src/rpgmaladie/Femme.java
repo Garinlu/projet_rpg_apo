@@ -23,18 +23,12 @@ public class Femme extends Personnage {
     private final Caracteristique caracSoin2= Caracteristique.SANTE;
     private final int valSoin2=10;
     private final int probaSoin2=50;
-    
-    private final String nomParade="Esquive";
-    private final Caracteristique caracParade= Caracteristique.SANTE;
-    private final int valParade=-1000;//A mieux gerer après dans Tour
-    private final int probaParade=40;
 
     public Femme(String nom, Map<Caracteristique, Integer> caracs,int pi) {
         super(nom, caracs,pi);
         this.capacite1 = new Attaque(nomAttaque,new Effet(caracAttaque,valAttaque),probaAttaque);
         this.capacite2= new Soin(nomSoin1, new Effet(caracSoin1,valSoin1),probaSoin1);
         this.capacite3= new Soin(nomSoin2, new Effet(caracSoin2,valSoin2),probaSoin2);
-        this.capacite4= new Parade(nomParade,new Effet(caracParade,valParade),probaParade);
         this.defenseMax=8;
         this.santeMax=100;
         this.forceMax=10;

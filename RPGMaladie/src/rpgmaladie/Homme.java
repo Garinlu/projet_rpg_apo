@@ -19,11 +19,6 @@ public class Homme extends Personnage {
     private final Caracteristique caracAttaque2= Caracteristique.SANTE;
     private final int valAttaque2=-10;
     private final int probaAttaque2=50;
-    
-    private final String nomParade="Kravmaga";
-    private final Caracteristique caracParade= Caracteristique.SANTE;
-    private final int valParade=-15;
-    private final int probaParade=95;
 
     
     public Homme(String nom, Map<Caracteristique, Integer> caracs,int pi) {
@@ -31,7 +26,6 @@ public class Homme extends Personnage {
         this.capacite1 = new Attaque(nomAttaque1,new Effet(caracAttaque1,valAttaque1),probaAttaque1);
         this.capacite2= new Soin(nomSoin, new Effet(caracSoin,valSoin),probaSoin);
         this.capacite3= new Attaque(nomAttaque2,new Effet(caracAttaque2,valAttaque2),probaAttaque2);
-        this.capacite4= new Parade(nomParade,new Effet(caracParade,valParade),probaParade);
         this.defenseMax=10;
         this.santeMax=110;
         this.forceMax=13;
