@@ -60,7 +60,7 @@ public class Event {
                 personnage.setSanteMax(personnage.getSanteMax()+5);
                 
                 personnage.setDefense(personnage.getDefenseMax());
-                //personnage.setSante(personnage.getSanteMax());
+                personnage.setSante(personnage.getSanteMax());
                 personnage.setForce(personnage.getForceMax());
                 personnage.setDexterite(personnage.getDexteriteMax());
                 
@@ -82,7 +82,7 @@ public class Event {
 
                     
                     Arme arme =new Arme(genereNomArme(),1, carac, personnage.getNiveau(),-personnage.getNiveau()*5, 100-alea,personnage.getNiveau()*alea);
-                    //A completer! La decrire et verifier si le poids correspond! L'equiper?
+                    
                     personnage.AjouteInventaire(arme);
                     System.out.println("Voici ces attributs :");
                     arme.afficheInfosArme();
@@ -130,7 +130,7 @@ public class Event {
                 personnage.setSanteMax(personnage.getSanteMax()+5);
                 
                 personnage.setDefense(personnage.getDefenseMax());
-                //personnage.setSante(personnage.getSanteMax());
+                personnage.setSante(personnage.getSanteMax());
                 personnage.setForce(personnage.getForceMax());
                 personnage.setDexterite(personnage.getDexteriteMax());
                 

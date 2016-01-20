@@ -5,8 +5,8 @@ package rpgmaladie;
 public enum Caracteristique {
 	FORCE("Force"),
 	DEXTERITE("Dextérité"),
-	SANTE("Santé"),
-	DEFENSE("Défense");
+	DEFENSE("Défense"),
+	SANTE("Santé");
         
         private String nom;
         

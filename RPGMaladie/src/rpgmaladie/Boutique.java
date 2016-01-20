@@ -17,7 +17,7 @@ public class Boutique {
     
     public Boutique(int niveau){
         this.catalogue=new ArrayList<>();
-        Item arme1 = new Arme("AK-47",1,Caracteristique.FORCE,5,-10,niveau,50);
+        Item arme1 = new Arme("AK-47",11,Caracteristique.FORCE,5,-10,niveau,50);
         Item arme2 = new Arme("Famas",1,Caracteristique.FORCE,10,-15,niveau,100);
         Item arme3 = new Arme("Barett",2,Caracteristique.FORCE,15,-20,niveau,150);
         Item arme4 = new Arme("Colt",2,Caracteristique.FORCE,20,-25,niveau,200);

@@ -80,21 +80,25 @@ public class ControleurHumain {
             Scanner sc = new Scanner(System.in);
             String choix = sc.nextLine();
             if(choix.equals("1")){
+                boolean confirm=false;
                 perso.ExplicationActions();
                 System.out.println("Indiquez votre choix(entre 1 et 4), si vous vous trompez vous realiserez l'attaque coup de poings.");
                 Scanner sc2 = new Scanner(System.in);
                 String choix2 = sc2.nextLine();
-                int choixAttaque=Integer.parseInt(choix2);
-                switch (choixAttaque) {
-                    case 1:
-                        return perso.getCapacite1();
-                    case 2:
-                        return perso.getCapacite2();
-                    case 3:
-                        return perso.getCapacite3();
-                    default:
-                        return perso.getCorpsACorps();
+                if(choix2.length()!=0){
+                    int choixAttaque=Integer.parseInt(choix2);
+                    switch (choixAttaque) {
+                        case 1:
+                            return perso.getCapacite1();
+                        case 2:
+                            return perso.getCapacite2();
+                        case 3:
+                            return perso.getCapacite3();
+                        default:
+                            return perso.getCorpsACorps();
+                    }
                 }
+                else return perso.getCorpsACorps();
             }
             else if(choix.equals("2")){
                 if(perso.getInventaire().isEmpty()){
