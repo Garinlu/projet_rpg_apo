@@ -322,7 +322,7 @@ public abstract class Personnage {
         }
         
         public boolean achete(Item i, int prix){
-            if (prix<bourse){
+            if (prix<=bourse){
                 this.AjouteInventaire(i);
                 bourse-=prix;
                 System.out.println("Bourse : "+bourse+"€.");
