@@ -49,6 +49,10 @@ public abstract class Item {
             //Définition dans les filles
         }
         
+        public void jeterItem(Personnage perso){
+            perso.RetireInventaire(this);
+        }
+        
         public void afficherItem(int i){
             //Définition dans les filles
         }

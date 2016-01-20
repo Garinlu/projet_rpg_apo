@@ -27,7 +27,7 @@ public class Boutique {
         System.out.println("BOUTIQUE");
         System.out.println("Voici le contenu de la boutique :");
         for (int i=0;i<catalogue.size();i++){
-            catalogue.get(i).afficherItem(i);
+            catalogue.get(i).afficherItemPrix(i);
         }
     }
     

@@ -140,7 +140,6 @@ public class Event {
                 personnage.afficheCaracteristique();
                 controleurHumain.achatBoutique();
                 System.out.println("Voici votre inventaire:");
-                personnage.afficheInventaire();
                 controleurHumain.choixInventaire();
                 
                 System.out.println("----------");

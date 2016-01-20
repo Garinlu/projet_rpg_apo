@@ -20,7 +20,7 @@ public class ControleurHumain extends Controleur {
     
    
     public void jetezUnItem(Item item){
-        System.out.println("Votre inventaire est deja plein, voulez vous jetez un item pour recuperer celui la? '1 pour oui et 2 pour non)");
+        System.out.println("Votre inventaire est deja plein, voulez vous jetez un item pour recuperer celui la? (1 pour oui et 2 pour non)");
         Scanner sc = new Scanner(System.in);
         String choix = sc.nextLine();
         if (choix.equals("1")){
@@ -119,16 +119,24 @@ public class ControleurHumain extends Controleur {
     
     
     public void choixInventaire(){
-        System.out.println("Voulez vous utilisé ou équipé un item ? Oui : 1 / Non : (tout sauf 1)");
-        Scanner sc = new Scanner(System.in);
-        String choix = sc.nextLine();
-        if(choix.equals("1")){
-            System.out.println("Veuillez entrer le numéro de l'item :");
-            Scanner sc2 = new Scanner(System.in);
-            String choix2 = sc2.nextLine();
-            int itemAEquiper=Integer.parseInt(choix2);
-            if(perso.nombreDansInventaire(itemAEquiper)){
-                perso.choixDansInventaire(itemAEquiper).utiliserItem(perso);
+        boolean check=false;
+        while(!check){
+            perso.afficheInventaire();
+            System.out.println("Voulez vous utilisé ou jeté un item ? Utilisé : 1 / Jeté : 2 / Non : (tout sauf 1 et 2)");
+            Scanner sc = new Scanner(System.in);
+            String choix = sc.nextLine();
+            if(choix.equals("1") || choix.equals("2")){
+                System.out.println("Veuillez entrer le numéro de l'item :");
+                Scanner sc2 = new Scanner(System.in);
+                String choix2 = sc2.nextLine();
+                int itemAEquiper=Integer.parseInt(choix2);
+                if(perso.nombreDansInventaire(itemAEquiper)){
+                    if(choix.equals("1"))perso.choixDansInventaire(itemAEquiper).utiliserItem(perso);
+                    if(choix.equals("2"))perso.choixDansInventaire(itemAEquiper).jeterItem(perso);
+                }
+            }
+            else{
+                check=true;
             }
         }
     }
@@ -192,11 +200,12 @@ public class ControleurHumain extends Controleur {
         boutique.afficherBoutique();
         boolean confirm = false;
         while(!confirm){
+            System.out.println("Bourse : "+perso.getBourse());
             System.out.println("Voulez vous acheter un item ? Si oui, entrer le numéro d'un item, sinon entrer -1");
             Scanner sc = new Scanner(System.in);
             String choix2 = sc.nextLine();
             int choix = Integer.parseInt(choix2);
-            if(choix==-1)confirm=true;
+            if(choix2.equals("-1"))confirm=true;
             else{
                 for (int i=0;i<boutique.getCatalogue().size();i++){
                     if(choix==(i)){
