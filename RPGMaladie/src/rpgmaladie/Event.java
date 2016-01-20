@@ -149,6 +149,7 @@ public class Event {
         }
         
     }
+
     
    public String genereNomMedicament(){ //Nom des médicaments
         creationMedicament++;

@@ -138,6 +138,7 @@ public class ControleurHumain {     //Gère les choix du personnage
                 perso.setBourse(perso.getBourse()+varAlea);
                 System.out.println("Votre bourse augmente de "+varAlea+".");
                 choice=true;
+                
             }
             if (choix.equals("3")){
                 perso.setForce(perso.getForce()+varAlea);
@@ -152,6 +153,7 @@ public class ControleurHumain {     //Gère les choix du personnage
             if (choix.equals("5")){
                 System.out.println("Vous passez du temps avec vos amis.");
                 choice=true;
+             
             }
             if (choix.equals("6")){
                 if (varAlea<10){
