@@ -73,38 +73,43 @@ public class ControleurHumain {
     public Capacite ChoisirAction(){
         System.out.println("");
         System.out.println("");
+        Capacite empty = new Attaque("Vous n'attaquez pas pendant ce tour.", (new Effet(Caracteristique.SANTE,0)), 100);
         boolean check=false;
         while(!check){
             System.out.println("Quelle action voulez vous réaliser pour ce tour ? (Attaque = 1 / Inventaire = 2) ");
             Scanner sc = new Scanner(System.in);
             String choix = sc.nextLine();
             if(choix.equals("1")){
-                check=true;
                 perso.ExplicationActions();
                 System.out.println("Indiquez votre choix(entre 1 et 4), si vous vous trompez vous realiserez l'attaque coup de poings.");
                 Scanner sc2 = new Scanner(System.in);
                 String choix2 = sc2.nextLine();
-                Capacite capacite;
-                switch (choix) {
-                    case "1":
+                int choixAttaque=Integer.parseInt(choix2);
+                switch (choixAttaque) {
+                    case 1:
                         return perso.getCapacite1();
-                    case "2":
+                    case 2:
                         return perso.getCapacite2();
-                    case "3":
+                    case 3:
                         return perso.getCapacite3();
                     default:
                         return perso.getCorpsACorps();
                 }
             }
-            if(choix.equals("2")){
-                check=true;
-                choixInventaire();
-                return (new Attaque("Vous n'attaquez pas pendant ce tour.", (new Effet(Caracteristique.SANTE,0)), 100));
+            else if(choix.equals("2")){
+                if(perso.getInventaire().isEmpty()){
+                    System.out.println("Inventaire vide");
+                }
+                else{
+                    choixInventaire();
+                    return empty;
+                }
             }
             else{
                 check=false;
             }
         }
+        return empty;
     }
     
     public Capacite getProchaineAttaque(){

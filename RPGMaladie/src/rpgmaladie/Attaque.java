@@ -12,13 +12,6 @@ public class Attaque extends Capacite {//pas de changement
         return (new Effet(Caracteristique.SANTE,newValeurAttaque));
     }
           
-    public boolean probaReussite(Personnage src){
-        int varAlea=(int)(Math.random()*100);
-        int chanceReussite=probaReussite+src.getDexterite()+src.getArmeEquipee().getManiabilite();
-        boolean action;
-        action = (varAlea<chanceReussite);
-        return action;
-    }
     
     public void AppliqueEffet(Personnage perso, Maladie maladie){//Application de l'attaque si la proba de réussite est bonne
         super.AppliqueEffet(perso, maladie);
