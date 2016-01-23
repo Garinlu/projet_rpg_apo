@@ -57,6 +57,7 @@ public class Event {
                 
                 personnage.setDefense(personnage.getDefenseMax());
                 personnage.setForce(personnage.getForceMax());
+                personnage.setSante(personnage.getSanteMax());
                 personnage.setDexterite(personnage.getDexteriteMax());
                 
                 System.out.println("Chacun de vos attributs augmentent de +1 car vous gagnez de l'experience:");
@@ -113,19 +114,7 @@ public class Event {
                 }
                 System.out.println("Votre bourse : "+personnage.getBourse()+"€");
                 System.out.println("Vous avez investi "+this.sommeInvestie+"€ depuis le début.");
-                personnage.incrementNiveau();
-                personnage.setDexteriteMax(personnage.getDexteriteMax()+1);
-                personnage.setDefenseMax(personnage.getDefenseMax()+1);
-                personnage.setForceMax(personnage.getForceMax()+1);
-                personnage.setSanteMax(personnage.getSanteMax()+5);
-                
-                personnage.setDefense(personnage.getDefenseMax());
-                personnage.setSante(personnage.getSanteMax());
-                personnage.setForce(personnage.getForceMax());
-                personnage.setDexterite(personnage.getDexteriteMax());
-                
-                System.out.println("Chacun de vos attributs augmentent de +1 car vous gagnez de l'experience:");
-                personnage.afficheCaracteristique();
+               
                 controleurHumain.achatBoutique();
                 System.out.println("Voici votre inventaire:");
                 controleurHumain.choixInventaire();
